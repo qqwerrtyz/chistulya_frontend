@@ -21,8 +21,6 @@
     margin-bottom: 10px;
 }
 .bodyWrapper {
-    min-height: 50vh;
-    max-height: 56vh;
 
-    overflow: auto;
+
 }
