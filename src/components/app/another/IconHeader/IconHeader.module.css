@@ -1,0 +1,14 @@
+.iconWrapper {
+    width: 36px;
+    height: 36px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(255, 255, 255, .13);
+
+    border-radius: 10px;
+}

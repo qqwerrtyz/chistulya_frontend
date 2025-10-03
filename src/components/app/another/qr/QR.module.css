@@ -1,0 +1,45 @@
+.qrWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1300;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.qrBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 70%;
+    height: 50%;
+    background-color: #fff;
+
+    border-radius: 20px;
+}
+
+.qrCloseWrapper {
+    margin-top: 10px;
+}
+
+.qrClose {
+    background-color: #5B84ED;
+    color: #fff;
+    padding: 5px 25px;
+    border-radius: 10px;
+
+
+}
+
+.qrClose:active {
+    opacity: .3;
+}
+

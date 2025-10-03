@@ -1,0 +1,28 @@
+.headerItemWrapper {
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #fff;
+
+    box-sizing: border-box;
+
+    padding:5px  10px;
+
+    border-radius: 20px;
+}
+
+
+.headerItem {
+    padding: 5px 10px;
+
+    color: #ACC1F5;
+    font-size: 12px;
+
+    border-radius: 15px;
+
+}
+
+.higlight {
+    background-color: #5B84ED;
+    color: #fff;
+}

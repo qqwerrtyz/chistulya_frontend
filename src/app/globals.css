@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'text';
+  src: url('/fonts/montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* Диапазон весов шрифта */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'text';
+  src: url('/fonts/montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'headline';
+  src: url('/fonts/nunito/Nunito-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* Диапазон весов шрифта */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'headline';
+  src: url('/fonts/nunito/Nunito-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5 {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    font-family: 'text';
+}

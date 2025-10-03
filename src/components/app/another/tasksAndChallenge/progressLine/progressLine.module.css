@@ -1,0 +1,35 @@
+.progressLineWrapper {
+    margin-top: 10px;
+}
+
+.progressLineHeadline {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "headline";
+}
+
+.progressLine {
+    position: relative;
+
+    width: 100%;
+    height: 15px;
+
+    margin: 5px 0 3px 0;
+
+    background-color: #E6EDFC;
+
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progressLineBg {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    transition: width 400ms ease; 
+    background-color: #5B84ED;
+}
+
+.countTask {
+    font-size: 12px;
+}

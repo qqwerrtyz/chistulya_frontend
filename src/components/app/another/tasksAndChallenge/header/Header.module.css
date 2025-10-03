@@ -1,0 +1,31 @@
+
+.headlineWrapper {
+
+}
+
+.titleAndToggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headline {
+
+    font-family: "headline";
+    
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.toggleWrapper {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+    background-color: #E6EDFC;
+}

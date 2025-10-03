@@ -1,0 +1,116 @@
+
+.degreePurityWrapper,
+.metricXPWrapper {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 5px;
+    padding: 5px 10px;
+
+    background-color: #fff;
+    border-radius: 15px;
+
+    box-sizing: border-box;
+}
+
+.degreePurityWrapper {
+    margin-bottom: 0;
+
+    justify-content: center;
+    background-color: rgba(255, 255, 255, .3);
+
+    border-radius: 50px;
+}
+
+.purieRound,
+.round {
+    position: relative;
+
+    width: 30px;
+    height: 30px;
+
+    margin-right: 10px;
+
+    border: 3px solid #5B84ED;
+    border-radius: 50%;
+
+    overflow: hidden;
+}
+
+.purieRound {
+    margin-right: 0;
+    margin-left: 10px;
+
+    border: 3px solid #96F28A;
+}
+
+.purieBackground,
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 30px;
+    width: 30px;
+    background-color: #7A9CF0;
+
+}
+
+.purieBackground {
+    background-color: #B6ECAF;
+}
+
+.coinWrapper {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 10px;
+
+    border-radius: 50%;
+
+    background-color: #E8EDFC;
+}
+
+.purieRoundValue,
+.roundValue {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+
+    color: #0034B8;
+    font-weight: 600;
+
+    transform: translate(-50%, -50%);
+}
+
+.purieRoundValue {
+    font-size: 10px;
+    color: #21BA0D;
+}
+
+.purieTitle,
+.metricTitle {
+    color: #C3C3C3;
+    font-size: 12px;
+}
+
+.purieTitle {
+    color: #fff;
+}
+
+.metricValueWrapper {
+    margin-top: -2px;
+}
+.purieRang,
+.metricValue {
+    font-size: 13px;
+}
+
+.purieRang {
+    color: rgba(255, 255, 255, .5);
+}

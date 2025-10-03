@@ -1,0 +1,31 @@
+.childHome {
+    margin-top: 20px;
+
+}
+
+.helloChildWrapper {
+    padding: 0 20px;
+}
+
+.metricAndAvatar {
+    position: relative;
+
+    margin-top: 20px;
+    padding: 0 20px;
+}
+.metricWrapper {
+    display: flex;
+
+}
+
+.avatarWrapper {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    z-index: 1;
+}
+
+
+.tasksAndChallengesWrapper {
+    margin-top: 100px;
+}

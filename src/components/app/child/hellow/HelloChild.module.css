@@ -1,0 +1,16 @@
+.helloTitle {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 600;
+    font-family: "headline";
+}
+
+.dateWrapper {
+}
+
+.date {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "headline";
+    color: rgba(255, 255, 255, .54)
+}
