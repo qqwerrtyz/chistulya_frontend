@@ -1,6 +1,6 @@
 .contentBody {
-    min-height: 130px;
-    max-height: 260px;
+    /* min-height: 130px; */
+    /* max-height: 260px; */
     overflow: auto;
 }
 

@@ -1,14 +1,12 @@
 import { useContext, useState } from "react"
 import styles from "./content.module.css"
 
-import { DataContent } from "../wrapper/Wrapper";
 import ContentHeader from "./contentHeader/ContentHeader";
 import ContentBody from "./contentBody/ContentBody";
 
 
-export default function Content () {
+export default function Content ({dailyTasks}) {
 
-    const dailyTasks = useContext(DataContent);
 
     const [selectValue, setSelectValue] = useState(null)
     
@@ -23,11 +21,11 @@ export default function Content () {
     return (
         <div className={styles.contentWrapper}>
             <div className={styles.contentHeaderWrapper}>
-                <ContentHeader selectValue={selectValue} setSelectValue={setSelectValue}/>
+                <ContentHeader dailyTasks={dailyTasks} selectValue={selectValue} setSelectValue={setSelectValue}/>
             </div>
 
             <div className={styles.contentBodyWrapper}>
-                <ContentBody selectValue={selectValue} />
+                <ContentBody dailyTasks={dailyTasks} selectValue={selectValue} />
             </div>
 
         </div>

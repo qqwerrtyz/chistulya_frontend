@@ -1,9 +1,6 @@
 import { useContext, useState } from "react";
 import styles from "./ContentHeader.module.css"
-import { DataContent } from "../../wrapper/Wrapper";
-
-export default function ContentHeader({selectValue, setSelectValue}) {
-    const dailyTasks = useContext(DataContent);
+export default function ContentHeader({dailyTasks, setSelectValue}) {
     const [higlight, setHiglight] = useState(null)
 
     
@@ -11,6 +8,12 @@ export default function ContentHeader({selectValue, setSelectValue}) {
     function handleHighLight(name, item) {    
         setSelectValue(item);
         setHiglight(name)
+    }
+
+    if (!dailyTasks) {
+        return (
+            <div>Чето не работает в ContentHeader</div>
+        )
     }
     return (
         <div className={styles.headerWrapper}>

@@ -1,0 +1,29 @@
+.missionHeader {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 6px 10px;
+
+    border-radius: 15px;
+
+    background-color: #fff;
+}
+
+.headerItemWrapper {
+    width: 50%;
+    
+    display: flex;
+    justify-content: center;
+
+    padding: 4px;
+    border-radius: 20px;
+    margin: 0 5px;
+
+    color: #ACC1F5;
+    font-size: 12px;
+}
+
+.menuItemIsActive {
+    background-color: #5B84ED;
+    color: #fff;
+}

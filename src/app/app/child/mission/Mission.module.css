@@ -1,0 +1,28 @@
+.missionPageWrapper {
+    padding: 0 20px;
+}
+
+.menuWrapprt {
+    margin-top: 30px;
+}
+
+
+.contentWrapper {
+    margin-top: 10px;
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background-color: #E6EDFC;
+
+}
+
+.headerWrapper {
+    margin-bottom: 10px;
+}
+.bodyWrapper {
+    min-height: 50vh;
+    max-height: 56vh;
+
+    overflow: auto;
+}

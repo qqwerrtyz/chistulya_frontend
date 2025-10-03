@@ -2,10 +2,14 @@ import { useContext } from "react"
 import styles from "./ContentBody.module.css"
 import Image from "next/image";
 import icons from "../../../../../../../public/icons/icons";
-import { DataContent } from "../../wrapper/Wrapper";
-export default function ContentBody({selectValue}) {
-    const dailyTasks = useContext(DataContent);
 
+export default function ContentBody({selectValue, dailyTasks}) {
+
+    if (!dailyTasks) {
+        return (
+            <div>Чето не работает в ContentBody</div>
+        )
+    }
     return (
         <div className={styles.contentBodyWrapper}>
             <div className={styles.contentBody}>
