@@ -9,6 +9,7 @@ import iconsTasks from "../../../../../public/iconsTasks/iconsTasks"
 
 export default function Mission() {
     
+    
     const menuItem = {
         itemOne: {
             ru: "Ежедневные",
@@ -19,6 +20,8 @@ export default function Mission() {
             en: "challenge"
         },
     }
+    // Сюда записывается активное значение из menuItem (куда тыкнул пользователь:
+    // на ежедневные или на челленджи)
     const [isActive, setIsActive] = useState(menuItem.itemOne.en)
     const dailyTasks = {
         hygiene: {
@@ -203,6 +206,190 @@ export default function Mission() {
         
     }
 
+    const challengeTasks = {
+        hygiene: {
+            name: "Гигиена",
+            items: [
+                 {   
+            img: iconsTasks.brushTeeth,
+            title: "Чистка зубов Челленджи",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "take"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов Челленджи",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов Челленджи",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hand,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "done"  
+        },
+
+        {   
+            img: iconsTasks.brushTeeth,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "done"  
+        },
+
+        {   
+            img: iconsTasks.hand,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "take"  
+        },
+            ]
+        },
+        
+        order: {
+            name: "Порядок",
+            items: []
+        },
+
+        food: {
+            name: "Еда",
+            items: []
+        },
+
+        study: {
+            name: "Учеба",
+            items: []
+        }
+        
+    }
+
+    // Здесь показываетя на что тыкнуто (гигиена, порядок, еда или учеба)
     const [selectValue, setSelectValue] = useState(null)
     
     
@@ -226,12 +413,16 @@ export default function Mission() {
                                     selectValue={selectValue}
                                     setSelectValue={setSelectValue}
                                     dailyTasks={dailyTasks}
+                                    challengeTasks={challengeTasks}
                                 />
                             </div>
 
                             <div className={styles.bodyWrapper}>
                                 <div className={styles.body}>
-                                    <ContentBody selectValue={selectValue} dailyTasks={dailyTasks}/>
+                                    <ContentBody
+                                        selectValue={selectValue} 
+                                        challengeTasks={challengeTasks}
+                                        dailyTasks={dailyTasks}/>
                                 </div>
                             </div>
                     </div>
