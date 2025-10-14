@@ -3,26 +3,31 @@ import styles from "./ContentBody.module.css"
 import Image from "next/image";
 import icons from "../../../../../../../public/icons/icons";
 
-export default function ContentBody({selectValue, dailyTasks}) {
+export default function ContentBody({selectValue, dailyTasks, challengeTasks, isActive}) {
 
-    if (!dailyTasks) {
+    if (!dailyTasks || !challengeTasks) {
         return (
-            <div>Чето не работает в ContentBody</div>
+            <div>Данные загружаются</div>
         )
     }
+
+    // Тут на основании isActive мы выбираем что рендерить:
+    // ежедневные задания или челленджи
+    const data = isActive === "everyday" ? dailyTasks : challengeTasks
+
     return (
         <div className={styles.contentBodyWrapper}>
             <div className={styles.contentBody}>
 
                 {
 
-                    dailyTasks[selectValue]?.items.map((item, index) => {
+                    data[selectValue]?.items.map((item, index) => {
                         return (
-                            <div className={styles.item}>
+                            <div className={styles.item} key={`${item.title}-${index}`}>
 
                                 <div className={styles.imgAndTextWrapper}>
                                     <div className={styles.imgItemWrppaer}>
-                                        <Image className={styles.imgItem} src={item.img}/>
+                                        <Image alt={`${item.title}`} className={styles.imgItem} src={item.img}/>
                                     </div>
 
                                     <div className={styles.titleAndShortDesc}>

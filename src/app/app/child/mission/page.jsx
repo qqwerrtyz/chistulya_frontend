@@ -23,6 +23,7 @@ export default function Mission() {
     // Сюда записывается активное значение из menuItem (куда тыкнул пользователь:
     // на ежедневные или на челленджи)
     const [isActive, setIsActive] = useState(menuItem.itemOne.en)
+
     const dailyTasks = {
         hygiene: {
             name: "Гигиена",
@@ -205,7 +206,6 @@ export default function Mission() {
         }
         
     }
-
     const challengeTasks = {
         hygiene: {
             name: "Гигиена",
@@ -422,7 +422,9 @@ export default function Mission() {
                                     <ContentBody
                                         selectValue={selectValue} 
                                         challengeTasks={challengeTasks}
-                                        dailyTasks={dailyTasks}/>
+                                        dailyTasks={dailyTasks}
+                                        isActive={isActive}
+                                    />
                                 </div>
                             </div>
                     </div>

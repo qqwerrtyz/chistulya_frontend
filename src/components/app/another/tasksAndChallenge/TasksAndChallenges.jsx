@@ -8,7 +8,7 @@ import Content from "./contentTask/Content";
 // import Wrapper from "./wrapper/Wrapper"
 
 
-function ShowContent ({title, flags, dailyTasks}) {
+function ShowContent ({title, flags, dailyTasks, challengeTasks}) {
     if (!dailyTasks) return;
     if (title === "Ежедневные задания") {
         return flags.tasks && (
@@ -18,7 +18,11 @@ function ShowContent ({title, flags, dailyTasks}) {
 
                 <div className={styles.contentWrapper}>
 
-                    <Content dailyTasks={dailyTasks}/>
+                    <Content 
+                        dailyTasks={dailyTasks} 
+                        challengeTasks={challengeTasks}
+                        isActive={"everyday"}
+                    />
                 </div>
             </div>
         )
@@ -28,7 +32,11 @@ function ShowContent ({title, flags, dailyTasks}) {
                 <ProgressLine />
 
                 <div className={styles.contentWrapper}>
-                    <Content dailyTasks={dailyTasks}/>
+                    <Content 
+                        dailyTasks={dailyTasks} 
+                        challengeTasks={challengeTasks}
+                        isActive={"challenge"}
+                    />
                 </div>
             </div>
         )
@@ -139,6 +147,189 @@ function Wrapper({title, flags, setFlags}) {
         }
         
     }
+
+    const challengeTasks = {
+        hygiene: {
+            name: "Гигиена",
+            items: [
+                 {   
+            img: iconsTasks.brushTeeth,
+            title: "Чистка зубов Челленджи",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "take"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов Челленджи",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов Челленджи",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hand,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "done"  
+        },
+
+        {   
+            img: iconsTasks.brushTeeth,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "done"  
+        },
+
+        {   
+            img: iconsTasks.hand,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "take"  
+        },
+            ]
+        },
+        
+        order: {
+            name: "Порядок",
+            items: []
+        },
+
+        food: {
+            name: "Еда",
+            items: []
+        },
+
+        study: {
+            name: "Учеба",
+            items: []
+        }
+        
+    }
     return (
         <>
             <Header
@@ -147,7 +338,7 @@ function Wrapper({title, flags, setFlags}) {
                 setFlags={setFlags}
             />
 
-            {ShowContent({title, flags, dailyTasks})}
+            {ShowContent({title, flags, dailyTasks, challengeTasks})}
             
         </>
     )
