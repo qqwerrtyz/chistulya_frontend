@@ -5,14 +5,14 @@ import ContentHeader from "./contentHeader/ContentHeader";
 import ContentBody from "./contentBody/ContentBody";
 
 
-export default function Content ({dailyTasks, challengeTasks, isActive}) {
+export default function Content ({firstData, secondData, isActive}) {
 
 
-    const [selectValue, setSelectValue] = useState(null)
+    const [selectValue, setSelectValue] = useState("hygiene")
     
 
 
-    if (!dailyTasks) {
+    if (!firstData && !secondData) {
         return (
             <div>Загрузка данных...</div>
         )
@@ -22,8 +22,8 @@ export default function Content ({dailyTasks, challengeTasks, isActive}) {
         <div className={styles.contentWrapper}>
             <div className={styles.contentHeaderWrapper}>
                 <ContentHeader 
-                    dailyTasks={dailyTasks}
-                    challengeTasks={challengeTasks}
+                    firstData={firstData}
+                    secondData={secondData}
                     selectValue={selectValue} 
                     setSelectValue={setSelectValue}
                 />
@@ -31,10 +31,11 @@ export default function Content ({dailyTasks, challengeTasks, isActive}) {
 
             <div className={styles.contentBodyWrapper}>
                 <ContentBody 
-                    dailyTasks={dailyTasks} 
+                    firstData={firstData} 
                     selectValue={selectValue}
-                    challengeTasks={challengeTasks} 
+                    secondData={secondData} 
                     isActive={isActive}
+                    type={"home"}
                 />
             </div>
 

@@ -1,0 +1,89 @@
+.achivmentItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    margin-top: 10px;
+    padding: 5px;
+
+    border-radius: 14px;
+
+    background-color: #fff;
+}
+
+.achivmentImgAndname {
+    display: flex;
+    align-items: center;
+}
+
+.achivmentImgWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+
+    padding: 4px;
+    margin-right: 10px;
+
+    border-radius: 10px;
+    background-color: #E6EDFC;
+}
+
+.achivmentTitle {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.achivmentButton {
+    width: 100px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 10px;
+    border: none;
+    outline: none;
+
+    font-weight: 500;
+}
+
+.received {
+    background-color: #E3FFDF;
+    color: #24C010;
+}
+
+.reward {
+
+    background-color: #24C010;
+    color: #fff;
+}
+
+.notAvailable,
+.rewardText {
+    display: flex;
+    align-items: center;
+
+    font-size: 12px;
+
+    margin: 0 4px;
+}
+
+.notAvailableImg,
+.rewardImg {
+    width: 16px;
+}
+
+.notAvailable {
+    background-color: #9BA4B9;
+}
+
+.notAvailable {
+    color: #fff;
+}

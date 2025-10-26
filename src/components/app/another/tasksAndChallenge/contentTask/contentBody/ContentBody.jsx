@@ -1,19 +1,30 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import styles from "./ContentBody.module.css"
 import Image from "next/image";
 import icons from "../../../../../../../public/icons/icons";
 
-export default function ContentBody({selectValue, dailyTasks, challengeTasks, isActive}) {
+export default function ContentBody({selectValue, firstData, secondData, isActive, type}) {
 
-    if (!dailyTasks || !challengeTasks) {
-        return (
-            <div>Данные загружаются</div>
-        )
-    }
+    
 
     // Тут на основании isActive мы выбираем что рендерить:
     // ежедневные задания или челленджи
-    const data = isActive === "everyday" ? dailyTasks : challengeTasks
+
+    const [data, setData] = useState("");
+
+    useEffect(() => {
+
+            if (firstData && secondData) {
+                setData(isActive === "everyday" ? firstData : secondData);
+            }
+        
+    }, [isActive, firstData, secondData, type]);
+
+    if (!data || !data[selectValue]) {
+        return <div>Данные загружаются</div>;
+    }
+
+
 
     return (
         <div className={styles.contentBodyWrapper}>
@@ -26,13 +37,17 @@ export default function ContentBody({selectValue, dailyTasks, challengeTasks, is
                             <div className={styles.item} key={`${item.title}-${index}`}>
 
                                 <div className={styles.imgAndTextWrapper}>
-                                    <div className={styles.imgItemWrppaer}>
-                                        <Image alt={`${item.title}`} className={styles.imgItem} src={item.img}/>
-                                    </div>
+                                        <div className={styles.imgItemWrppaer}>
+                                            <Image alt={`${item.title}`} className={styles.imgItem} src={item.img}/>
+                                        </div>
+                                    
 
                                     <div className={styles.titleAndShortDesc}>
                                         <span className={styles.title}>{item.title}</span>
-                                        <span className={styles.shortDesc}>{item.short}</span>
+                                        {type === "home" || type === "mission" && (
+
+                                            <span className={styles.shortDesc}>{item.short}</span>
+                                        )  }
                                     </div>
                                 </div>
 

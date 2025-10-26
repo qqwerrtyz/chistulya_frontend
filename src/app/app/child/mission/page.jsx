@@ -24,6 +24,9 @@ export default function Mission() {
     // на ежедневные или на челленджи)
     const [isActive, setIsActive] = useState(menuItem.itemOne.en)
 
+    // Здесь показываетя на что тыкнуто (гигиена, порядок, еда или учеба)
+    const [selectValue, setSelectValue] = useState("hygiene")
+
     const dailyTasks = {
         hygiene: {
             name: "Гигиена",
@@ -42,6 +45,38 @@ export default function Mission() {
             // statis: fulfill -- выполнить (еще не начал),
             // status: take -- получить награду
             status: "take"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
+        },
+
+        {   
+            img: iconsTasks.hairbrush,
+            title: "Чистка зубов",
+            short: "Днем и вечером",
+            description: "Lorem ipsum dolor sit amet consectetur. Ac dictumst risus elit mattis at vitae ut tincidunt. Orci consequat sed ut scelerisque nullam nulla vel eget duis.",
+            reward: {
+                coins: 20,
+                xp: 140
+            },
+
+            // status: done -- выполнено и получена награда
+            // statis: fulfill -- выполнить (еще не начал),
+            // status: take -- получить награду
+            status: "fulfill"  
         },
 
         {   
@@ -389,8 +424,7 @@ export default function Mission() {
         
     }
 
-    // Здесь показываетя на что тыкнуто (гигиена, порядок, еда или учеба)
-    const [selectValue, setSelectValue] = useState(null)
+    
     
     
 
@@ -412,7 +446,7 @@ export default function Mission() {
                                 <ContentHeader 
                                     selectValue={selectValue}
                                     setSelectValue={setSelectValue}
-                                    dailyTasks={dailyTasks}
+                                    firstData={dailyTasks}
                                     challengeTasks={challengeTasks}
                                 />
                             </div>
@@ -420,9 +454,10 @@ export default function Mission() {
                             <div className={styles.bodyWrapper}>
                                 <div className={styles.body}>
                                     <ContentBody
-                                        selectValue={selectValue} 
-                                        challengeTasks={challengeTasks}
-                                        dailyTasks={dailyTasks}
+                                        type={"mission"}
+                                        selectValue={selectValue}
+                                        firstData={dailyTasks}
+                                        secondData={challengeTasks}
                                         isActive={isActive}
                                     />
                                 </div>

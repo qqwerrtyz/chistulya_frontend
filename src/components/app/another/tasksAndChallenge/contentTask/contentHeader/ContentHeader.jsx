@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import styles from "./ContentHeader.module.css"
-export default function ContentHeader({dailyTasks, setSelectValue}) {
+export default function ContentHeader({firstData, setSelectValue}) {
     const [higlight, setHiglight] = useState(null)
 
     
@@ -8,9 +8,10 @@ export default function ContentHeader({dailyTasks, setSelectValue}) {
     function handleHighLight(name, item) {    
         setSelectValue(item);
         setHiglight(name)
+        console.log(item)
     }
 
-    if (!dailyTasks) {
+    if (!firstData) {
         return (
             <div>Чето не работает в ContentHeader</div>
         )
@@ -19,9 +20,10 @@ export default function ContentHeader({dailyTasks, setSelectValue}) {
         <div className={styles.headerWrapper}>
             <div className={styles.header}>
                 <div className={styles.headerItemWrapper}>
+                    {/* Здесь мы проходимся по ключам firstData */}
                     {
-                        Object.keys(dailyTasks).map((item, index) => {
-                            const name = dailyTasks[item].name
+                        Object.keys(firstData).map((item, index) => {
+                            const name = firstData[item].name
                             const isActive = higlight === name;
 
                             return (

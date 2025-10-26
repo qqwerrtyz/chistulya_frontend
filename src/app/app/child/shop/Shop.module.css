@@ -1,0 +1,20 @@
+.shopPageWrapper {
+    padding: 0 20px;
+}
+
+.menuWrapper {
+    margin-top: 30px;
+}
+
+.shopBodyWrapper {
+    padding: 15px;
+    background-color: #E6EDFC;
+    border-radius: 12px;
+}
+
+.petRoomAvatarWrapper {
+    display: flex;
+    justify-content: center;
+
+    margin: 30px 0;
+}

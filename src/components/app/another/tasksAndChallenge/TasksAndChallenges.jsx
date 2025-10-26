@@ -19,8 +19,8 @@ function ShowContent ({title, flags, dailyTasks, challengeTasks}) {
                 <div className={styles.contentWrapper}>
 
                     <Content 
-                        dailyTasks={dailyTasks} 
-                        challengeTasks={challengeTasks}
+                        firstData={dailyTasks} 
+                        secondData={challengeTasks}
                         isActive={"everyday"}
                     />
                 </div>
@@ -33,8 +33,8 @@ function ShowContent ({title, flags, dailyTasks, challengeTasks}) {
 
                 <div className={styles.contentWrapper}>
                     <Content 
-                        dailyTasks={dailyTasks} 
-                        challengeTasks={challengeTasks}
+                        firstData={dailyTasks} 
+                        secondData={challengeTasks}
                         isActive={"challenge"}
                     />
                 </div>
@@ -330,6 +330,8 @@ function Wrapper({title, flags, setFlags}) {
         }
         
     }
+
+
     return (
         <>
             <Header

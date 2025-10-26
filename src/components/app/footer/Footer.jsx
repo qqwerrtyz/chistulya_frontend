@@ -33,7 +33,7 @@ export default function Footer() {
                 </div>
 
                 <div className={styles.footerHalf}>
-                    <FooterIcon src={icons.footerShop} name={"Магазин"} href={"#"}/>
+                    <FooterIcon src={icons.footerShop} name={"Магазин"} href={"/app/child/shop"}/>
                     <FooterIcon src={icons.footerAnalitycs} name={"Аналитика"} href={"#"}/>
                 </div>
 
