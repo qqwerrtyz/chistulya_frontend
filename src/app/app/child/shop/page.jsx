@@ -321,6 +321,7 @@ export default function Shop() {
                 {
                     isActive === "petRoom" && (
                         <div className={styles.shopPetRoomBodyWrapper}>
+                           
                             <BodyPetRoom 
                                 dataList={itemsList}
                             />

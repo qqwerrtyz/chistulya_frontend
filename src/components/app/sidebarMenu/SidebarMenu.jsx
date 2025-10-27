@@ -28,12 +28,12 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
 
         {
             name: "Миссии",
-            href: "/app/child/misson/"
+            href: "/app/child/missin/"
         },
 
         {
-            name: "Награды",
-            href: "/app/child/reward/"
+            name: "Магазин",
+            href: "/app/child/shop/"
         },
 
         {
