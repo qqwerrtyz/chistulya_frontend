@@ -1,0 +1,76 @@
+.bodyWrapper {
+    background-color: #fff;
+    padding: 20px 15px;
+
+    border-radius: 15px;
+}
+
+.selectedMonth {
+    color: #5B84ED;
+    margin-right: 5px;
+}
+
+.menuWrapper {
+    width: 130px;
+    position: relative;
+}
+
+.menu {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+
+    border-radius: 15px;
+
+    background-color: #E8EEFC;
+}
+
+.selectedMonth {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.menuArrow {
+    width: 20px;
+}
+
+
+
+.dropDownMenu {
+    position: absolute;
+
+    width: 100%;
+
+    margin-top: 5px;
+    padding: 10px;
+
+    border-radius: 15px;
+
+    background-color: #E8EEFC;
+}
+
+.dropDownMenuItem {
+    margin: 5px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropDownMenuItemName {
+    font-size: 16px;
+    color: #5B84ED;
+}
+
+.dropDownMenuItemSelect {
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    border: 2px solid #5B84ED;
+}

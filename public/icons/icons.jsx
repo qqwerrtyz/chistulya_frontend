@@ -8,6 +8,8 @@ import exit from "./exit.svg"
 import coin from "./coin.svg"
 import arrowDown from "./arrowDown.svg"
 import arrowUp from "./arrowUp.svg"
+import arrowUpBlue from "./arrowUpBlue.svg"
+import arrowDownBlue from "./arrowDownBlue.svg"
 import footerAnalitycs from "./footerAnalitycs.svg"
 import footerMain from "./footerMain.svg"
 import footerMissions from "./footerMissions.svg"
@@ -29,7 +31,9 @@ const icons = {
     footerMain,
     footerMissions,
     footerPlus,
-    footerShop,    
+    footerShop,
+    arrowUpBlue,
+    arrowDownBlue   
 }
 
 export default icons 
