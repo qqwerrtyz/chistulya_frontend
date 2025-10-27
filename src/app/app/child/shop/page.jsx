@@ -82,7 +82,7 @@ export default function Shop() {
         },
 
         {   
-            id: 1,
+            id: 5,
             img: iconsTasks.brushTeeth,
             ruName: "Мыть руки",
             enName: "handWashing",
@@ -97,7 +97,7 @@ export default function Shop() {
         },
 
         {   
-            id: 2,
+            id: 6,
             img: iconsTasks.brushTeeth,
             ruName: "Мыть попу",
             enName: "assWashing",
@@ -112,7 +112,7 @@ export default function Shop() {
         },
 
         {   
-            id: 3,
+            id: 7,
             img: iconsTasks.brushTeeth,
             ruName: "Мыть зубы",
             enName: "handWashing",
@@ -127,7 +127,7 @@ export default function Shop() {
         },
 
         {   
-            id: 1,
+            id: 8,
             img: iconsTasks.brushTeeth,
             ruName: "Мыть руки",
             enName: "handWashing",
@@ -142,7 +142,7 @@ export default function Shop() {
         },
 
         {   
-            id: 2,
+            id: 9,
             img: iconsTasks.brushTeeth,
             ruName: "Мыть попу",
             enName: "assWashing",
@@ -157,7 +157,7 @@ export default function Shop() {
         },
 
         {   
-            id: 3,
+            id: 10,
             img: iconsTasks.brushTeeth,
             ruName: "Мыть зубы",
             enName: "handWashing",
@@ -172,7 +172,7 @@ export default function Shop() {
         },
 
         {   
-            id: 1,
+            id: 11,
             img: iconsTasks.brushTeeth,
             ruName: "Мыть руки",
             enName: "handWashing",
@@ -187,7 +187,7 @@ export default function Shop() {
         },
 
         {   
-            id: 2,
+            id: 12,
             img: iconsTasks.brushTeeth,
             ruName: "Мыть попу",
             enName: "assWashing",
@@ -202,7 +202,7 @@ export default function Shop() {
         },
 
         {   
-            id: 3,
+            id: 13,
             img: iconsTasks.brushTeeth,
             ruName: "Мыть зубы",
             enName: "handWashing",
@@ -304,30 +304,29 @@ export default function Shop() {
                     )
                 }
 
-                <div className={styles.shopBodyWrapper}>
                     
-                    {
-                        isActive === "achievements" && (
-                            <div>
-                                <BodyAchievements 
-                                    dataList={achievementsList}
-                                />
-                            </div>
-                        )
-                    }
+                {
+                    isActive === "achievements" && (
+                        <div className={styles.shopAchievementsBodyWrapper}>
 
-                    {
-                        isActive === "petRoom" && (
-                            <div>
-                                <BodyPetRoom 
-                                    dataList={itemsList}
-                                />
-                            </div>
-                        )
-                    }
-                    
+                            <BodyAchievements 
+                                dataList={achievementsList}
+                            />
+                        </div>
 
-                </div>
+                    )
+                }
+
+
+                {
+                    isActive === "petRoom" && (
+                        <div className={styles.shopPetRoomBodyWrapper}>
+                            <BodyPetRoom 
+                                dataList={itemsList}
+                            />
+                        </div>
+                    )
+                }
 
             </div>
         </div>

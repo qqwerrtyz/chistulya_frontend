@@ -18,7 +18,7 @@ export default function BodyAchievements({dataList}) {
                             >
                                 <div className={styles.achivmentImgAndname}>
                                     <div className={styles.achivmentImgWrapper}>
-                                        <Image src={item.img} className={styles.achivmentImg}/>
+                                        <Image src={item.img} className={styles.achivmentImg} alt="_"/>
                                     </div>
 
                                     <div className={styles.achivmentTitleWrapper}>
@@ -39,7 +39,7 @@ export default function BodyAchievements({dataList}) {
                                         item.status === "reward" && (
                                             <button className={`${styles.achivmentButton} ${styles.reward}`}>
                                                 {item.reward.coin && (
-                                                    <span className={styles.rewardText}>{item.reward.coin} <Image className={styles.rewardImg} src={icons.coin}/></span>
+                                                    <span className={styles.rewardText}>{item.reward.coin} <Image className={styles.rewardImg} src={icons.coin} alt="_"/></span>
                                                 )}
 
                                                 {item.reward.xp && (
@@ -53,7 +53,7 @@ export default function BodyAchievements({dataList}) {
                                         item.status === "notAvailable" && (
                                             <button className={`${styles.achivmentButton} ${styles.notAvailable}`}>
                                                 {item.reward.coin && (
-                                                    <span className={styles.notAvailable}>{item.reward.coin} <Image className={styles.notAvailableImg} src={icons.coin}/></span>
+                                                    <span className={styles.notAvailable}>{item.reward.coin} <Image className={styles.notAvailableImg} src={icons.coin} alt="_"/></span>
                                                 )}
 
                                                 {item.reward.xp && (
