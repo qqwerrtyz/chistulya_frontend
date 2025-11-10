@@ -34,7 +34,7 @@ export default function Footer() {
 
                 <div className={styles.footerHalf}>
                     <FooterIcon src={icons.footerShop} name={"Магазин"} alt={"shopIcon"} href={"/app/child/shop"}/>
-                    <FooterIcon src={icons.footerAnalitycs} name={"Аналитика"} alt={"analutycsIcon"} href={"#"}/>
+                    <FooterIcon src={icons.footerAnalitycs} name={"Аналитика"} alt={"analutycsIcon"} href={"/app/child/analytics"}/>
                 </div>
 
             </div>
