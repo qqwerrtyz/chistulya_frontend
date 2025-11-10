@@ -1,14 +1,15 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import AnalyticsHeadline from "../headline/Headline"
 import styles from "./Chellenge.module.css"
-import icons from "../../../../../../public/icons/icons"
-import Image from "next/image"
+import MenuChellengeAnalytics from "./menu/Menu"
+import DropDown from "./dropdown/DropDown"
 
 export default function Chellenge () {
     const [selectedMonth, setSelectedMonth] = useState({
-        ruName: "Месяц",
-        enName: null
+        ruName: "Всего",
+        enName: null,
+        count: 100
     });
 
     const [showDropDown, setShowDropDown] = useState(false)
@@ -52,15 +53,8 @@ export default function Chellenge () {
         }
     ]
 
-    function handleSelectedMonth(ru, en) {
-        setSelectedMonth(prev => {
-            prev = {
-                ruName: ru,
-                enName: en
-            }
-            return prev
-        })
-    }
+
+
 
     return (
         <div className={styles.chellengeWrapper}>
@@ -71,41 +65,24 @@ export default function Chellenge () {
                     <div className={styles.body}>
 
                         <div className={styles.menuWrapper}>
-                            <div className={styles.menu} onClick={() => setShowDropDown(prev => !prev)}>
-                                <span className={styles.selectedMonth}>{selectedMonth.ruName}</span>
+                            <MenuChellengeAnalytics
+                                selectedMonth={selectedMonth}
+                                showDropDown={showDropDown} 
+                                setShowDropDown={setShowDropDown}
+                            />
+                            <DropDown 
+                                showDropDown={showDropDown}
+                                setShowDropDown={setShowDropDown}
+                                dataMonth={dataMonth}
+                                setSelectedMonth={setSelectedMonth}
+                                selectedMonth={selectedMonth}
+                            />
+                            
+                        </div>
 
-                                {
-                                    showDropDown ? (
-                                        <Image src={icons.arrowUpBlue} className={styles.menuArrow}/>
-                                    ) : (
-                                        <Image src={icons.arrowDownBlue} className={styles.menuArrow}/>
-                                    )
-                                }
-                            </div>
-
-                            {
-                                showDropDown && (
-                                    <div className={styles.dropDownMenu}>
-                                        {
-                                            dataMonth.map((item, index) => {
-                                                return (
-                                                    <div
-                                                        className={styles.dropDownMenuItem}
-                                                        onClick={() => handleSelectedMonth(item.ruNameMonth, item.enNameMonth)}>
-                                                        <span className={styles.dropDownMenuItemName}>{item.ruNameMonth}</span>
-                                                        {
-                                                            selectedMonth.enName === item.enNameMonth && (
-
-                                                                <div className={styles.dropDownMenuItemSelect}></div>
-                                                            )
-                                                        }
-                                                    </div>
-                                                )
-                                            })
-                                        }
-                            </div>
-                                )
-                            }
+                        <div className={styles.contentWrapper}>
+                            <span className={styles.contentCount}>{selectedMonth.count}</span>
+                            <span className={styles.contentName}>Челелнджа</span>
                         </div>
 
                     </div>
