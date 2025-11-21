@@ -1,7 +1,7 @@
 "use client"
 import styles from "./EveryDayTask.module.css"
 import {  useState } from "react"
-import Menu from "./menu/menu"
+import Menu from "./menu/Menu"
 import DropDown from "./dropDown/DropDown"
 import BodyDiagram from "./bodyDiagram/BodyDiagram"
 import HeaderDiagram from "./headerDiagram/HeaderDiagram"
