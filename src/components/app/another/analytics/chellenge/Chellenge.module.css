@@ -59,6 +59,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    cursor: pointer;
 }
 
 .dropDownMenuItemName {
@@ -73,4 +75,23 @@
     border-radius: 50%;
 
     border: 2px solid #5B84ED;
+}
+
+
+.contentWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.contentCount {
+    margin-right: 10px;
+
+    font-size: 50px;
+    color: #5B84ED;
+    font-weight: 500;
+}
+
+.contentName {
+    font-size: 16px;
+    color: #5B84ED;
 }

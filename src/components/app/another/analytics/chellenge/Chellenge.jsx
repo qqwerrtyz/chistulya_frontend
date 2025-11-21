@@ -4,6 +4,7 @@ import AnalyticsHeadline from "../headline/Headline"
 import styles from "./Chellenge.module.css"
 import MenuChellengeAnalytics from "./menu/Menu"
 import DropDown from "./dropdown/DropDown"
+import Result from "./showResult/Result"
 
 export default function Chellenge () {
     const [selectedMonth, setSelectedMonth] = useState({
@@ -26,7 +27,7 @@ export default function Chellenge () {
         {
             enNameMonth: "february",
             ruNameMonth: "Февраль",
-            count: 23
+            count: 25
         },
 
         {
@@ -80,10 +81,9 @@ export default function Chellenge () {
                             
                         </div>
 
-                        <div className={styles.contentWrapper}>
-                            <span className={styles.contentCount}>{selectedMonth.count}</span>
-                            <span className={styles.contentName}>Челелнджа</span>
-                        </div>
+                        
+
+                        <Result selectedMonth={selectedMonth}/>
 
                     </div>
                 </div>

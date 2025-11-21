@@ -1,0 +1,125 @@
+.everyDayTaskWrapper {
+    padding: 0 20px;
+}
+
+.everyDayTask {
+    width: 100%;
+}
+
+.menu {
+    width: 140px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px 0;
+
+    border-radius: 14px;
+
+    background-color: #fff;
+
+}
+
+.menuNameCategory {
+    margin-right: 5px;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.menuArrow {
+    width: 16px;
+}
+
+
+.dropDownWrapper {
+    width: 140px;
+}
+
+.dropDown {
+    padding: 0 20px;
+
+    border-radius: 15px;
+    
+    background-color: #5B84ED;
+}
+
+.dropDownHeader {
+    padding: 10px 0;
+}
+
+
+
+.dropDownDateWrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin: 5px 0;
+}
+
+.dropDownDate {
+    font-size: 14px;
+    color: #fff;
+    margin-left: 8px;
+}
+
+.dropDownDateChekedWrapper {
+    width: 17px;
+    height: 17px;  
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #E6EDFC;
+
+    border-radius: 5px;
+}
+
+.dropDownDateCheked {
+    width: 13px;
+    height: auto;
+}
+
+
+.everyDayTaskBody {
+    padding: 15px 25px;
+
+    border-radius: 15px;
+
+    background-color: #fff;
+
+}
+
+
+.everyDayTaskBodyHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.everyDayTaskBodyGoAndBack {
+    display: flex;
+}
+
+.everyDayTaskBodyArrow{
+    margin: 0 5px;
+
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #E6EDFC;
+}
+
+.everyDayTaskBodyTitleWrapper {
+    display: flex;
+    align-items: center;
+}

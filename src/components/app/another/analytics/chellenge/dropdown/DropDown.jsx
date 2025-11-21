@@ -1,4 +1,3 @@
-import Image from "next/image"
 import styles from "../Chellenge.module.css"
 export default function DropDown({showDropDown, setShowDropDown, dataMonth, setSelectedMonth, selectedMonth}) {
     function handleSelectedMonth(ru, en, count) {

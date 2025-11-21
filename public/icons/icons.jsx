@@ -15,6 +15,11 @@ import footerMain from "./footerMain.svg"
 import footerMissions from "./footerMissions.svg"
 import footerPlus from "./footerPlus.svg"
 import footerShop from "./footerShop.svg"
+import cheked from "./cheked.svg"
+import arrowLeftBlue from "./arrowLeftBlue.svg"
+import arrowLeftWhite from "./arrowLeftWhite.svg"
+import arrowRightBlue from "./arrowRightBlue.svg"
+import arrowRightWhite from "./arrowRightWhite.svg"
 
 const icons = {
     activeBell,
@@ -33,7 +38,12 @@ const icons = {
     footerPlus,
     footerShop,
     arrowUpBlue,
-    arrowDownBlue   
+    arrowDownBlue,
+    cheked,
+    arrowLeftBlue,
+    arrowLeftWhite,
+    arrowRightBlue,
+    arrowRightWhite,    
 }
 
 export default icons 
