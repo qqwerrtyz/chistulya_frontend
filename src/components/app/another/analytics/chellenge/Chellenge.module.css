@@ -1,8 +1,14 @@
-.bodyWrapper {
-    background-color: #fff;
-    padding: 20px 15px;
+.chellengeWrapper {
+    margin-top: 40px;
+}
 
+.bodyWrapper {
+    margin: 10px 0 0 0;
+    padding: 20px 15px;
+    
     border-radius: 15px;
+
+    background-color: #fff;
 }
 
 .selectedMonth {

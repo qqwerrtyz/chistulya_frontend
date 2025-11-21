@@ -1,9 +1,18 @@
 .everyDayTaskWrapper {
+    margin-top: 40px;
     padding: 0 20px;
 }
 
 .everyDayTask {
     width: 100%;
+}
+
+.menuWrapper {
+    margin: 10px 0 0 0;
+}
+
+.menuAndDropdownWrapper {
+    position: relative;
 }
 
 .menu {
@@ -35,6 +44,11 @@
 
 .dropDownWrapper {
     width: 140px;
+
+    position: absolute;
+    z-index: 100;
+
+    margin-top: 5px;
 }
 
 .dropDown {
@@ -83,6 +97,9 @@
     height: auto;
 }
 
+.everyDayTaskBodyWrapper {
+    margin-top: 5px;
+}
 
 .everyDayTaskBody {
     padding: 15px 25px;
@@ -98,6 +115,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    padding-bottom: 15px;
+
+    border-bottom: 2px solid #F4F4F4;
 }
 
 .everyDayTaskBodyGoAndBack {

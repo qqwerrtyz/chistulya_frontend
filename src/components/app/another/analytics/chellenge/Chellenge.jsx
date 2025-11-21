@@ -60,7 +60,7 @@ export default function Chellenge () {
     return (
         <div className={styles.chellengeWrapper}>
             <div className={styles.chellenge}>
-                <AnalyticsHeadline value={"Челленджи"}/>
+                <AnalyticsHeadline value={"Выполненные челленджи"}/>
 
                 <div className={styles.bodyWrapper}>
                     <div className={styles.body}>

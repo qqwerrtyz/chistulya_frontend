@@ -3,7 +3,7 @@ import styles from "./../EveryDayTask.module.css"
 import icons from "../../../../../../../public/icons/icons";
 
 
-export default function DropDown({dataDayTasks, setDataDayTasks, setSelectCategory}) {
+export default function DropDown({dataDayTasks, setDataDayTasks, setSelectCategory, setIsOpen}) {
     function handleCheked (keys, item) {
         // key -- Это ключ от объекта dataDayTasks
 
@@ -28,7 +28,7 @@ export default function DropDown({dataDayTasks, setDataDayTasks, setSelectCatego
             return newData
         })
 
-        console.log(item)
+        setIsOpen(prev => !prev)
     }
     return (
         <div className={styles.dropDownWrapper}>
