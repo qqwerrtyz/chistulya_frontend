@@ -26,6 +26,7 @@ import mailData from "./mailData.svg"
 import qrData from "./qrData.svg"
 import supportData from "./supportData.svg"
 import exitData from "./exitData.svg"
+import addNotifications from "./addNotifications.svg"
 
 const icons = {
     activeBell,
@@ -55,7 +56,8 @@ const icons = {
     mailData,
     qrData,
     supportData,
-    exitData,   
+    exitData,
+    addNotifications,   
 }
 
 export default icons 

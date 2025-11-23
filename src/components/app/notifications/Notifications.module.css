@@ -1,0 +1,50 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+
+    width: 78%;
+
+    padding: 4px 10px;
+    border-radius: 15px;
+
+    background-color: #fff;
+}
+
+.categoryWrapper {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+
+    padding: 4px;
+
+    border-radius: 10px;
+
+}
+
+.selectCategory {
+    background-color: #5B84ED;
+}
+
+
+.addNotificationsWrapper {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background-color: #fff;
+}
+
+.category {
+    font-size: 12px;
+
+}
