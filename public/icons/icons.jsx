@@ -20,6 +20,12 @@ import arrowLeftBlue from "./arrowLeftBlue.svg"
 import arrowLeftWhite from "./arrowLeftWhite.svg"
 import arrowRightBlue from "./arrowRightBlue.svg"
 import arrowRightWhite from "./arrowRightWhite.svg"
+import plusWhite from "./plusWhite.svg"
+import lockData from "./lockData.svg"
+import mailData from "./mailData.svg"
+import qrData from "./qrData.svg"
+import supportData from "./supportData.svg"
+import exitData from "./exitData.svg"
 
 const icons = {
     activeBell,
@@ -43,7 +49,13 @@ const icons = {
     arrowLeftBlue,
     arrowLeftWhite,
     arrowRightBlue,
-    arrowRightWhite,    
+    arrowRightWhite, 
+    plusWhite,
+    lockData,
+    mailData,
+    qrData,
+    supportData,
+    exitData,   
 }
 
 export default icons 

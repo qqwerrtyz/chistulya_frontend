@@ -1,0 +1,147 @@
+.avatarWrapper {
+    margin-top: 30px;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+}
+
+.avatarImgWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    background-color: #fff;
+}
+
+.avatarAddImgIconWrapper {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+
+    width: 25px;
+    height: 25px;
+
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background-color: #5B84ED;
+}
+
+.avatarAddImgIcon {
+    width: 15px;
+    height: 15px;
+}
+
+.avatarAddImgText {
+    font-size: 12px;
+    color: #707070;
+}
+
+.nameAndAgeWrapper {
+    margin: 20px 0;
+}
+
+.nameAndAge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: #fff;
+}
+
+
+.userName {
+    margin-bottom: 5px;
+
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.userDataWrapper {
+    background-color: #fff;
+    padding: 30px 20px 0 20px;
+
+    border-radius: 30px 30px 0 0;
+}
+
+.userDataItem {
+    background-color: #D4DFFA;
+    border-radius: 10px;
+
+    margin: 5px 0;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.userDataItemHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    border-radius: 15px;
+
+}
+
+.userDataItemHeaderContent {
+    display: flex;
+    align-items: center;
+}
+
+.userDataItemHeader {
+    padding: 10px 5px;
+
+    background-color: #E8EEFC;
+
+    border-radius: 10px;
+}
+
+.userDataIconWrapper {
+    margin-right: 10px;
+}
+
+.userDataIcon {
+    width: 24px;
+}
+
+.userDataTitle {
+    font-size: 16px;
+}
+
+.userDataIconWrapper {
+    display: flex;
+    align-items: center;
+
+    padding: 3px;
+
+    border-radius: 5px;
+
+    background-color: #D4DEF9;
+}
+
+.userDataItemBody {
+    margin-top: 5px;
+}
+
+.userDataValueWrapper {
+    margin: 0 5px;
+    padding: 10px;
+
+    background-color: #fff;
+
+    border-radius: 10px;
+}
