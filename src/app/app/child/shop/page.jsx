@@ -39,7 +39,7 @@ export default function Shop() {
         {   
             id: 2,
             img: iconsTasks.brushTeeth,
-            ruName: "Мыть попу",
+            ruName: "Мыть ноги",
             enName: "assWashing",
             reward: {
                 coin: 20,
@@ -99,7 +99,7 @@ export default function Shop() {
         {   
             id: 6,
             img: iconsTasks.brushTeeth,
-            ruName: "Мыть попу",
+            ruName: "Мыть ноги",
             enName: "assWashing",
             reward: {
                 coin: 20,
@@ -144,7 +144,7 @@ export default function Shop() {
         {   
             id: 9,
             img: iconsTasks.brushTeeth,
-            ruName: "Мыть попу",
+            ruName: "Мыть ноги",
             enName: "assWashing",
             reward: {
                 coin: 20,
@@ -189,7 +189,7 @@ export default function Shop() {
         {   
             id: 12,
             img: iconsTasks.brushTeeth,
-            ruName: "Мыть попу",
+            ruName: "Мыть ноги",
             enName: "assWashing",
             reward: {
                 coin: 20,
