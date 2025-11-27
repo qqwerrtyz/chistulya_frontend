@@ -4,7 +4,7 @@ import styles from "./../Notifications.module.css"
 import icons from "../../../../../public/icons/icons"
 import { useState } from "react"
 
-export default function Header({selectCategories, setSelectCategories}) {
+export default function Header({selectCategories, setSelectCategories, setShowAddNotification}) {
     
     const categories = [
         {
@@ -45,7 +45,10 @@ export default function Header({selectCategories, setSelectCategories}) {
 
                 </div>
 
-                <div className={styles.addNotificationsWrapper}>
+                <div 
+                    className={styles.addNotificationsWrapper}
+                    onClick={() => setShowAddNotification(prev => !prev)}
+                >
                     <Image src={icons.addNotifications} className={styles.addNotifications}/>
                 </div>
             </div>

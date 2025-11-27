@@ -2,7 +2,9 @@ import Image from "next/image"
 import styles from "./../Notifications.module.css"
 import icons from "../../../../../public/icons/icons"
 import { useState } from "react"
-export default function Body({selectCategories}) {
+import AddNotification from "../addNotification/AddNotification"
+export default function Body({selectCategories, showAddNotification, setShowAddNotification}) {
+    
     const [notifications, setNotifications] = useState({
         active: {
             name: "active",
@@ -46,6 +48,8 @@ export default function Body({selectCategories}) {
             ]
         }
     })
+
+    
 
     function handleComplete(_valueIgnored, indexItem) {
         setNotifications(prev => {
@@ -124,6 +128,11 @@ export default function Body({selectCategories}) {
                 }
                 
             </div>
+            
+            {
+                showAddNotification && <AddNotification setShowAddNotification={setShowAddNotification}/>
+            }
+            
         </div>
     )
 }

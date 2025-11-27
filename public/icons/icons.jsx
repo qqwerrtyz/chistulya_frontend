@@ -28,6 +28,7 @@ import supportData from "./supportData.svg"
 import exitData from "./exitData.svg"
 import addNotifications from "./addNotifications.svg"
 import bringBack from "./bringBack.svg"
+import backNotificationBlue from "./backNotificationBlue.svg"
 
 const icons = {
     activeBell,
@@ -60,6 +61,7 @@ const icons = {
     exitData,
     addNotifications,   
     bringBack,
+    backNotificationBlue
 }
 
 export default icons 

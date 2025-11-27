@@ -6,6 +6,7 @@ import { useState } from "react"
 export default function Notifications () {
     
     const [selectCategories, setSelectCategories] = useState("active")
+    const [showAddNotification, setShowAddNotification] = useState(false)
 
     return (
         <div className={styles.notificationsWrapper}>
@@ -18,8 +19,14 @@ export default function Notifications () {
                     <Header 
                         selectCategories={selectCategories}
                         setSelectCategories={setSelectCategories}
+                        setShowAddNotification={setShowAddNotification}
                     />
-                    <Body selectCategories={selectCategories}/>
+                    <Body 
+                        selectCategories={selectCategories}
+                        showAddNotification={showAddNotification}
+                        
+                        setShowAddNotification={setShowAddNotification}
+                    />
                 </div>
             </div>
         </div>
