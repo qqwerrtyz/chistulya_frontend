@@ -2,7 +2,18 @@ import Image from "next/image"
 import styles from "./../Notifications.module.css"
 import icons from "../../../../../public/icons/icons"
 import GeneralParamsInput from "./generalParamsInput/GeneralParamsInput"
+import { useState } from "react"
 export default function AddNotification({setShowAddNotification}) {
+
+    const [addNotificationData, setAddNotificationData] = useState({
+        type: null,
+        time: null,
+        interval: null,
+        body: {
+            title: null,
+            subTitle: null
+        }
+    })
     
 
     return (
@@ -26,7 +37,19 @@ export default function AddNotification({setShowAddNotification}) {
                         </div>
 
                         <div className={styles.generalParamsFieldsWrapper}>
-                            <GeneralParamsInput />
+                            <GeneralParamsInput 
+                                addNotificationData={addNotificationData}
+                                setAddNotificationData={setAddNotificationData}
+                                typeInput={"typeTask"}
+                                title={"Тип задания"}
+                            />
+
+                            <GeneralParamsInput 
+                                addNotificationData={addNotificationData}
+                                setAddNotificationData={setAddNotificationData}
+                                typeInput={"timeTask"}
+                                title={"Выбрать время"}
+                            />
 
                             
                         </div>

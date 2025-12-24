@@ -216,3 +216,15 @@
 
     border-radius: 15px;
 }
+
+.generalParamsDropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.generalParamValue {
+    display: block;
+    margin: 3px 0;
+
+    font-size: 14px;
+}
