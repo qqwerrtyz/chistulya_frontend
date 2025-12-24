@@ -4,6 +4,7 @@ import icons from "../../../../../public/icons/icons"
 import GeneralParamsInput from "./generalParamsInput/GeneralParamsInput"
 import { useState } from "react"
 export default function AddNotification({setShowAddNotification}) {
+<<<<<<< HEAD
 
     const [addNotificationData, setAddNotificationData] = useState({
         type: null,
@@ -15,6 +16,15 @@ export default function AddNotification({setShowAddNotification}) {
         }
     })
     
+=======
+    const [dataNotification, setDataNotification] = useState({
+        type: null,
+        time: null,
+        interval: null,
+        title: null,
+        subTitle: null
+    })
+>>>>>>> 99f1dbeba78e161df86c0b5535b3cfdd025a72a7
 
     return (
         <div className={styles.addNotificationWrapper}>
@@ -37,6 +47,7 @@ export default function AddNotification({setShowAddNotification}) {
                         </div>
 
                         <div className={styles.generalParamsFieldsWrapper}>
+<<<<<<< HEAD
                             <GeneralParamsInput 
                                 addNotificationData={addNotificationData}
                                 setAddNotificationData={setAddNotificationData}
@@ -50,6 +61,9 @@ export default function AddNotification({setShowAddNotification}) {
                                 typeInput={"timeTask"}
                                 title={"Выбрать время"}
                             />
+=======
+                            <GeneralParamsInput dropdown={true}/>
+>>>>>>> 99f1dbeba78e161df86c0b5535b3cfdd025a72a7
 
                             
                         </div>
