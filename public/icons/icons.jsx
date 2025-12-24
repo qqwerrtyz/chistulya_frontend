@@ -29,6 +29,8 @@ import exitData from "./exitData.svg"
 import addNotifications from "./addNotifications.svg"
 import bringBack from "./bringBack.svg"
 import backNotificationBlue from "./backNotificationBlue.svg"
+import closeSelectTime from "./closeSelectTime.svg"
+import doneSelectTime from "./doneSelectTime.svg"
 
 const icons = {
     activeBell,
@@ -61,7 +63,9 @@ const icons = {
     exitData,
     addNotifications,   
     bringBack,
-    backNotificationBlue
+    backNotificationBlue,
+    closeSelectTime,
+    doneSelectTime,
 }
 
 export default icons 

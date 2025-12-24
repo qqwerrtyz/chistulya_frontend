@@ -1,42 +1,54 @@
 import Image from "next/image"
 import styles from "./../../Notifications.module.css"
 import icons from "../../../../../../public/icons/icons"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { InputContext } from "../AddNotification"
 
 
-export default function GeneralParamsInput({addNotificationData, setAddNotificationData, typeInput, title}){
-    const [showDropdown, setShowDropdown] = useState(true);
+export default function GeneralParamsInput({dropdown}){
+    const [showDropdown, setShowDropdown] = useState(false)
 
-    const [typeTask, setTypeTask] = useState({
-        task: "Задачи",
-        chellenge: "Челлендж"
-    })
+    const {data, setData} = useContext(InputContext);
 
-    function addDataNotification(key,value) {
-        setAddNotificationData(prev => {
-            let clonePrev = {
+    function saveData (value) {
+        setData(prev => {
+            const clone = {
                 ...prev,
-                [key]: value 
+                type: value
             }
-
-            return clonePrev
+            return clone
             
         })
     }
 
+    function showTitle() {
+        let value = ""
+        if  (data?.type === "chellenge") {
+            value = "Челлендж"
+        } else if (data?.type === "everydayTask") {
+            value = "Ежедневные задания"
+        } else {
+            value = "Тип задания"
+        }
+
+        return value
+    }
+
+    if (!data && !setData) {
+        return <div>ЗАГРУЗКААААА</div>
+    }
     return (
 
         <>
             <div
-                className={styles.generalParamsFieldWrapper}
+                className={`${styles.generalParamsFieldWrapper} ${styles.generalParamsFieldWrapperType}`}
                 
             >
                 <div 
                     className={styles.generalParamsFieldHeader}
                     onClick={() => setShowDropdown(prev => !prev)}
                 >
-                    <span className={styles.generalParamsField} onClick={() => console.log(addNotificationData)}>{title}</span>
-
+                    <span className={styles.generalParamsField}>{showTitle()}</span>
                     <div className={styles.generalParamsArrowsWrapper}>
                         {
                             showDropdown ? (
@@ -48,31 +60,24 @@ export default function GeneralParamsInput({addNotificationData, setAddNotificat
                         
                     </div>
                 </div>
+
+     
                 
 
                 {
                     showDropdown && (
-                        typeInput === "typeTask" ? (
-                            <div className={styles.generalParamsDropdownWrapper}>
-                                <div className={styles.generalParamsDropdown}>
-                                    {
-                                        Object.keys(typeTask).map((item, index) => {
-                                            return (
-                                                <span 
-                                                    onClick={() => addDataNotification("type", item)} 
-                                                    className={styles.generalParamValue}>
-                                                    {typeTask[item]}
-                                                </span>
-                                            )
-                                        })
-                                    }
-                                </div>
+                        <div className={`${styles.generalParamsDropdownWrapper} ${styles.generalParamsDropdownWrapperType}`}>
+                            <div className={styles.generalParamsDropdown}>
+                                <span 
+                                    className={`${styles.generalParamsDropdownValue} ${data.type === "chellenge" && styles.generalParamsDropdownValueActive}`}
+                                    onClick={()=> saveData("chellenge")}    
+                                >Челлендж</span>
+                                <span 
+                                    className={`${styles.generalParamsDropdownValue} ${data.type === "everydayTask" && styles.generalParamsDropdownValueActive}`}
+                                    onClick={()=> saveData("everydayTask")} 
+                                >Ежедневное задание</span>
                             </div>
-                        ) : typeInput === "timeTask" ? (
-                            <div>ывмывм</div>
-                        ) : <div>dvdvdv</div>
-
-                      
+                        </div>
                     )
                 }
                 

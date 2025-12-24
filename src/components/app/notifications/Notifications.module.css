@@ -170,15 +170,19 @@
 }
 
 .generalParamsFieldWrapper {
-    position: relative;
-
     
+
+    margin: 10px 0;
 
     
 
     border-radius: 15px;
 
     background-color: #fff;
+}
+
+.generalParamsFieldWrapperType {
+    position: relative;
 }
 
 .generalParamsFieldHeader {
@@ -199,10 +203,7 @@
 }
 
 .generalParamsDropdownWrapper {
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    transform: translateY(100%);
+
 
     padding: 10px 20px;
 
@@ -217,6 +218,13 @@
     border-radius: 15px;
 }
 
+.generalParamsDropdownWrapperType {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transform: translateY(100%);
+}
+
 .generalParamsDropdown {
     display: flex;
     flex-direction: column;
@@ -227,4 +235,145 @@
     margin: 3px 0;
 
     font-size: 14px;
+}
+
+.generalParamsDropdownValue {
+    font-size: 12px;
+    padding: 2px 4px;
+}
+
+.generalParamsDropdownValueActive {
+    background-color: #E8EEFC;
+    border-radius: 4px;
+}
+
+
+
+.dropdownSelectTimeWrapperSelectTime {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ffffff6e;
+}
+
+.selectTimeContentWrapper {
+    width: 350px;
+    height: 275px;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    border-radius: 25px;
+    border: 3px solid #5B84ED;
+
+    background-color: #fff;
+}
+
+.selectTimeHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectTimeHeaderIcon {
+    width: 40px;
+}
+
+
+
+
+
+.selectTimeBody {
+    position: relative;
+    padding: 16px 0;
+}
+
+.selectTimeColumns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selectTimeColumn {
+    height: 180px;
+    width: 60px;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+.selectTimeItem {
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    color: #999;
+}
+
+.selectTimeItem.active {
+    color: #000;
+    font-weight: 600;
+}
+
+.selectTimeSeparator {
+    margin: 0 8px;
+    font-size: 20px;
+}
+
+.selectTimeCenterLine {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 36px;
+    transform: translateY(-50%);
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    pointer-events: none;
+}
+
+/* контейнер колонки — включаем scroll snap и плавную прокрутку */
+.selectTimeColumn {
+  overflow-y: auto;
+  scroll-snap-type: y mandatory; /* "прилипание" по оси Y */
+  scroll-behavior: smooth; /* плавная прокрутка при программном scrollTo */
+  -webkit-overflow-scrolling: touch; /* плавность на iOS */
+  /* при необходимости: фиксируем высоту, чтобы в колонке отображалось N элементов */
+  /* height: 180px; */
+}
+
+/* элемент списка — центрируется при "прилипании" */
+.selectTimeItem {
+  scroll-snap-align: center; /* элемент будет центроваться в контейнере */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  /* можно не указывать фиксированную высоту, но можно оставить fallback */
+  /* height: 36px; */
+}
+
+/* линия-центр (уже у тебя есть) — должна быть позиционирована поверх колонки */
+.selectTimeCenterLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 36px; /* высота зоны центра — можно подогнать */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.generalParamsDropdownWrapperInterval {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transform: translateY(100%);
 }

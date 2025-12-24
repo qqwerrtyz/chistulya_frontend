@@ -2,29 +2,23 @@ import Image from "next/image"
 import styles from "./../Notifications.module.css"
 import icons from "../../../../../public/icons/icons"
 import GeneralParamsInput from "./generalParamsInput/GeneralParamsInput"
-import { useState } from "react"
-export default function AddNotification({setShowAddNotification}) {
-<<<<<<< HEAD
+import { createContext, useState } from "react"
+import SelectTimeInpup from "./generalParamsInput/SelectTimeInpup"
+import IntervalInput from "./generalParamsInput/IntervalInput"
 
-    const [addNotificationData, setAddNotificationData] = useState({
+export const InputContext = createContext(null)
+export default function AddNotification({setShowAddNotification}) {
+
+
+
+
+    const [data, setData] = useState({
         type: null,
         time: null,
         interval: null,
-        body: {
-            title: null,
-            subTitle: null
-        }
-    })
-    
-=======
-    const [dataNotification, setDataNotification] = useState({
-        type: null,
-        time: null,
-        interval: null,
-        title: null,
+        title: null, 
         subTitle: null
-    })
->>>>>>> 99f1dbeba78e161df86c0b5535b3cfdd025a72a7
+    }) 
 
     return (
         <div className={styles.addNotificationWrapper}>
@@ -46,27 +40,16 @@ export default function AddNotification({setShowAddNotification}) {
                             <span className={styles.generalParamsHeader}>Общие параметры</span>
                         </div>
 
-                        <div className={styles.generalParamsFieldsWrapper}>
-<<<<<<< HEAD
-                            <GeneralParamsInput 
-                                addNotificationData={addNotificationData}
-                                setAddNotificationData={setAddNotificationData}
-                                typeInput={"typeTask"}
-                                title={"Тип задания"}
-                            />
+                        <InputContext.Provider value={{data, setData}}>
+                            <div className={styles.generalParamsFieldsWrapper}>
+                                <GeneralParamsInput dropdown={true}/>
+                                
+                                <SelectTimeInpup />
 
-                            <GeneralParamsInput 
-                                addNotificationData={addNotificationData}
-                                setAddNotificationData={setAddNotificationData}
-                                typeInput={"timeTask"}
-                                title={"Выбрать время"}
-                            />
-=======
-                            <GeneralParamsInput dropdown={true}/>
->>>>>>> 99f1dbeba78e161df86c0b5535b3cfdd025a72a7
-
-                            
-                        </div>
+                                <IntervalInput />
+                                
+                            </div>
+                        </InputContext.Provider>
 
                     </div>
                 </div>
