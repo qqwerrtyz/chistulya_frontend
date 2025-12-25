@@ -17,7 +17,8 @@ export default function AddNotification({setShowAddNotification}) {
         time: null,
         interval: null,
         title: null, 
-        subTitle: null
+        subTitle: null,
+        intervalStatus: false
     }) 
 
     return (
@@ -45,9 +46,12 @@ export default function AddNotification({setShowAddNotification}) {
                                 <GeneralParamsInput dropdown={true}/>
                                 
                                 <SelectTimeInpup />
-
                                 <IntervalInput />
                                 
+                            </div>
+
+                            <div className={styles.generalParamsTitleWrapper}>
+                                <span className={styles.generalParamsTitle}>Текст напоминания</span>
                             </div>
                         </InputContext.Provider>
 

@@ -209,7 +209,6 @@
 
     width: 100%;
     max-height: 200px;
-    overflow: auto;
 
     box-sizing: border-box;
 
@@ -371,9 +370,143 @@
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
+.generalParamsFieldWrapperInterval {
+    position: relative;
+}
+
 .generalParamsDropdownWrapperInterval {
+
+
+}
+
+.createInterval {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.createIntervalCountWrapper {
+    cursor: pointer;
+
+    width: 100%;
+}
+.createIntervalCount {
+    font-size: 12px;
+    font-weight: 600;
+
+    padding: 3px 0;
+
+    display: block;
+
+    width: 100%;
+
+    
+    border-radius: 8px;
+}
+
+.intervalToggleWrapper {
+    margin-right: 17px;
+}
+
+.intervalToggle {
+    position: relative;
+
+    width: 50px;
+    height: 23px;
+
+
+    border-radius: 20px;
+
+    background-color: #24C010;
+
+    overflow: hidden;
+}
+
+.intervalToggleSecondBg {
+    width: 100%;
+    height: 100%;
+
     position: absolute;
-    bottom: -5px;
+    top: 0;
     left: 0;
-    transform: translateY(100%);
+    z-index: 1;
+
+    border-radius: 20px;
+
+    background-color: #FF0000;
+
+    transition: 0.3s all;
+}
+
+.intervalToggleRound {
+    height: 18px;
+    width: 34px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    z-index: 2;
+
+    margin: 2.5px 0 0 3px;
+
+
+    background-color: #fff;
+
+    border-radius: 8px;
+
+    transition: 0.3s all;
+}
+
+.intervalToggleRoundText {
+    font-size: 8px;
+    display: none;
+    cursor: pointer;
+}
+
+.intervalToggleRoundTextActive {
+    display: block;
+}
+
+
+.createIntervalCountField {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    height: 190px;
+
+    
+    margin-top: 10px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+
+    background-color: #fff;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.createIntervalCountField {
+   
+}
+
+.createIntervalVariable {
+    font-size: 14px;
+}
+
+.generalParamsTitle {
+    font-size: 23px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-family: headline; 
 }
