@@ -162,6 +162,10 @@
     border-radius: 50%;
 }
 
+.generalParamsHeaderWrapper {
+    margin-top: 20px;
+}
+
 .generalParamsHeader {
     font-size: 23px;
     color: rgb(255, 255, 255);
@@ -221,6 +225,7 @@
     position: absolute;
     bottom: -5px;
     left: 0;
+    z-index: 2;
     transform: translateY(100%);
 }
 
@@ -237,13 +242,14 @@
 }
 
 .generalParamsDropdownValue {
-    font-size: 12px;
-    padding: 2px 4px;
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 4px 5px;
 }
 
 .generalParamsDropdownValueActive {
     background-color: #E8EEFC;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 
@@ -252,6 +258,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 11;
 
     width: 100%;
     height: 100vh;
@@ -477,7 +484,7 @@
     left: 0;
 
     width: 100%;
-    height: 190px;
+    height: 220px;
 
     
     margin-top: 10px;
@@ -500,8 +507,18 @@
    
 }
 
+.createIntervalVariableWrapper {
+    width: 100%;
+    padding: 2px 4px;
+    border-radius: 8px;
+}
 .createIntervalVariable {
     font-size: 14px;
+
+}
+
+.generalParamsTitleWrapper {
+    margin-top: 40px;
 }
 
 .generalParamsTitle {
@@ -509,4 +526,53 @@
     color: rgb(255, 255, 255);
     font-weight: 600;
     font-family: headline; 
+}
+
+.generalParamsTextFieldWrapper {
+    padding: 10px 20px;
+    margin-top: 20px;
+
+    background-color: #ffffff86;
+
+
+    border-radius: 15px;   
+}
+
+.TitleAndSubtitleInput {
+    border: none;
+    outline: none;
+
+    padding: 0;
+    margin: 0;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.downloadNotificationWrapper {
+    width: 80%;
+
+    margin: 30px auto 0 auto;
+    padding: 8px 0;
+    text-align: center;
+
+    background-color: #24C010;
+
+    border-radius: 10px;
+
+    transition: all .15s;
+
+}
+
+.downloadNotification {
+    font-size: 12px;
+    color: #fff;
+    font-weight: 600;
+
+}
+
+.downloadNotificationWrapper:active {
+    transform: scale(0.97);
 }

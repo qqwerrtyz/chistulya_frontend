@@ -109,7 +109,7 @@ export default function IntervalInput() {
 
                                             setData(dataPrev => {
                                                 const clone = {
-                                                    ...prev,
+                                                    ...dataPrev,
                                                     intervalStatus: isClicked
                                                 }
 
@@ -177,6 +177,9 @@ export default function IntervalInput() {
                                                 <div 
                                                     className={styles.createIntervalVariableWrapper}
                                                     onClick={() => addDataInterval(item)}
+                                                    style={{
+                                                        backgroundColor: displaySelectItem === item.ru ? "#4272ea3a" : ""
+                                                    }}
                                                 >
                                                     <span className={styles.createIntervalVariable}>{item.ru}</span>
                                                 </div>

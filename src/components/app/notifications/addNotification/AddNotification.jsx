@@ -5,6 +5,7 @@ import GeneralParamsInput from "./generalParamsInput/GeneralParamsInput"
 import { createContext, useState } from "react"
 import SelectTimeInpup from "./generalParamsInput/SelectTimeInpup"
 import IntervalInput from "./generalParamsInput/IntervalInput"
+import TitleAndSubtitle from "./generalParamsInput/TitleAndSubtitle"
 
 export const InputContext = createContext(null)
 export default function AddNotification({setShowAddNotification}) {
@@ -20,6 +21,39 @@ export default function AddNotification({setShowAddNotification}) {
         subTitle: null,
         intervalStatus: false
     }) 
+
+    function download() {
+
+        if (!data) {
+            alert("Кажется данные не корректно загрузились :( Перезагрузите страницу или подождите");
+            return
+        }
+
+         // Проверяем есть ли пустые поля
+        let hasEmptyFields = false;
+        
+        for (const [key, value] of Object.entries(data)) {
+                
+
+            if (value == null || value == undefined || value == "") {
+                if (key !== "intervalStatus") {
+                    alert ("Заполните все поля или заполните без ошибок");
+                    return
+                }
+            }
+        }
+
+        
+ 
+        console.log("Объект data установлен", data);
+        alert("Напоминание создано");
+        setShowAddNotification(prev => !prev);
+            
+
+
+        
+
+    }
 
     return (
         <div className={styles.addNotificationWrapper}>
@@ -53,7 +87,18 @@ export default function AddNotification({setShowAddNotification}) {
                             <div className={styles.generalParamsTitleWrapper}>
                                 <span className={styles.generalParamsTitle}>Текст напоминания</span>
                             </div>
+
+                            <div className={styles.generalParamsTextFieldWrapper}>
+                                <TitleAndSubtitle placehokder={"Заголовок"} type={"title"}/>
+                                <TitleAndSubtitle placehokder={"Подзаголовок"} type={"subTitle"}/>
+                            </div>
                         </InputContext.Provider>
+
+
+
+                        <div className={styles.downloadNotificationWrapper} onClick={() => download()}>
+                            <span className={styles.downloadNotification}>Установить</span>
+                        </div>
 
                     </div>
                 </div>

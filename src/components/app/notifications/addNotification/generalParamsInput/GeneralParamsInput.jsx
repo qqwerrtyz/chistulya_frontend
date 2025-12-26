@@ -19,6 +19,8 @@ export default function GeneralParamsInput({dropdown}){
             return clone
             
         })
+
+        setShowDropdown(prev => !prev)
     }
 
     function showTitle() {
