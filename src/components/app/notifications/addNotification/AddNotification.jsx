@@ -22,37 +22,61 @@ export default function AddNotification({setShowAddNotification}) {
         intervalStatus: false
     }) 
 
-    function download() {
+    const [loseField, setLoseField] = useState("")
 
+    function download() {
+        // Проверка на существование data
         if (!data) {
             alert("Кажется данные не корректно загрузились :( Перезагрузите страницу или подождите");
-            return
+            return;
         }
 
-         // Проверяем есть ли пустые поля
-        let hasEmptyFields = false;
-        
-        for (const [key, value] of Object.entries(data)) {
-                
+        // Массив для хранения ошибок на русском
+        const errors = [];
 
-            if (value == null || value == undefined || value == "") {
-                if (key !== "intervalStatus") {
-                    alert ("Заполните все поля или заполните без ошибок");
-                    return
-                }
+        // Проверяем основные поля
+        if (!data.type || data.type === "" || data.type === null) {
+            errors.push("Тип задания");
+        }
+        
+        if (!data.time || data.time === null) {
+            errors.push("Выбрать время");
+        }
+        
+        if (!data.title || data.title === "" || data.title === null) {
+            errors.push("Заголовок");
+        }
+        
+        if (!data.subTitle || data.subTitle === "" || data.subTitle === null) {
+            errors.push("Подзаголовок");
+        }
+
+        // Проверяем intervalStatus
+        if (data.intervalStatus === null) {
+            errors.push("Статус интервала (вкл/выкл)");
+        }
+
+        // Если интервал включен, проверяем его
+        if (data.intervalStatus === true && (!data.interval || data.interval === "" || data.interval === null)) {
+            errors.push("Выбрать интервал");
+        }
+
+        // Если есть ошибки
+        if (errors.length > 0) {
+            // Если вообще ничего не заполнено
+            const allNull = Object.values(data).every(value => value === null);
+            if (allNull) {
+                alert("Вы не заполнили ни одного поля!");
+            } else {
+                alert(`Заполните следующие поля:\n${errors.join('\n')}`);
             }
+            return;
         }
 
-        
- 
-        console.log("Объект data установлен", data);
+        // Если все проверки пройдены
+        console.log("Напоминание создано:", data);
         alert("Напоминание создано");
         setShowAddNotification(prev => !prev);
-            
-
-
-        
-
     }
 
     return (
