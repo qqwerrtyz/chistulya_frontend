@@ -1,0 +1,125 @@
+.regWrapper {
+    width: 100%;
+    height: 100vh;
+    background-color: #4272EA;
+}
+
+.reg {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.regPersWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    padding-top: 40px;
+
+    width: auto;
+    height: 40vh;
+
+}
+
+.regPers {
+    width: 47%;
+
+    margin-bottom: 20px;
+}
+
+.regInputWrapper {
+    height: 60vh;
+
+    background-color: #fff;
+
+    border-radius: 30px 30px 0 0;
+
+    padding: 20px;
+    
+}
+
+.regButtonWrapper {
+    width: 100%;
+
+    display: flex;
+
+    cursor: pointer;
+}
+
+.regButton {
+    width: 100%;
+
+    display: block;
+
+    padding: 10px 0;
+
+    text-align: center;
+    font-size: 14px;
+
+
+    border-radius: 12px;
+}
+
+.regButtonActive {
+    color: #fff;
+    background-color: #5B84ED;
+
+}
+
+.orWrapper {
+    display: flex;
+    justify-content: center;
+
+    margin: 15px 0;
+}
+
+.or {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.regIntegrationsWrapper {
+}
+
+.regIntegrationsWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.regIntegration {
+    width: 40px;
+    height: 40px;
+    
+    margin: 0 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #F4F4F4;
+
+    border-radius: 8px;
+}
+
+
+
+.regIntegrationIcon {
+    width: 25px;
+}
+
+.haveAccountWrapper {
+    margin-top: 15px;
+
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.haveAccountLink {
+    font-weight: 500;
+    color: #ED985B;
+    text-decoration: none;
+}

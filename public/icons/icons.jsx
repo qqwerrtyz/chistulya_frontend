@@ -31,6 +31,10 @@ import bringBack from "./bringBack.svg"
 import backNotificationBlue from "./backNotificationBlue.svg"
 import closeSelectTime from "./closeSelectTime.svg"
 import doneSelectTime from "./doneSelectTime.svg"
+import eye from "./eye.svg"
+import eyeClose from "./eyeClose.svg"
+import google from "./google.svg"
+import apple from "./apple.svg"
 
 const icons = {
     activeBell,
@@ -66,6 +70,10 @@ const icons = {
     backNotificationBlue,
     closeSelectTime,
     doneSelectTime,
+    eye,
+    eyeClose,
+    apple,
+    google
 }
 
 export default icons 
