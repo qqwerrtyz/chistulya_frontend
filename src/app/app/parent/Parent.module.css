@@ -1,0 +1,97 @@
+.parentOffice {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.parentOfficeHeadline {
+    font-family: "headline";
+    font-size: 28px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.addChildWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px 0;
+    padding: 6px 0;
+
+    background-color: #fff;
+    
+    border-radius: 20px;
+}
+
+.plusBlue {
+    width: 16px;
+
+    margin-left: 8px;
+}
+
+.addChild {
+    font-size: 15px;
+    font-weight: 600;
+    color: #5B84ED;
+}
+
+.myChildrenWrapper {
+    padding: 12px 20px;
+
+    box-sizing: border-box;
+
+    background-color: #fff;
+
+    border-radius: 15px;
+}
+
+.myChildrenHeadlineWrapper {
+    margin-bottom: 30px;
+}
+
+.myChildrenHeadline {
+    font-family: "headline";
+    font-size: 20px;
+
+}
+
+.myChildren {
+ 
+}
+
+.child {
+    display: flex;
+    align-items: center;
+
+    border-radius: 5px;
+
+    margin: 8px 0;
+}
+
+.child:active {
+
+    background-color: #C9F5FF;
+}
+
+.childNumber {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 8px;
+
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+
+    background-color: #5B84ED;
+
+    border-radius: 50%;
+}
+
+.childName {
+    font-weight: 500;
+}
