@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import styles from "./Header.module.css"
-import icons from "../../../../public/icons/icons"
+import icons from "../../../icons/icons"
 import { useState } from "react"
 import SidebarMenu from "../sidebarMenu/SidebarMenu"
 import IconHeader from "../another/IconHeader/IconHeader"

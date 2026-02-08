@@ -3,7 +3,7 @@ import Image from "next/image"
 import avatarImage from "../../../public/avatar/avatar"
 import styles from "./reg.module.css"
 import {  useState } from "react"
-import icons from "../../../public/icons/icons"
+import icons from "../../icons/icons"
 import Link from "next/link"
 import ShowInput from "@/components/app/another/inputForLogAndReg/showInput"
 

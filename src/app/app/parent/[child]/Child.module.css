@@ -1,0 +1,65 @@
+.myChildWrapper {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.nameChild {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 600;
+    font-family: "headline";
+}
+
+.backWrapper {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 20px 0;
+
+    background-color: #fff;
+
+    border-radius: 50%;
+}
+
+.backWrapper:active {
+    opacity: .3;
+}
+
+.back {
+    width: 20px;
+}
+
+.addNotificationWrapper,
+.customTaskWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 4px 0;
+
+    background-color: #fff;
+
+    border-radius: 15px;
+}
+
+.customTaskWrapper {
+    margin: 10px 0;
+}
+
+
+.addNotification,
+.customTask {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4272EA;
+
+    padding-right: 6px;
+}
+
+.customTaskPlus {
+    width: 16px;
+}

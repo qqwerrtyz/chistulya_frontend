@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styles from "./../Notifications.module.css"
-import icons from "../../../../../public/icons/icons"
+import icons from "../../../../icons/icons"
 import { useState } from "react"
 import AddNotification from "../addNotification/AddNotification"
 export default function Body({selectCategories, showAddNotification, setShowAddNotification}) {

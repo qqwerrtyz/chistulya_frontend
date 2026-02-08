@@ -2,7 +2,7 @@
 import Image from "next/image";
 import styles from "./../../Profile.module.css"
 import { useState } from "react";
-import icons from "../../../../../../public/icons/icons";
+import icons from "../../../../../icons/icons";
 import { useRouter } from "next/navigation";
 
 export default function Item({ icon, title, dropDown,  link, name}) {

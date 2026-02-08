@@ -5,7 +5,7 @@ import styles from "./log.module.css"
 import avatarImage from "../../../public/avatar/avatar"
 import ShowInput from "@/components/app/another/inputForLogAndReg/showInput"
 import { useState } from "react"
-import icons from "../../../public/icons/icons"
+import icons from "../../icons/icons"
 import Link from "next/link"
 
 

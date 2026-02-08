@@ -1,5 +1,5 @@
 import Image from "next/image"
-import icons from "../../../../../../../public/icons/icons"
+import icons from "../../../../../../icons/icons"
 import styles from "./../EveryDayTask.module.css"
 export default function Menu({setIsOpen, isOpen, dataDayTasks, setSelectCategory }) {
     function findCheked(obj) {

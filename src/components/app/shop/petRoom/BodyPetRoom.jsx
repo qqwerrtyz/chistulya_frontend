@@ -1,7 +1,7 @@
 import Image from "next/image"
 import styles from "./BodyPetRoom.module.css"
 import ProductsList from "./productsList/ProductsList"
-import icons from "../../../../../public/icons/icons"
+import icons from "../../../../icons/icons"
 import { useState } from "react"
 
 export default function BodyPetRoom ({dataList}) {

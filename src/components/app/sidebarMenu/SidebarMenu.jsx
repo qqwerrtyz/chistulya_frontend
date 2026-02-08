@@ -1,5 +1,5 @@
 import Link from "next/link"
-import icons from "../../../../public/icons/icons"
+import icons from "../../../icons/icons"
 import IconHeader from "../another/IconHeader/IconHeader"
 import styles from "./Sidebar.module.css"
 import Image from "next/image"

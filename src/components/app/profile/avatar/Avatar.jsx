@@ -1,4 +1,4 @@
-import icons from "../../../../../public/icons/icons"
+import icons from "../../../../icons/icons"
 import styles from "./../Profile.module.css"
 import Image from "next/image"
 

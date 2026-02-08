@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import icons from "../../../../../public/icons/icons"
+import icons from "../../../../icons/icons"
 import styles from "./showInput.module.css"
 
 export default function ShowInput({title, nameData, type = "text", placeholder="Загрузка данных...", data={data}, setData = {setData}}) {

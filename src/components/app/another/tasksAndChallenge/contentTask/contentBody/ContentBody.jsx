@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import styles from "./ContentBody.module.css"
 import Image from "next/image";
-import icons from "../../../../../../../public/icons/icons";
+import icons from "../../../../../../icons/icons";
 
 export default function ContentBody({selectValue, firstData, secondData, isActive, type}) {
 

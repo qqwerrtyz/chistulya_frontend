@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styles from "../Chellenge.module.css"
-import icons from "../../../../../../../public/icons/icons"
+import icons from "../../../../../../icons/icons"
 export default function MenuChellengeAnalytics({selectedMonth, showDropDown, setShowDropDown}) {
     return (
         <div className={styles.menu} onClick={() => setShowDropDown(prev => !prev)}>

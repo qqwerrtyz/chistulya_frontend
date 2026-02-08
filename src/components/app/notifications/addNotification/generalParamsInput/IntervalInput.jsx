@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styles from "./../../Notifications.module.css"
-import icons from "../../../../../../public/icons/icons"
+import icons from "../../../../../icons/icons"
 import { InputContext } from "../AddNotification";
 import { useContext, useEffect, useState } from "react";
 export default function IntervalInput() {

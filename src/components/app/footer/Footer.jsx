@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styles from "./Footer.module.css"
-import icons from "../../../../public/icons/icons"
+import icons from "../../../icons/icons"
 import Link from "next/link"
 
 function FooterIcon({src, name, href, alt}) {

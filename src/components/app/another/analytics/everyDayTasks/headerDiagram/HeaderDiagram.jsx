@@ -1,7 +1,7 @@
 import Image from "next/image"
 import styles from "./../EveryDayTask.module.css"
 import { useState } from "react";
-import icons from "../../../../../../../public/icons/icons";
+import icons from "../../../../../../icons/icons";
 export default function HeaderDiagram({
     renderEveryDayTaskResult,
     data7Days,

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styles from "./../Notifications.module.css"
-import icons from "../../../../../public/icons/icons"
+import icons from "../../../../icons/icons"
 import GeneralParamsInput from "./generalParamsInput/GeneralParamsInput"
 import { createContext, useState } from "react"
 import SelectTimeInpup from "./generalParamsInput/SelectTimeInpup"

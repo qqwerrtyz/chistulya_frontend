@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styles from "./Header.module.css"
-import icons from "../../../../../../public/icons/icons"
+import icons from "../../../../../icons/icons"
 
 
 export default function Header ({title, flags, setFlags}) {
