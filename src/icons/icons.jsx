@@ -35,6 +35,12 @@ import eye from "./eye.svg"
 import eyeClose from "./eyeClose.svg"
 import google from "./google.svg"
 import apple from "./apple.svg"
+import pinkRobot from "./pinkRobot.svg"
+import blueRobot from "./blueRobot.svg"
+import planet from "./planet.svg"
+import burgerLanding from "./burgerLanding.svg"
+import cross from "./cross.svg"
+import telegram from "./telegram.svg"
 
 const icons = {
     activeBell,
@@ -73,7 +79,13 @@ const icons = {
     eye,
     eyeClose,
     apple,
-    google
+    google,
+    pinkRobot,
+    blueRobot,
+    planet,
+    burgerLanding,
+    cross,
+    telegram
 }
 
 export default icons 

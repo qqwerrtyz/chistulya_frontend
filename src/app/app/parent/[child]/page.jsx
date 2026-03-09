@@ -37,11 +37,11 @@ export default function MyChild() {
                     <TasksAndChallenges />
                 </div>
 
-                <div>
-                    <div>
+                <div className={styles.myChildAnalytics}>
+                    <div className={styles.everyDayTaskWrapper}>
                         <EveryDayTask />
                     </div>
-                    <div>
+                    <div className={styles.chellengeWrapper}>
                         <Chellenge />
                     </div>
                 </div>
