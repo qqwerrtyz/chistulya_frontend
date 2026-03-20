@@ -4,6 +4,9 @@ import styles from "./landing.module.css"
 import Image from "next/image";
 import icons from "@/icons/icons";
 import Main from "@/components/landing/main/Main";
+import AboutApp from "@/components/landing/aboutApp/AboutApp";
+import WhyImportant from "@/components/landing/whyImportant/WhyImportant";
+import ForWhom from "@/components/landing/forWhom/ForWhom";
 export default function Home() {
 
   return (
@@ -25,10 +28,11 @@ export default function Home() {
        
         
 
+      <AboutApp />
 
-
-
+      <WhyImportant />
       
+      <ForWhom />
     </>
     
   );

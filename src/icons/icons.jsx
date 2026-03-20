@@ -41,6 +41,10 @@ import planet from "./planet.svg"
 import burgerLanding from "./burgerLanding.svg"
 import cross from "./cross.svg"
 import telegram from "./telegram.svg"
+import motivation from "./motivation.svg"
+import joystick from "./joystick.svg"
+import home from "./home.svg"
+import files from "./files.svg"
 
 const icons = {
     activeBell,
@@ -85,7 +89,11 @@ const icons = {
     planet,
     burgerLanding,
     cross,
-    telegram
+    telegram,
+    motivation,
+    joystick,
+    home,
+    files,
 }
 
 export default icons 

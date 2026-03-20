@@ -1,0 +1,89 @@
+.forWhomWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.forWhom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 1400px;
+}
+
+.forWhomImgWrapper {
+    width: 48%;
+}
+
+.forWhomTextContent {
+    width: 48%;
+}
+
+.forWhomImg {
+    width: 80%;
+    height: auto;
+}
+
+.forWhomTextContent {
+    text-align: center;
+}
+
+.forWhomTitle {
+    font-size: 30px;
+}
+
+.forWhomWrapper {
+    margin-top: 46px;
+}
+
+@media screen and (max-width: 1024px) {
+    .forWhom {
+        padding: 0 30px;
+    }
+    .forWhomTitle {
+        font-size: 30px;
+    }
+
+    .forWhomDescription {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .forWhom {
+        flex-direction: column;
+
+        padding: 0 20px;
+    }
+
+
+    .forWhomImgWrapper {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+
+        margin-top: 20px;
+
+        order: 2;
+    }
+
+    .forWhomTextContent {
+        order: 1;
+    }
+
+    .forWhomTextContent {
+        width: 100%;
+    }
+
+    .forWhomDescription {
+        font-size: 14px;
+
+        margin: 0 0 20px 0;
+    }
+
+    .forWhomTitle {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+}
