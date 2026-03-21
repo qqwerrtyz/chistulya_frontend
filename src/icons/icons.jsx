@@ -45,6 +45,7 @@ import motivation from "./motivation.svg"
 import joystick from "./joystick.svg"
 import home from "./home.svg"
 import files from "./files.svg"
+import up from "./up.svg"
 
 const icons = {
     activeBell,
@@ -94,6 +95,7 @@ const icons = {
     joystick,
     home,
     files,
+    up,
 }
 
 export default icons 

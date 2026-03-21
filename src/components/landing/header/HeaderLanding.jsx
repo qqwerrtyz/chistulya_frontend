@@ -80,7 +80,7 @@ export default function HeaderLanding() {
                     />
                 </div>
                 <div className={styles.goAppWrapper}>
-                    <Link href={"#"} className={styles.goApp}>Перейти</Link>
+                    <Link href={"/reg"} className={styles.goApp}>Перейти</Link>
                 </div>
                 
                 </div>
@@ -125,7 +125,7 @@ export default function HeaderLanding() {
                                 </div>
 
                                 <div className={styles.goAppSidebarWrapper}>
-                                    <Link className={styles.goAppSidebar} href={"#"}>Перейти</Link>
+                                    <Link className={styles.goAppSidebar} href={"/reg"}>Перейти</Link>
                                 </div>
                             </div>
 

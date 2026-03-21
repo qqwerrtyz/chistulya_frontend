@@ -1,0 +1,154 @@
+.howGetStartWrapper {
+    display: flex;
+    justify-content: center;
+
+}
+
+.howGetStart {
+    width: 1400px;
+    
+    box-sizing: border-box;
+    padding: 46px;
+    margin-top: 46px;
+
+    background-color: #F4F4F4;
+
+    border-radius: 20px;
+}
+
+.titleWrapper {
+    text-align: center;
+}
+
+.title {
+    margin: 0;
+
+    font-size: 30px;
+}
+
+.paragraphWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+.paragraph {
+    
+    width: 800px;
+
+}
+
+
+
+.regWrapper {
+    margin-top: 30px;
+
+    text-align: center;
+}
+
+.reg {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+
+    background-color: #ED985B;
+
+    border-radius: 10px;
+
+
+    transition: .3s all;
+}
+
+.reg:hover {
+    opacity: .7;
+
+    color: #1b1b1b;
+
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 1024px) {
+    .howGetStartWrapper {
+        padding: 0 30px;
+    }
+
+    .howGetStart {
+        width: 100%;
+
+        padding: 26px;
+    }
+
+    .paragraph {
+        width: auto;
+
+        margin: 0 0 16px 0;
+
+        font-size: 14px;
+    }
+
+    .title {
+        font-size: 26px;
+
+        margin-bottom: 25px;
+    }
+
+    .regWrapper {
+        margin-top: 10px;
+    }
+
+    .reg {
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+@media screen and (max-width: 576px) {
+    .howGetStartWrapper {
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    .howGetStart {
+        width: 100%;
+    }
+
+    .paragraph {
+        width: 100%;
+
+        font-size: 12px;
+    }
+
+    .title {
+        font-size: 24px;
+
+        margin-bottom: 24px;
+    }
+
+    .paragraph {
+        display: inline-block;
+        margin: 0 0 20px 0;
+    }
+
+    .howGetStart {
+        padding: 20px;
+    }
+
+    .regWrapper {
+        margin-top: 15px;
+    }
+
+    .reg {
+        font-size: 12px;
+        font-weight: 600;
+
+        padding: 6px 16px;
+    }
+}

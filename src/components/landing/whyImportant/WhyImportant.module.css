@@ -119,6 +119,8 @@
 
     .col1 {
         width: 100%;
+
+        margin-top: 5px;
     }
 
     .col2 {
@@ -136,6 +138,24 @@
 
     .screen {
         width: 320px;
+    }
+
+    .title {
+        font-size: 26px;
+
+        margin-bottom: 25px;
+    }
+
+    .subTitle {
+        font-size: 14px;
+
+        margin: 8px 0;
+    }
+
+    .reasonText {
+        width: 100%;
+
+        font-size: 14px;
     }
 
 }
@@ -156,9 +176,11 @@
 
     .col2 {
         width: 100%;
+        height: auto;
         order: 1;
+        
 
-        padding-top: 20px;
+        padding-top: 30px;
 
         margin-bottom: 10px;
     }
@@ -179,6 +201,11 @@
         box-sizing: border-box;
 
         margin: 10px 0;
+    }
+
+    .reasonText {
+        width: auto;
+        font-size: 14px;
     }
 
     .subTitle {

@@ -7,7 +7,7 @@ export default function Main() {
          <div className={styles.mainWrapper}>
           <div className={styles.main}>
 
-            <div className={styles.mainColumnRobot}>
+            <div className={`${styles.mainColumnRobot} ${styles.mainColumnRobot1}`}>
               <div className={styles.mainRobotItemWrapper}>
 
                 <div className={`${styles.mainRobotItem} ${styles.mainRobotItemRight}`}>
@@ -39,7 +39,7 @@ export default function Main() {
                   <p className={styles.mainTitle}>Ребенок учится через игру, а вы следите за прогрессом с  <span className={styles.mainTitleBlueBg}>Чистюлей</span></p>
                   <p className={styles.mainSubtitle}>Игровые задания, награды и отчёты для родителей — всё, чтобы ребёнок с радостью заботился о себе</p>
                   <div className={styles.mainWebVersionWrapper}>
-                    <Link href={"#"} className={styles.mainWebVersion}>Веб-версия <Image className={styles.mainWebVersionImg} src={icons.planet}/></Link>
+                    <Link href={"/log"} className={styles.mainWebVersion}>Веб-версия <Image className={styles.mainWebVersionImg} src={icons.planet}/></Link>
                   </div>
               </div>
             </div>

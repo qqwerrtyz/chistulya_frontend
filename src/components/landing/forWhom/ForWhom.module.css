@@ -41,7 +41,13 @@
         padding: 0 30px;
     }
     .forWhomTitle {
-        font-size: 30px;
+        font-size: 26px;
+
+        margin-bottom: 26px;
+    }
+
+    .forWhomDescription {
+        margin: 0 0 16px 0;
     }
 
     .forWhomDescription {
