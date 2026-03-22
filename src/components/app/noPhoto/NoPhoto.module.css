@@ -1,0 +1,146 @@
+.noPhotoWrapper {
+    position: fixed;
+    z-index: 10000;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #4272EA;
+}
+
+.noPhoto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.backWrapper {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background-color: #ffffff20;
+
+    transition: .14s all;
+}
+
+.backWrapper:hover,
+.backWrapper:active {
+    opacity: .3;
+}
+
+.back {
+    width: 36px;
+}
+
+.company {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 68px;
+    height: 68px;
+
+    margin-right: 20px;
+}
+
+.logoTitle {
+    padding: 4px 16px;
+
+    color: #ED985B;
+    font-size: 30px;
+    font-weight: 700;
+    
+    background-color: #fff;
+
+    border-radius: 10px;
+}
+
+.paragraphWrapper {
+    text-align: center;
+}
+
+.paragraph {
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.noPhotoQRWapper {
+    margin-top: 40px;
+    padding: 14px;
+
+    width: 200px;
+    height: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fff;
+
+    border-radius: 20px;
+}
+
+.noPhotoQR {
+    width: 90%;
+    height: 90%;
+
+    border-radius: 12px;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .logo {
+        width: 58px;
+        height: 58px;
+    }
+
+    .logoTitle {
+        font-size: 24px;
+    }
+
+    .paragraph {
+        font-size: 16px;
+    }
+
+    .noPhoto {
+        padding: 0 30px;
+    }
+
+    .noPhotoQRWapper {
+        width: 160px;
+        height: 160px;
+
+        padding: 6px;
+    }
+
+    .backWrapper {
+        width: 40px;
+        height: 40px;
+
+        top: 50px;
+        left: 30px;
+    }
+
+    .back {
+        width: 30px;
+    }
+}

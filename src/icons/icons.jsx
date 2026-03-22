@@ -46,6 +46,7 @@ import joystick from "./joystick.svg"
 import home from "./home.svg"
 import files from "./files.svg"
 import up from "./up.svg"
+import backWhite from "./backWhite.svg"
 
 const icons = {
     activeBell,
@@ -96,6 +97,7 @@ const icons = {
     home,
     files,
     up,
+    backWhite
 }
 
 export default icons 
