@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./header.module.css"
 import Image from "next/image";
 import icons from "@/icons/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function HeaderLanding() {
     const menuItems = [
         {
@@ -34,7 +34,17 @@ export default function HeaderLanding() {
 
     const [isSidebar, setIsSidebar] = useState (false);
 
+    useEffect(() => {
+        if (isSidebar) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
 
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isSidebar]);
 
 
     return (

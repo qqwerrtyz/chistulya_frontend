@@ -29,6 +29,7 @@
 .footer {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     width: 1400px;
 }
@@ -104,6 +105,32 @@
     transform: scale(1.04);
 }
 
+.col3 {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 20px;
+}
+
+.fasieImg {
+    width: 80px;
+    height: auto;
+
+    margin-left: 14px;
+}
+
+.fasieText {
+    font-style: italic;
+    margin: 0;
+}
+
+.fasie {
+    display: flex;
+    align-items: center;
+}
+
 @media screen and (max-width: 1024px) {
     .footer {
         padding: 0 30px;
@@ -119,7 +146,7 @@
     }
 
     .footerItemTitle {
-        font-size: 18px;
+        font-size: 16px;
         padding-bottom: 16px;
     }
 
@@ -132,12 +159,38 @@
     }
 
     .footerDocument {
-        font-size: 16px;    
+        font-size: 14px;    
     }
+
+    .footerItem1 {
+        width: 25%;
+    }
+
+    .footerItem2 {
+        width: 25%;
+    }
+
+    .footerItem3 {
+        width: 48%;
+    }
+
+    .footerSubitem {
+        font-size: 14px;
+    }
+
+    .fasieText {
+        font-size: 12px;
+    }
+
+    .fasieImg {
+        width: 60px;
+    }
+
 }
 @media screen and (max-width: 576px) {
     .footer {
         flex-direction: column;
+        padding: 0;
     }
     
     .footerItem1 {
@@ -202,5 +255,17 @@
         font-size: 12px;
 
         margin-bottom: 6px;
+    }
+
+    .col3 {
+        margin-bottom: 40px;
+    }
+
+    .fasieText {
+        font-size: 12px;
+    }
+
+    .fasieImg {
+        width: 60px;
     }
 }

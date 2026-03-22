@@ -37,9 +37,9 @@ export default function FooterLanding() {
                     <div className={`${styles.footerItem} ${styles.footerItem2}`}>
                         <span className={styles.footerItemTitle}>Контакты</span>
                         <div className={styles.footerSubitems}>
-                            <Link href={"#"} className={styles.footerSubitemImgWrapper}>
+                            <a href={"https://t.me/Qqwerrtyz"} className={styles.footerSubitemImgWrapper}>
                                 <Image width={100} height={100} src={icons.telegram} className={styles.footerSubitemImg}/>
-                            </Link>
+                            </a>
                             
                         </div>
                     </div>
@@ -52,7 +52,13 @@ export default function FooterLanding() {
                     </div>
                 </div>
 
-           
+
+                <div className={styles.col3}>
+                    <div className={styles.fasie}>
+                        <p className={styles.fasieText}>Проект сделан при поддержке Фонда содействия инновации</p>
+                        <Image width={100} height={100} className={styles.fasieImg} src={"/imgs/landing/fasie.png"}/>
+                    </div>
+                </div>
 
             </div>
         </footer>

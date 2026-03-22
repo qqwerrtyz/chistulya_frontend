@@ -46,6 +46,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .upImg {
+    width: 36px;
+  }
+
 
 }
 
