@@ -48,21 +48,28 @@ export default function AuthGuard({ children }) {
 
                 const result = await response.json()
 
+                console.log("ME RESULT:", result)
+
+                if (result.data?.me) {
+                    setIsAuthChecked(true)
+                    return
+                }
+
                 if (result.errors?.length) {
-                    localStorage.removeItem("access_token")
-                    localStorage.removeItem("refresh_token")
-                    localStorage.removeItem("session_id")
+                    const firstError = result.errors[0]
+                    const code = firstError?.extensions?.code
+
+                    if (code === "UNAUTHENTICATED") {
+                        localStorage.removeItem("access_token")
+                        localStorage.removeItem("refresh_token")
+                        localStorage.removeItem("session_id")
+                    }
 
                     router.replace("/log")
                     return
                 }
 
-                if (!result.data?.me) {
-                    router.replace("/log")
-                    return
-                }
-
-                setIsAuthChecked(true)
+                router.replace("/log")
 
             } catch (error) {
                 router.replace("/log")
