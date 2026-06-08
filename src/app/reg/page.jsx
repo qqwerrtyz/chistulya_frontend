@@ -7,6 +7,59 @@ import icons from "../../icons/icons"
 import Link from "next/link"
 import ShowInput from "@/components/app/another/inputForLogAndReg/showInput"
 
+const REGISTER_MUTATION = `
+  mutation Register(
+    $email: String!
+    $password: String!
+    $captcha_token: String
+    $device: String
+  ) {
+    register(
+      email: $email
+      password: $password
+      captcha_token: $captcha_token
+      device: $device
+    ) {
+      success
+
+      errors {
+        __typename
+
+        ... on ValidationError {
+          message
+          fields {
+            field
+            messages
+          }
+        }
+
+        ... on RateLimitError {
+          message
+          retryAfter
+        }
+
+        ... on InvalidActionError {
+          message
+        }
+
+      }
+
+      tokens {
+        session_id
+
+        access {
+          token
+          expires_at
+        }
+
+        refresh {
+          token
+          expires_at
+        }
+      }
+    }
+  }
+`
 
 export default function Reg() {
     const [data, setData] = useState({
@@ -23,158 +76,60 @@ export default function Reg() {
 
     const [err, setErr] = useState()
 
-    function isValidEmail(email) {
-        email = data[email]
-        if (typeof email !== "string") return false;
+    async function handleRegister() {
+        setErr(null)
 
-        if (!email.includes("@")) return false;
-
-        const parts = email.split("@");
-        if (parts.length !== 2) return false;
-
-        const [name, domain] = parts;
-
-        if (!name || !domain) return false;
-
-        // ---- проверка имени (до @) ----
-
-        // запрещаем начальную и конечную точку
-        if (name.startsWith(".") || name.endsWith(".")) return false;
-
-        // запрещаем две точки подряд
-        if (name.includes("..")) return false;
-
-        // разрешённые символы
-        for (let char of name) {
-            const isLetter = char >= "a" && char <= "z" || char >= "A" && char <= "Z";
-            const isNumber = char >= "0" && char <= "9";
-            const isAllowedSymbol = char === "." || char === "_" || char === "-";
-
-            if (!isLetter && !isNumber && !isAllowedSymbol) {
-                return false;
-            }
-        }
-
-        // ---- проверка домена ----
-
-        if (!domain.includes(".")) return false;
-
-        const domainParts = domain.split(".");
-        if (domainParts.some(part => part.length === 0)) return false;
-
-        for (let part of domainParts) {
-            for (let char of part) {
-                const isLetter = char >= "a" && char <= "z" || char >= "A" && char <= "Z";
-                const isNumber = char >= "0" && char <= "9";
-
-                if (!isLetter && !isNumber) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
-    function isValidName(name) {
-        name = data[name]
-        if (typeof name !== "string") return false;
-
-        const trimmed = name.trim();
-        if (trimmed.length === 0) return false; // пустая строка
-
-        // Быстрые запрещающие проверки:
-        // - цифры и точки недопустимы
-        if (/[0-9.]/.test(trimmed)) return false;
-
-        // Разбиваем по пробелам на "части" (например: "Анна Мария")
-        const parts = trimmed.split(/\s+/);
-        for (const part of parts) {
-            if (part.length === 0) return false; // двойные пробелы или пустая часть
-
-            // Допустимы только буквы (латиница или кириллица) — никаких знаков/символов
-            if (/[^A-Za-z\u0400-\u04FF]/.test(part)) return false;
-
-            const isCyrillic = /^[\u0400-\u04FF]+$/.test(part);
-            const isLatin    = /^[A-Za-z]+$/.test(part);
-
-            // Часть должна быть либо полностью русской, либо полностью английской
-            if (!isCyrillic && !isLatin) return false;
-        }
-
-        return true;
-    }
-
-    function isValidPass(pass) {
-        pass = data[pass]
-        if (typeof pass !== "string") return false;
-
-        // минимальная длина
-        if (pass.length < 8) return false;
-
-        // пробелы запрещены
-        if (/\s/.test(pass)) return false;
-
-        // обязательные группы символов
-        if (!/[a-z]/.test(pass)) return false; // строчные буквы
-        if (!/[A-Z]/.test(pass)) return false; // заглавные буквы
-        if (!/[0-9]/.test(pass)) return false; // цифры
-
-        return true;
-        }
-
-
-
-
-    function chekField(type) {
-
-
-        for (let value in data) {
-            if (value === "email") {
-                if (!isValidEmail(value)) {
-                    alert("не корректный email")
-                    return false
-                }
-                setInputDone(prev => {
-                    let clone = {
-                        ...prev,
-                        value: true
-                    };
-                    
+        try {
+            const response = await fetch("/api/graphql", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    query: REGISTER_MUTATION,
+                    variables: {
+                        email: data.email,
+                        password: data.pass,
+                        captcha_token: null,
+                        device: "web"
+                    }
                 })
-            } else if (value === "name") {
-                if (!isValidName(value)) {
-                    alert("введите корректное имя")
-                    return false
-                }
-                setInputDone(prev => {
-                    let clone = {
-                        ...prev,
-                        value: true
-                    };
-                    
-                })
+            })
 
-            } else if (value === "pass") {
-                if (!isValidPass(value)) {
-                    alert("Введите корректный пароль")
-                    return false
-                }
-                setInputDone(prev => {
-                    let clone = {
-                        ...prev,
-                        value: true
-                    };
-                    
-                })
+            const result = await response.json()
 
+            if (result.errors?.length) {
+                setErr(result.errors[0].message)
+                return
             }
+
+            const payload = result.data.register
+
+            if (!payload.success) {
+                const firstError = payload.errors?.[0]
+
+                if (firstError?.__typename === "ValidationError") {
+                    setErr(firstError.fields?.[0]?.messages?.[0] || firstError.message)
+                    return
+                }
+
+                setErr(firstError?.message || "Ошибка регистрации")
+                return
+            }
+
+            localStorage.setItem("access_token", payload.tokens.access.token)
+            localStorage.setItem("refresh_token", payload.tokens.refresh.token)
+            localStorage.setItem("session_id", payload.tokens.session_id)
+
+            console.log("Регистрация успешна", payload.tokens)
+
+            alert("Вы успешно зарегистрированы")
+            window.location.href = "/log"
+
+        } catch (error) {
+            setErr("Ошибка соединения с сервером")
         }
-
-        return alert("Вы успешно зарегистрировались!")
-        
     }
-
 
 
     return (
@@ -212,9 +167,20 @@ export default function Reg() {
                         />
                     </>
 
-                    <div className={styles.regButtonWrapper} onClick={()=> chekField()}>
+                    {/* <div className={styles.regButtonWrapper}>
                         <span className={`${styles.regButton} ${styles.regButtonActive}`}>Зарегистрироваться</span>
+                    </div> */}
+
+                    <div className={styles.regButtonWrapper}>
+                        <span 
+                            className={`${styles.regButton} ${styles.regButtonActive}`}
+                            onClick={handleRegister}
+                        >
+                            Зарегистрироваться
+                        </span>
                     </div>
+
+                    {err && <div>{err}</div>}
 
                     <div className={styles.orWrapper}>
                         <span className={styles.or}>или</span>

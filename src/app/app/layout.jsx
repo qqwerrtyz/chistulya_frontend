@@ -1,6 +1,7 @@
 import Footer from "@/components/app/footer/Footer";
 import Header from "@/components/app/header/Header";
 import NoPhoto from "@/components/app/noPhoto/NoPhoto";
+import AuthGuard from "../auth/AuthGuard";
 
 const stylesBody = {
     minHeight: "100vh",
@@ -16,7 +17,7 @@ const stylesChildrenWrapper = {
 
 export default function Layout({ children }) {
     return (
-        <>
+        <AuthGuard>
             <NoPhoto />
             <div style={stylesBody}>
                 <Header />
@@ -25,6 +26,6 @@ export default function Layout({ children }) {
                 </div>
                 <Footer />
             </div>
-        </>
+        </AuthGuard>
     );
 }
