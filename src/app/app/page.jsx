@@ -56,13 +56,6 @@ const UPSERT_PROFILE_MUTATION = `
           message
         }
       }
-
-      profile {
-        id
-        name
-        role
-        timezone
-      }
     }
   }
 `
@@ -191,7 +184,7 @@ export default function MaisnPage() {
             }
 
             if (selectedRole === "child") {
-                router.replace("/app/child")
+                router.replace("/app/child") 
                 return
             }
 
