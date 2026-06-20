@@ -14,7 +14,6 @@ const ME_QUERY = `
       id
       email
       profile {
-        id
         name
         role
         timezone

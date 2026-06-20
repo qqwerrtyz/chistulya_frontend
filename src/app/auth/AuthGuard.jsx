@@ -10,7 +10,6 @@ const ME_QUERY = `
       email
       role
       profile {
-        id
         name
         role
         date_of_birth

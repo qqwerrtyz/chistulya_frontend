@@ -117,7 +117,7 @@ export default function Log() {
 
             console.log("Вход выполнен успешно", payload.tokens)
 
-            window.location.href = "/app/"
+            window.location.href = "/app/getrole/"
 
         } catch (error) {
             setErr("Ошибка соединения с сервером")
