@@ -5,9 +5,11 @@ import styles from "./Sidebar.module.css"
 import Image from "next/image"
 import another from "../../../../public/imgs/another/another"
 import { useState } from "react"
-import QR from "../another/qr/QR"
 
-function MenuItem({name, href, handler}) {
+import QR from "../another/qr/QR"
+import { useRouter } from "next/navigation"
+
+function MenuItem({name, href, handler, onClick}) {
     return (
         <Link onClick={handler} href={href} className={styles.item}>
             <span className={styles.itemName}>{name}</span>
@@ -17,7 +19,37 @@ function MenuItem({name, href, handler}) {
 }
 
 
+const LOGOUT_MUTATION = `
+    mutation Logout {
+        logout {
+            success
+            errors {
+                __typename
+
+                ... on ValidationError {
+                    message
+                    fields {
+                        field
+                        messages
+                    }
+                }
+
+                ... on RateLimitError {
+                    message
+                    retryAfter
+                }
+
+                ... on InvalidActionError {
+                    message
+                }
+            }
+        }
+    }
+`
+
 export default function SidebarMenu({showSidebar, setShowSidebar}) {
+    const router = useRouter()
+
     const [showQR, setShowQR] = useState(false);
 
     const itemMenuChild = [
@@ -28,7 +60,7 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
 
         {
             name: "Миссии",
-            href: "/app/child/missin/"
+            href: "/app/child/mission/"
         },
 
         {
@@ -38,7 +70,7 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
 
         {
             name: "Напоминания",
-            href: "/app/child/reminders/"
+            href: "/app/notifications/"
         },
 
         {
@@ -48,7 +80,7 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
 
         {
             name: "Профиль",
-            href: "/app/child/profile/"
+            href: "/app/profile/"
         },
     ]
 
@@ -85,6 +117,58 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
         setShowSidebar(prev => !prev)
     }
 
+    async function handlerLogout() {
+        const isConfirm = confirm("Вы точно хотите выйти?")
+
+        if (!isConfirm) {
+            return
+        }
+
+        const accessToken = localStorage.getItem("access_token")
+
+        if (!accessToken) {
+            localStorage.removeItem("access_token")
+            localStorage.removeItem("refresh_token")
+            localStorage.removeItem("session_id")
+            router.replace("/log")
+            return
+        }
+
+        try {
+            const response = await fetch("/api/graphql", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${accessToken}`
+                },
+                body: JSON.stringify({
+                    query: LOGOUT_MUTATION
+                })
+            })
+
+            const result = await response.json()
+Й
+            console.log("LOGOUT RESULT:", result)
+
+            const payload = result.data?.logout
+
+            if (!payload?.success) {
+                alert(result.errors?.[0]?.message || payload?.errors?.[0]?.message || "Ошибка выхода из аккаунта")
+                return
+            }
+
+            localStorage.removeItem("access_token")
+            localStorage.removeItem("refresh_token")
+            localStorage.removeItem("session_id")
+
+            router.replace("/log")
+
+        } catch (error) {
+            console.log("LOGOUT ERROR:", error)
+            alert("Ошибка соединения с сервером")
+        }
+    }
+
     return (
 
         showSidebar && (
@@ -106,7 +190,7 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
                             role === "child" && (
                                 itemMenuChild.map((item, index) => {
                                     return (
-                                            <MenuItem name={item.name} href={item.href} key={`${index}-${item.name}`}/>
+                                            <MenuItem onClick={handlerShowSidebar} name={item.name} href={item.href} key={`${index}-${item.name}`}/>
                                     )
                                 })
                             )
@@ -158,7 +242,7 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
                         <QR isShow={showQR} setIsShow={setShowQR}/>
                     </div>
 
-                    <div className={styles.exitWrapper}>
+                    <div className={styles.exitWrapper} onClick={handlerLogout}>
                         <div className={styles.exit}>
                             <Image alt="exit" className={styles.exitIcon} src={icons.exit}/>
                             <span className={styles.exitText}>Выйти</span>

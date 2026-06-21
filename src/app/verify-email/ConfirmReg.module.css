@@ -1,0 +1,123 @@
+.confirmRegWrapper {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: linear-gradient(180deg, #5B84ED 0%, #D4DFFA 100%);
+}
+
+.confirmReg {
+    width: 100%;
+    max-width: 420px;
+}
+
+.confirmRegCard {
+    width: 100%;
+
+    padding: 35px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 30px;
+
+    background-color: #fff;
+
+    box-sizing: border-box;
+}
+
+.confirmRegIconWrapper,
+.confirmRegIconWrapperSuccess,
+.confirmRegIconWrapperError {
+    width: 70px;
+    height: 70px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+}
+
+.confirmRegIconWrapper {
+    background-color: #E8EEFC;
+}
+
+.confirmRegIconWrapperSuccess {
+    background-color: #D4DFFA;
+}
+
+.confirmRegIconWrapperError {
+    background-color: #FFE2E2;
+}
+
+.confirmRegIcon {
+    color: #5B84ED;
+
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.confirmRegIconWrapperError .confirmRegIcon {
+    color: #E14B4B;
+}
+
+.confirmRegTitle {
+    margin: 0 0 10px 0;
+
+    color: #222;
+
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.confirmRegText {
+    margin: 0 0 10px 0;
+
+    color: #707070;
+
+    font-size: 15px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.confirmRegHelpText {
+    margin: 0 0 20px 0;
+
+    color: #E14B4B;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.confirmRegButton {
+    width: 100%;
+
+    margin-top: 15px;
+    padding: 14px 20px;
+
+    border: none;
+    border-radius: 15px;
+
+    background-color: #5B84ED;
+
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.confirmRegButton:active {
+    transform: scale(0.98);
+}

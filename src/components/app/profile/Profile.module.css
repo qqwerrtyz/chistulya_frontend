@@ -145,3 +145,72 @@
 
     border-radius: 10px;
 }
+
+.nameEditRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-bottom: 5px;
+}
+
+.userName {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.changeName {
+    width: 160px;
+    padding: 6px 10px;
+
+    border: 2px solid #D4DFFA;
+    border-radius: 10px;
+    outline: none;
+
+    background-color: #fff;
+
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.changeName:focus {
+    border-color: #5B84ED;
+}
+
+.changeNameButton {
+    padding: 5px 10px;
+
+    border: none;
+    border-radius: 15px;
+
+    background-color: #E8EEFC;
+
+    color: #5B84ED;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.saveNameButton {
+    padding: 5px 10px;
+
+    border: none;
+    border-radius: 15px;
+
+    background-color: #5B84ED;
+
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.changeNameButton:active,
+.saveNameButton:active {
+    transform: scale(0.97);
+}

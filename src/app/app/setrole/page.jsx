@@ -95,10 +95,10 @@ export default function SetRole() {
                     return
                 }
 
-                if (currentUser.profile?.role === "parent" || currentUser.profile?.role === "child") {
-                    router.replace("/getrole")
-                    return
-                }
+                // if (currentUser.profile?.role === "parent" || currentUser.profile?.role === "child") {
+                //     router.replace("/app/getrole")
+                //     return
+                // }
 
                 setUser(currentUser)
                 setIsLoading(false)
@@ -162,7 +162,7 @@ export default function SetRole() {
                 return
             }
 
-            router.replace("/getrole")
+            router.replace("/app/getrole")
 
         } catch (error) {
             console.log("SET ROLE ERROR:", error)

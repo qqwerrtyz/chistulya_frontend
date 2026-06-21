@@ -23,60 +23,60 @@ const ME_QUERY = `
 export default function GetRole() {
     const router = useRouter()
 
-    // useEffect(() => {
-    //     async function checkRole() {
-    //         const accessToken = localStorage.getItem("access_token")
+    useEffect(() => {
+        async function checkRole() {
+            const accessToken = localStorage.getItem("access_token")
 
-    //         if (!accessToken) {
-    //             router.replace("/log")
-    //             return
-    //         }
+            if (!accessToken) {
+                router.replace("/log")
+                return
+            }
 
-    //         try {
-    //             const response = await fetch("/api/graphql", {
-    //                 method: "POST",
-    //                 headers: {
-    //                     "Content-Type": "application/json",
-    //                     "Authorization": `Bearer ${accessToken}`
-    //                 },
-    //                 body: JSON.stringify({
-    //                     query: ME_QUERY
-    //                 })
-    //             })
+            try {
+                const response = await fetch("/api/graphql", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${accessToken}`
+                    },
+                    body: JSON.stringify({
+                        query: ME_QUERY
+                    })
+                })
 
-    //             const result = await response.json()
+                const result = await response.json()
 
-    //             console.log("GET ROLE RESULT:", result)
+                console.log("GET ROLE RESULT:", result)
 
-    //             const user = result.data?.me
+                const user = result.data?.me
 
-    //             if (!user) {
-    //                 router.replace("/log")
-    //                 return
-    //             }
+                if (!user) {
+                    router.replace("/log")
+                    return
+                }
 
-    //             const role = user.profile?.role
+                const role = user.profile?.role
 
-    //             if (role === "parent") {
-    //                 router.replace("/app/parent")
-    //                 return
-    //             }
+                if (role === "parent") {
+                    router.replace("/app/parent")
+                    return
+                }
 
-    //             if (role === "child") {
-    //                 router.replace("/app/child")
-    //                 return
-    //             }
+                if (role === "child") {
+                    router.replace("/app/child")
+                    return
+                }
 
-    //             router.replace("/setrole")
+                router.replace("/app/setrole")
 
-    //         } catch (error) {
-    //             console.log("GET ROLE ERROR:", error)
-    //             router.replace("/log")
-    //         }
-    //     }
+            } catch (error) {
+                console.log("GET ROLE ERROR:", error)
+                router.replace("/log")
+            }
+        }
 
-    //     checkRole()
-    // }, [router])
+        checkRole()
+    }, [router])
 
     return (
         <div>
