@@ -61,7 +61,7 @@ const GENERATE_FAMILY_LINK_TOKEN_MUTATION = `
     }
 `
 
-const APP_URL = "https://chistulya.vercel.app"
+const APP_URL = "https://chistulya-frontend.vercel.app/"
 
 export default function QR ({isShow, setIsShow}) {
     const [qrValue, setQrValue] = useState("")
