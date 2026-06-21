@@ -61,6 +61,8 @@ const GENERATE_FAMILY_LINK_TOKEN_MUTATION = `
     }
 `
 
+const APP_URL = "https://chistulya.vercel.app"
+
 export default function QR ({isShow, setIsShow}) {
     const [qrValue, setQrValue] = useState("")
     const [error, setError] = useState("")
@@ -142,7 +144,7 @@ export default function QR ({isShow, setIsShow}) {
                     return
                 }
 
-                const link = `${window.location.origin}/app/parent/link-child?token=${childLinkToken}`
+                const link = `${APP_URL}/app/parent/link-child?token=${childLinkToken}`
 
 
                 setQrValue(link)
