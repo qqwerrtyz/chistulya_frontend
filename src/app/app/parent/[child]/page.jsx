@@ -70,6 +70,7 @@ import Chellenge from "@/components/app/another/analytics/chellenge/Chellenge"
 import TaskAndChallengesParent from "@/components/app/parent/TaskAndChallengesParent"
 import EveryDayTaskParent from "@/components/app/parent/EveryDayTaskParent"
 import ChellengeParent from "@/components/app/parent/ChellengeParent"
+import AddNotificationParent from "@/components/app/parent/AddNotificationParent"
 
 const MY_CHILDREN_QUERY = `
     query MyChildren {
@@ -87,7 +88,8 @@ const MY_CHILDREN_QUERY = `
 export default function MyChild() {
     const { child } = useParams()
 
-    const [childName, setChildName] = useState("")
+    const [childName, setChildName] = useState("");
+    const [showAddNotification, setShowAddNotification] = useState(false);
 
     useEffect(() => {
         async function getChildName() {
@@ -146,7 +148,7 @@ export default function MyChild() {
                          <Image src={icons.plusBlue} className={styles.customTaskPlus}/>
                     </div>
 
-                    <div className={styles.addNotificationWrapper}>
+                    <div onClick={() => setShowAddNotification(prev => !prev)} className={styles.addNotificationWrapper}>
                         <span className={styles.addNotification}>Напоминание</span>
                         <Image src={icons.plusBlue} className={styles.customTaskPlus}/>
                     </div>
@@ -155,7 +157,7 @@ export default function MyChild() {
                 <div className={styles.myChildBody}>
                     <TaskAndChallengesParent childId={child}/>
                 </div>
-
+                
                 <div className={styles.myChildAnalytics}>
                     <div className={styles.everyDayTaskWrapper}>
                         <EveryDayTaskParent childId={child}/>
@@ -165,6 +167,13 @@ export default function MyChild() {
                     </div>
                 </div>
             </div>
+
+            {showAddNotification && (
+                <AddNotificationParent 
+                    childId={child}
+                    setShowAddNotification={setShowAddNotification}
+                />
+            )}
         </div>
     )
 }

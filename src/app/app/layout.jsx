@@ -18,7 +18,7 @@ const stylesChildrenWrapper = {
 export default function Layout({ children }) {
     return (
         <AuthGuard>
-            <NoPhoto />
+            {/* <NoPhoto /> */}
             <div style={stylesBody}>
                 <Header />
                 <div style={stylesChildrenWrapper}>
