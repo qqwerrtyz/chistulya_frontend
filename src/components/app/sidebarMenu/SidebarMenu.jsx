@@ -147,13 +147,18 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
             })
 
             const result = await response.json()
-Й
+
             console.log("LOGOUT RESULT:", result)
 
             const payload = result.data?.logout
 
             if (!payload?.success) {
-                alert(result.errors?.[0]?.message || payload?.errors?.[0]?.message || "Ошибка выхода из аккаунта")
+                const message =
+                    payload?.errors?.[0]?.message ||
+                    result?.errors?.[0]?.message ||
+                    "Ошибка выхода из аккаунта"
+
+                alert(message)
                 return
             }
 
