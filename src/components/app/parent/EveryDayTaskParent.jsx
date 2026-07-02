@@ -138,7 +138,7 @@ function prepareDailyAnalyticsData(category, analytics) {
     return result
 }
 
-export default function EveryDayTaskParent({childId }) {
+export default function EveryDayTaskParent({childId, requestDelay = 0 }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const [dataDayTasks, setDataDayTasks] = useState({
@@ -172,60 +172,115 @@ export default function EveryDayTaskParent({childId }) {
     const [selectIndexNameTimeInterval, setSelectIndexNameTimeInterval] = useState(0)
 
     const [selectTimesInterval, setSelectTimesInterval] = useState(namesTimeInterval[selectIndexNameTimeInterval]);
-
     useEffect(() => {
-        async function getDailyTaskAnalytics() {
-            const accessToken = localStorage.getItem("access_token")
+    async function getDailyTaskAnalytics() {
+        const accessToken = localStorage.getItem("access_token")
 
-            if (!accessToken) {
+        if (!accessToken) {
+            return
+        }
+
+        try {
+            const response = await fetch("/api/graphql", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${accessToken}`
+                },
+                body: JSON.stringify({
+                    query: DAILY_TASK_ANALYTICS_QUERY,
+                    variables: {
+                        child_id: childId,
+                        category: CATEGORY_TO_API[selectCategory],
+                        days: 28
+                    }
+                })
+            })
+
+            const result = await response.json()
+
+            console.log("DAILY TASK ANALYTICS RESULT:", result)
+
+            if (result.errors?.length) {
+                console.log("DAILY TASK ANALYTICS ERROR:", result.errors[0].message)
                 return
             }
 
-            try {
-                const response = await fetch("/api/graphql", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${accessToken}`
-                    },
-                    body: JSON.stringify({
-                        query: DAILY_TASK_ANALYTICS_QUERY,
-                        variables: {
-                            child_id: childId,
-                            category: CATEGORY_TO_API[selectCategory],
-                            days: 28
+            const analytics = result.data?.dailyTaskAnalytics || []
+            const preparedData = prepareDailyAnalyticsData(selectCategory, analytics)
 
-                        }
-                    })
-                })
+            setData7Days(prev => ({
+                ...prev,
+                [selectCategory]: preparedData
+            }))
 
-                const result = await response.json()
+            setSelectIndexNameTimeInterval(0)
+            setSelectTimesInterval(namesTimeInterval[0])
 
-                console.log("DAILY TASK ANALYTICS RESULT:", result)
-
-                if (result.errors?.length) {
-                    console.log("DAILY TASK ANALYTICS ERROR:", result.errors[0].message)
-                    return
-                }
-
-                const analytics = result.data?.dailyTaskAnalytics || []
-                const preparedData = prepareDailyAnalyticsData(selectCategory, analytics)
-
-                setData7Days(prev => ({
-                    ...prev,
-                    [selectCategory]: preparedData
-                }))
-
-                setSelectIndexNameTimeInterval(0)
-                setSelectTimesInterval(namesTimeInterval[0])
-
-            } catch (error) {
-                console.log("DAILY TASK ANALYTICS CATCH ERROR:", error)
-            }
+        } catch (error) {
+            console.log("DAILY TASK ANALYTICS CATCH ERROR:", error)
         }
+    }
 
+    const timerId = setTimeout(() => {
         getDailyTaskAnalytics()
-    }, [selectCategory, childId])
+    }, requestDelay)
+
+    return () => clearTimeout(timerId)
+}, [selectCategory, childId, requestDelay])
+    // useEffect(() => {
+    //     async function getDailyTaskAnalytics() {
+    //         const accessToken = localStorage.getItem("access_token")
+
+    //         if (!accessToken) {
+    //             return
+    //         }
+
+    //         try {
+    //             const response = await fetch("/api/graphql", {
+    //                 method: "POST",
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                     "Authorization": `Bearer ${accessToken}`
+    //                 },
+    //                 body: JSON.stringify({
+    //                     query: DAILY_TASK_ANALYTICS_QUERY,
+    //                     variables: {
+    //                         child_id: childId,
+    //                         category: CATEGORY_TO_API[selectCategory],
+    //                         days: 28
+
+    //                     }
+    //                 })
+    //             })
+
+    //             const result = await response.json()
+
+    //             console.log("DAILY TASK ANALYTICS RESULT:", result)
+
+    //             if (result.errors?.length) {
+    //                 console.log("DAILY TASK ANALYTICS ERROR:", result.errors[0].message)
+    //                 return
+    //             }
+
+    //             const analytics = result.data?.dailyTaskAnalytics || []
+    //             const preparedData = prepareDailyAnalyticsData(selectCategory, analytics)
+
+    //             setData7Days(prev => ({
+    //                 ...prev,
+    //                 [selectCategory]: preparedData
+    //             }))
+
+    //             setSelectIndexNameTimeInterval(0)
+    //             setSelectTimesInterval(namesTimeInterval[0])
+
+    //         } catch (error) {
+    //             console.log("DAILY TASK ANALYTICS CATCH ERROR:", error)
+    //         }
+    //     }
+
+    //     getDailyTaskAnalytics()
+    // }, [selectCategory, childId])
 
     function renderEveryDayTaskResult(arr, selectCategory, selectTimesInterval) {
         const resultObj = {

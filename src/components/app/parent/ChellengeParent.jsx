@@ -45,7 +45,7 @@ function getMonthRuName(monthValue) {
     return MONTHS_RU[monthNumber] || monthValue
 }
 
-export default function ChellengeParent ({childId}) {
+export default function ChellengeParent ({childId, requestDelay = 0}) {
     const [selectedMonth, setSelectedMonth] = useState({
         ruName: "Всего",
         enName: null,
@@ -56,67 +56,133 @@ export default function ChellengeParent ({childId}) {
 
     const [dataMonth, setDataMonth] = useState([])
 
-    useEffect(() => {
-        async function getChallengeAnalytics() {
-            const accessToken = localStorage.getItem("access_token")
+    // useEffect(() => {
+    //     async function getChallengeAnalytics() {
+    //         const accessToken = localStorage.getItem("access_token")
 
-            if (!accessToken) {
+    //         if (!accessToken) {
+    //             return
+    //         }
+
+    //         try {
+    //             const response = await fetch("/api/graphql", {
+    //                 method: "POST",
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                     "Authorization": `Bearer ${accessToken}`
+    //                 },
+    //                 body: JSON.stringify({
+    //                     query: CHALLENGE_ANALYTICS_QUERY,
+    //                     variables: {
+    //                         child_id: childId,
+    //                         category: null,
+    //                         months: 6
+    //                     }
+    //                 })
+    //             })
+
+    //             const result = await response.json()
+
+    //             console.log("CHALLENGE ANALYTICS RESULT:", result)
+
+    //             if (result.errors?.length) {
+    //                 console.log("CHALLENGE ANALYTICS ERROR:", result.errors[0].message)
+    //                 return
+    //             }
+
+    //             const analytics = result.data?.challengeAnalytics || []
+
+    //             const preparedMonths = analytics.map(item => ({
+    //                 enNameMonth: item.month,
+    //                 ruNameMonth: getMonthRuName(item.month),
+    //                 count: item.completed_count || 0
+    //             }))
+
+    //             const totalCompleted = preparedMonths.reduce((sum, item) => {
+    //                 return sum + item.count
+    //             }, 0)
+
+    //             setDataMonth(preparedMonths)
+
+    //             setSelectedMonth({
+    //                 ruName: "Всего",
+    //                 enName: null,
+    //                 count: totalCompleted
+    //             })
+
+    //         } catch (error) {
+    //             console.log("CHALLENGE ANALYTICS CATCH ERROR:", error)
+    //         }
+    //     }
+
+    //     getChallengeAnalytics()
+    // }, [childId])
+
+    useEffect(() => {
+    async function getChallengeAnalytics() {
+        const accessToken = localStorage.getItem("access_token")
+
+        if (!accessToken) {
+            return
+        }
+
+        try {
+            const response = await fetch("/api/graphql", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${accessToken}`
+                },
+                body: JSON.stringify({
+                    query: CHALLENGE_ANALYTICS_QUERY,
+                    variables: {
+                        child_id: childId,
+                        category: null,
+                        months: 6
+                    }
+                })
+            })
+
+            const result = await response.json()
+
+            console.log("CHALLENGE ANALYTICS RESULT:", result)
+
+            if (result.errors?.length) {
+                console.log("CHALLENGE ANALYTICS ERROR:", result.errors[0].message)
                 return
             }
 
-            try {
-                const response = await fetch("/api/graphql", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${accessToken}`
-                    },
-                    body: JSON.stringify({
-                        query: CHALLENGE_ANALYTICS_QUERY,
-                        variables: {
-                            child_id: childId,
-                            category: null,
-                            months: 6
-                        }
-                    })
-                })
+            const analytics = result.data?.challengeAnalytics || []
 
-                const result = await response.json()
+            const preparedMonths = analytics.map(item => ({
+                enNameMonth: item.month,
+                ruNameMonth: getMonthRuName(item.month),
+                count: item.completed_count || 0
+            }))
 
-                console.log("CHALLENGE ANALYTICS RESULT:", result)
+            const totalCompleted = preparedMonths.reduce((sum, item) => {
+                return sum + item.count
+            }, 0)
 
-                if (result.errors?.length) {
-                    console.log("CHALLENGE ANALYTICS ERROR:", result.errors[0].message)
-                    return
-                }
+            setDataMonth(preparedMonths)
 
-                const analytics = result.data?.challengeAnalytics || []
+            setSelectedMonth({
+                ruName: "Всего",
+                enName: null,
+                count: totalCompleted
+            })
 
-                const preparedMonths = analytics.map(item => ({
-                    enNameMonth: item.month,
-                    ruNameMonth: getMonthRuName(item.month),
-                    count: item.completed_count || 0
-                }))
-
-                const totalCompleted = preparedMonths.reduce((sum, item) => {
-                    return sum + item.count
-                }, 0)
-
-                setDataMonth(preparedMonths)
-
-                setSelectedMonth({
-                    ruName: "Всего",
-                    enName: null,
-                    count: totalCompleted
-                })
-
-            } catch (error) {
-                console.log("CHALLENGE ANALYTICS CATCH ERROR:", error)
-            }
+        } catch (error) {
+            console.log("CHALLENGE ANALYTICS CATCH ERROR:", error)
         }
+    }
 
+    const timerId = setTimeout(() => {
         getChallengeAnalytics()
-    }, [childId])
+    }, requestDelay)
+
+    return () => clearTimeout(timerId)
+}, [childId, requestDelay])
 
     return (
         <div className={styles.chellengeWrapper}>

@@ -283,7 +283,7 @@ function Wrapper({title, flags, setFlags, dailyTasks, challengeTasks}) {
 }
 
 
-export default function TaskAndChallengesParent({childId}) {
+export default function TaskAndChallengesParent({childId, requestDelay = 0}) {
     const [flags, setFlags] = useState({
         tasks: true,
         challenge: false
@@ -292,48 +292,92 @@ export default function TaskAndChallengesParent({childId}) {
     const [dailyTasks, setDailyTasks] = useState(null)
     const [challengeTasks, setChallengeTasks] = useState(null)
     const [err, setErr] = useState(null)
-
     useEffect(() => {
-        async function getTasksAndChallenges() {
-            const accessToken = localStorage.getItem("access_token")
+    async function getTasksAndChallenges() {
+        const accessToken = localStorage.getItem("access_token")
 
-            if (!accessToken) {
-                setErr("Нет токена авторизации")
+        if (!accessToken) {
+            setErr("Нет токена авторизации")
+            return
+        }
+
+        try {
+            const response = await fetch("/api/graphql", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${accessToken}`
+                },
+                body: JSON.stringify({
+                    query: TASKS_AND_CHALLENGES_QUERY,
+                    variables: {
+                        child_id: childId
+                    }
+                })
+            })
+
+            const result = await response.json()
+
+            if (result.errors?.length && !result.data) {
+                setErr(result.errors[0].message)
                 return
             }
 
-            try {
-                const response = await fetch("/api/graphql", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${accessToken}`
-                    },
-                    body: JSON.stringify({
-                        query: TASKS_AND_CHALLENGES_QUERY,
-                        variables: {
-                            child_id: childId
-                        }
-                    })
-                })
+            setDailyTasks(prepareDailyTasks(result.data))
+            setChallengeTasks(prepareChallengeTasks(result.data))
 
-                const result = await response.json()
-
-                if (result.errors?.length && !result.data) {
-                    setErr(result.errors[0].message)
-                    return
-                }
-
-                setDailyTasks(prepareDailyTasks(result.data))
-                setChallengeTasks(prepareChallengeTasks(result.data))
-
-            } catch (error) {
-                setErr("Ошибка загрузки заданий и челленджей")
-            }
+        } catch (error) {
+            setErr("Ошибка загрузки заданий и челленджей")
         }
+    }
 
+    const timerId = setTimeout(() => {
         getTasksAndChallenges()
-    }, [childId])
+    }, requestDelay)
+
+    return () => clearTimeout(timerId)
+}, [childId, requestDelay])
+    // useEffect(() => {
+    //     async function getTasksAndChallenges() {
+    //         const accessToken = localStorage.getItem("access_token")
+
+    //         if (!accessToken) {
+    //             setErr("Нет токена авторизации")
+    //             return
+    //         }
+
+    //         try {
+    //             const response = await fetch("/api/graphql", {
+    //                 method: "POST",
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                     "Authorization": `Bearer ${accessToken}`
+    //                 },
+    //                 body: JSON.stringify({
+    //                     query: TASKS_AND_CHALLENGES_QUERY,
+    //                     variables: {
+    //                         child_id: childId
+    //                     }
+    //                 })
+    //             })
+
+    //             const result = await response.json()
+
+    //             if (result.errors?.length && !result.data) {
+    //                 setErr(result.errors[0].message)
+    //                 return
+    //             }
+
+    //             setDailyTasks(prepareDailyTasks(result.data))
+    //             setChallengeTasks(prepareChallengeTasks(result.data))
+
+    //         } catch (error) {
+    //             setErr("Ошибка загрузки заданий и челленджей")
+    //         }
+    //     }
+
+    //     getTasksAndChallenges()
+    // }, [childId])
 
     return (
         <div className={styles.tasksAndChallengesWrapper}>

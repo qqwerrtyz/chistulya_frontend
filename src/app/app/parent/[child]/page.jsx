@@ -71,6 +71,7 @@ import TaskAndChallengesParent from "@/components/app/parent/TaskAndChallengesPa
 import EveryDayTaskParent from "@/components/app/parent/EveryDayTaskParent"
 import ChellengeParent from "@/components/app/parent/ChellengeParent"
 import AddNotificationParent from "@/components/app/parent/AddNotificationParent"
+import CustomTask from "@/components/app/parent/AddCostomTask"
 
 const MY_CHILDREN_QUERY = `
     query MyChildren {
@@ -126,7 +127,11 @@ export default function MyChild() {
             }
         }
 
-        getChildName()
+        const timerId = setTimeout(() => {
+            getChildName()
+        }, 100)
+
+        return () => clearTimeout(timerId)
     }, [child])
 
     return (
@@ -138,6 +143,8 @@ export default function MyChild() {
                             Ребенок {childName || ""}
                         </h1>
                     </div>
+
+                    <CustomTask childId={child}/>
 
                     <div className={styles.backWrapper}>
                         <Image src={icons.backNotificationBlue} className={styles.back}/>
@@ -155,15 +162,15 @@ export default function MyChild() {
                 </div>
 
                 <div className={styles.myChildBody}>
-                    <TaskAndChallengesParent childId={child}/>
+                    <TaskAndChallengesParent childId={child} requestDelay={400}/>
                 </div>
                 
                 <div className={styles.myChildAnalytics}>
                     <div className={styles.everyDayTaskWrapper}>
-                        <EveryDayTaskParent childId={child}/>
+                        <EveryDayTaskParent childId={child} requestDelay={900}/>
                     </div>
                     <div className={styles.chellengeWrapper}>
-                        <ChellengeParent childId={child}/>
+                        <ChellengeParent childId={child} requestDelay={1400}/>
                     </div>
                 </div>
             </div>
