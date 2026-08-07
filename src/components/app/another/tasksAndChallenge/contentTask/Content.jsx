@@ -1,16 +1,69 @@
-import { useContext, useState } from "react"
-import styles from "./content.module.css"
+// import { useContext, useState } from "react"
+// import styles from "./content.module.css"
 
-import ContentHeader from "./contentHeader/ContentHeader";
-import ContentBody from "./contentBody/ContentBody";
-
-
-export default function Content ({firstData, secondData, isActive}) {
+// import ContentHeader from "./contentHeader/ContentHeader";
+// import ContentBody from "./contentBody/ContentBody";
 
 
-    const [selectValue, setSelectValue] = useState("hygiene")
+// export default function Content ({firstData, secondData, isActive, onFulfill, processingTaskId}) {
+
+
+//     const [selectValue, setSelectValue] = useState("hygiene")
     
 
+
+//     if (!firstData && !secondData) {
+//         return (
+//             <div>Загрузка данных...</div>
+//         )
+//     }
+
+    
+
+//     return (
+//         <div className={styles.contentWrapper}>
+//             <div className={styles.contentHeaderWrapper}>
+//                 <ContentHeader 
+//                     firstData={firstData}
+//                     secondData={secondData}
+//                     selectValue={selectValue} 
+//                     setSelectValue={setSelectValue}
+//                 />
+//             </div>
+
+//             <div className={styles.contentBodyWrapper}>
+//                 <ContentBody 
+//                     firstData={firstData} 
+//                     selectValue={selectValue}
+//                     secondData={secondData} 
+//                     isActive={isActive}
+//                     type={"home"}
+//                     onFulfill={onFulfill}
+//     processingTaskId={processingTaskId}
+
+//                 />
+//             </div>
+
+//         </div>
+//     )
+// }
+
+
+import { useState } from "react"
+import styles from "./content.module.css"
+
+import ContentHeader from "./contentHeader/ContentHeader"
+import ContentBody from "./contentBody/ContentBody"
+
+export default function Content({
+    firstData,
+    secondData,
+    isActive,
+    onFulfill,
+    onTakeReward,
+    processingTaskId
+}) {
+    const [selectValue, setSelectValue] = useState("hygiene")
 
     if (!firstData && !secondData) {
         return (
@@ -21,24 +74,26 @@ export default function Content ({firstData, secondData, isActive}) {
     return (
         <div className={styles.contentWrapper}>
             <div className={styles.contentHeaderWrapper}>
-                <ContentHeader 
+                <ContentHeader
                     firstData={firstData}
                     secondData={secondData}
-                    selectValue={selectValue} 
+                    selectValue={selectValue}
                     setSelectValue={setSelectValue}
                 />
             </div>
 
             <div className={styles.contentBodyWrapper}>
-                <ContentBody 
-                    firstData={firstData} 
+                <ContentBody
+                    firstData={firstData}
                     selectValue={selectValue}
-                    secondData={secondData} 
+                    secondData={secondData}
                     isActive={isActive}
                     type={"home"}
+                    onFulfill={onFulfill}
+                    onTakeReward={onTakeReward}
+                    processingTaskId={processingTaskId}
                 />
             </div>
-
         </div>
     )
 }
