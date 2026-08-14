@@ -57,6 +57,10 @@ export default function GetRole() {
 
                 const role = user.profile?.role
 
+                if (role) {
+                    localStorage.setItem("role", role)
+                }
+
                 if (role === "parent") {
                     router.replace("/app/parent")
                     return

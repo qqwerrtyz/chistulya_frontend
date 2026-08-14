@@ -61,11 +61,32 @@
 
 .child {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
     border-radius: 5px;
 
     margin: 8px 0;
+}
+
+.goToChild {
+    padding: 4px 20px;
+    background-color: #ED985B;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    transition: .3s all;
+}
+
+.goToChild:hover,
+.goToChild:active {
+    opacity: .7;
+}
+
+.numberAndNameWrapper {
+    display: flex;
+    align-items: center;
 }
 
 .child:active {

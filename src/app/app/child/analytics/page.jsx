@@ -5,13 +5,15 @@ export default function Analytics () {
     return (
         <div className={styles.analyticsWrapper}>
             <div className={styles.analytics}>
-                <div className={styles.everyDayTaskWrapper}>
-                    <EveryDayTask />
-                </div>
 
-                <div className={styles.chellengeWrapper}>
+                <h3>В разработке</h3>
+                {/* <div className={styles.everyDayTaskWrapper}>
+                    <EveryDayTask />
+                </div> */}
+
+                {/* <div className={styles.chellengeWrapper}>
                     <Chellenge />
-                </div>
+                </div> */}
 
                 
             </div>

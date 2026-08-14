@@ -110,7 +110,7 @@ const CHALLENGE_ANALYTICS_QUERY = `
             failed_count
         }
     }
-`
+` 
 
 const MONTHS_RU = {
     "01": "Январь",

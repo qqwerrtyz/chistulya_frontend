@@ -337,48 +337,7 @@ export default function TaskAndChallengesParent({childId, requestDelay = 0}) {
 
     return () => clearTimeout(timerId)
 }, [childId, requestDelay])
-    // useEffect(() => {
-    //     async function getTasksAndChallenges() {
-    //         const accessToken = localStorage.getItem("access_token")
-
-    //         if (!accessToken) {
-    //             setErr("Нет токена авторизации")
-    //             return
-    //         }
-
-    //         try {
-    //             const response = await fetch("/api/graphql", {
-    //                 method: "POST",
-    //                 headers: {
-    //                     "Content-Type": "application/json",
-    //                     "Authorization": `Bearer ${accessToken}`
-    //                 },
-    //                 body: JSON.stringify({
-    //                     query: TASKS_AND_CHALLENGES_QUERY,
-    //                     variables: {
-    //                         child_id: childId
-    //                     }
-    //                 })
-    //             })
-
-    //             const result = await response.json()
-
-    //             if (result.errors?.length && !result.data) {
-    //                 setErr(result.errors[0].message)
-    //                 return
-    //             }
-
-    //             setDailyTasks(prepareDailyTasks(result.data))
-    //             setChallengeTasks(prepareChallengeTasks(result.data))
-
-    //         } catch (error) {
-    //             setErr("Ошибка загрузки заданий и челленджей")
-    //         }
-    //     }
-
-    //     getTasksAndChallenges()
-    // }, [childId])
-
+  
     return (
         <div className={styles.tasksAndChallengesWrapper}>
             <div className={styles.tasksAndChallenges}>
@@ -398,13 +357,6 @@ export default function TaskAndChallengesParent({childId, requestDelay = 0}) {
                         challengeTasks={challengeTasks}
                     />
 
-                    <Wrapper 
-                        title={"Челенджи"} 
-                        flags={flags} 
-                        setFlags={setFlags}
-                        dailyTasks={dailyTasks}
-                        challengeTasks={challengeTasks}
-                    />
                 </div>
 
             </div>

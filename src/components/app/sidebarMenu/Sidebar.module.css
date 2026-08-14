@@ -146,3 +146,25 @@
 
     color: #fff;
 }
+
+.openCameraWrapper {
+    margin-top: 30px;
+}
+.openCamera {
+    width: 100%;
+    border-radius: 20px;
+
+    padding: 10px 0;
+
+    border: none;
+    outline: none;
+
+    background-color: #ED985B;
+    
+    color: #fff;
+    font-weight: 600;
+}
+
+.openCamera:active {
+    opacity: .6;
+}

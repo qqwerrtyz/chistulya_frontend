@@ -13,9 +13,30 @@ import BodyDiagram from "../another/analytics/everyDayTasks/bodyDiagram/BodyDiag
 import HeaderDiagram from "../another/analytics/everyDayTasks/headerDiagram/HeaderDiagram"
 import AnalyticsHeadline from "../another/analytics/headline/Headline"
 
+
+
+const DAILY_TASK_CATEGORIES_QUERY = `
+    query DailyTaskCategories {
+        dailyTaskCategories {
+            id
+            slug
+            title
+            order_column
+        }
+    }
+`
+
 const DAILY_TASK_ANALYTICS_QUERY = `
-    query DailyTaskAnalytics($child_id: String, $category: String, $days: Int!) {
-        dailyTaskAnalytics(child_id: $child_id, category: $category, days: $days) {
+    query DailyTaskAnalytics(
+        $childId: String!
+        $categoryId: Int
+        $days: Int!
+    ) {
+        dailyTaskAnalytics(
+            child_id: $childId
+            category_id: $categoryId
+            days: $days
+        ) {
             date
             weekday
             selected_count
@@ -164,16 +185,22 @@ export default function EveryDayTaskParent({childId, requestDelay = 0 }) {
     })
 
     const [selectCategory, setSelectCategory] = useState("hygien")
+    const [apiCategories, setApiCategories] = useState([])
 
     const [data7Days, setData7Days] = useState(createEmptyAnalyticsData());
 
     const namesTimeInterval = ["one", "two", "three", "four"];
 
-    const [selectIndexNameTimeInterval, setSelectIndexNameTimeInterval] = useState(0)
+    const [selectIndexNameTimeInterval, setSelectIndexNameTimeInterval] = useState(
+        namesTimeInterval.length - 1
+    )
 
-    const [selectTimesInterval, setSelectTimesInterval] = useState(namesTimeInterval[selectIndexNameTimeInterval]);
+    const [selectTimesInterval, setSelectTimesInterval] = useState(
+        namesTimeInterval[namesTimeInterval.length - 1]
+    )
+
     useEffect(() => {
-    async function getDailyTaskAnalytics() {
+    async function getDailyTaskCategories() {
         const accessToken = localStorage.getItem("access_token")
 
         if (!accessToken) {
@@ -188,10 +215,106 @@ export default function EveryDayTaskParent({childId, requestDelay = 0 }) {
                     "Authorization": `Bearer ${accessToken}`
                 },
                 body: JSON.stringify({
+                    query: DAILY_TASK_CATEGORIES_QUERY
+                })
+            })
+
+            const result = await response.json()
+
+            console.log(
+                "DAILY TASK CATEGORIES RESULT:",
+                result
+            )
+
+            if (result.errors?.length) {
+                console.log(
+                    "DAILY TASK CATEGORIES ERROR:",
+                    result.errors[0].message
+                )
+
+                return
+            }
+
+            const categories = result.data?.dailyTaskCategories || []
+
+            console.log("ID КАТЕГОРИЙ ЕЖЕДНЕВНЫХ ЗАДАНИЙ:", result)
+
+            categories.forEach(category => {
+                console.log(
+                    `${category.title} | slug: ${category.slug} | id: ${category.id}`
+                )
+            })
+
+            setApiCategories(categories)
+
+        } catch (error) {
+            console.log(
+                "DAILY TASK CATEGORIES CATCH ERROR:",
+                error
+            )
+        }
+    }
+
+    const timerId = setTimeout(() => {
+        getDailyTaskCategories()
+    }, requestDelay)
+
+    return () => clearTimeout(timerId)
+
+}, [requestDelay])
+
+    useEffect(() => {
+    if (!childId || !apiCategories.length) {
+        return
+    }
+
+    async function getDailyTaskAnalytics() {
+        const accessToken = localStorage.getItem("access_token")
+
+        if (!accessToken) {
+            return
+        }
+
+        const categorySlug =
+            CATEGORY_TO_API[selectCategory]
+
+        const category =
+            apiCategories.find(
+                item => item.slug === categorySlug
+            )
+
+        if (!category) {
+            console.log(
+                "DAILY TASK ANALYTICS: категория не найдена",
+                categorySlug
+            )
+
+            return
+        }
+
+        const categoryId = Number(category.id)
+
+        if (!Number.isInteger(categoryId)) {
+            console.log(
+                "DAILY TASK ANALYTICS: неверный category_id",
+                category.id
+            )
+
+            return
+        }
+
+        try {
+            const response = await fetch("/api/graphql", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${accessToken}`
+                },
+                body: JSON.stringify({
                     query: DAILY_TASK_ANALYTICS_QUERY,
                     variables: {
-                        child_id: childId,
-                        category: CATEGORY_TO_API[selectCategory],
+                        childId: childId,
+                        categoryId: categoryId,
                         days: 28
                     }
                 })
@@ -199,88 +322,55 @@ export default function EveryDayTaskParent({childId, requestDelay = 0 }) {
 
             const result = await response.json()
 
-            console.log("DAILY TASK ANALYTICS RESULT:", result)
+            console.log(
+                "DAILY TASK ANALYTICS RESULT:",
+                result
+            )
 
             if (result.errors?.length) {
-                console.log("DAILY TASK ANALYTICS ERROR:", result.errors[0].message)
+                console.log(
+                    "DAILY TASK ANALYTICS ERROR:",
+                    result.errors[0].message
+                )
+
                 return
             }
 
-            const analytics = result.data?.dailyTaskAnalytics || []
-            const preparedData = prepareDailyAnalyticsData(selectCategory, analytics)
+            const analytics =
+                result.data?.dailyTaskAnalytics || []
+
+            const preparedData =
+                prepareDailyAnalyticsData(
+                    selectCategory,
+                    analytics
+                )
 
             setData7Days(prev => ({
                 ...prev,
                 [selectCategory]: preparedData
             }))
 
-            setSelectIndexNameTimeInterval(0)
-            setSelectTimesInterval(namesTimeInterval[0])
+            setSelectIndexNameTimeInterval(
+                namesTimeInterval.length - 1
+            )
+
+            setSelectTimesInterval(
+                namesTimeInterval[namesTimeInterval.length - 1]
+            )
 
         } catch (error) {
-            console.log("DAILY TASK ANALYTICS CATCH ERROR:", error)
+            console.log(
+                "DAILY TASK ANALYTICS CATCH ERROR:",
+                error
+            )
         }
     }
 
-    const timerId = setTimeout(() => {
-        getDailyTaskAnalytics()
-    }, requestDelay)
+    getDailyTaskAnalytics()
 
-    return () => clearTimeout(timerId)
-}, [selectCategory, childId, requestDelay])
-    // useEffect(() => {
-    //     async function getDailyTaskAnalytics() {
-    //         const accessToken = localStorage.getItem("access_token")
+}, [selectCategory, childId, apiCategories])
 
-    //         if (!accessToken) {
-    //             return
-    //         }
 
-    //         try {
-    //             const response = await fetch("/api/graphql", {
-    //                 method: "POST",
-    //                 headers: {
-    //                     "Content-Type": "application/json",
-    //                     "Authorization": `Bearer ${accessToken}`
-    //                 },
-    //                 body: JSON.stringify({
-    //                     query: DAILY_TASK_ANALYTICS_QUERY,
-    //                     variables: {
-    //                         child_id: childId,
-    //                         category: CATEGORY_TO_API[selectCategory],
-    //                         days: 28
-
-    //                     }
-    //                 })
-    //             })
-
-    //             const result = await response.json()
-
-    //             console.log("DAILY TASK ANALYTICS RESULT:", result)
-
-    //             if (result.errors?.length) {
-    //                 console.log("DAILY TASK ANALYTICS ERROR:", result.errors[0].message)
-    //                 return
-    //             }
-
-    //             const analytics = result.data?.dailyTaskAnalytics || []
-    //             const preparedData = prepareDailyAnalyticsData(selectCategory, analytics)
-
-    //             setData7Days(prev => ({
-    //                 ...prev,
-    //                 [selectCategory]: preparedData
-    //             }))
-
-    //             setSelectIndexNameTimeInterval(0)
-    //             setSelectTimesInterval(namesTimeInterval[0])
-
-    //         } catch (error) {
-    //             console.log("DAILY TASK ANALYTICS CATCH ERROR:", error)
-    //         }
-    //     }
-
-    //     getDailyTaskAnalytics()
-    // }, [selectCategory, childId])
 
     function renderEveryDayTaskResult(arr, selectCategory, selectTimesInterval) {
         const resultObj = {

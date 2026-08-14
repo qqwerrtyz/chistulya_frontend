@@ -1,60 +1,3 @@
-// "use client"
-
-// import Image from "next/image"
-// import styles from "./Child.module.css"
-// import { useParams } from "next/navigation"
-// import icons from "../../../../icons/icons"
-// import TasksAndChallenges from "@/components/app/another/tasksAndChallenge/TasksAndChallenges"
-// import EveryDayTask from "@/components/app/another/analytics/everyDayTasks/EveryDayTask"
-// import Chellenge from "@/components/app/another/analytics/chellenge/Chellenge"
-// import TaskAndChallengesParent from "@/components/app/parent/TaskAndChallengesParent"
-// import EveryDayTaskParent from "@/components/app/parent/EveryDayTaskParent"
-// import ChellengeParent from "@/components/app/parent/ChellengeParent"
-
-// export default function MyChild() {
-//     const { child } = useParams()
-//     return (
-//         <div className={styles.myChildWrapper}>
-//             <div className={styles.myChild}>
-//                 <div className={styles.myChildHeader}>
-//                     <div className={styles.nameChildWrapper}>
-//                         <h1 className={styles.nameChild}>Ребенок Саша</h1>
-//                     </div>
-
-//                     <div className={styles.backWrapper}>
-//                         <Image src={icons.backNotificationBlue} className={styles.back}/>
-//                     </div>
-
-//                     <div className={styles.customTaskWrapper}>
-//                         <span className={styles.customTask}>Кастомное задание</span>
-//                          <Image src={icons.plusBlue} className={styles.customTaskPlus}/>
-//                     </div>
-
-//                     <div className={styles.addNotificationWrapper}>
-//                         <span className={styles.addNotification}>Напоминание</span>
-//                         <Image src={icons.plusBlue} className={styles.customTaskPlus}/>
-//                     </div>
-//                 </div>
-
-//                 <div className={styles.myChildBody}>
-//                     <TaskAndChallengesParent childId={child}/>
-                    
-//                 </div>
-
-//                 <div className={styles.myChildAnalytics}>
-//                     <div className={styles.everyDayTaskWrapper}>
-//                         <EveryDayTaskParent childId={child}/>
-//                     </div>
-//                     <div className={styles.chellengeWrapper}>
-//                         <ChellengeParent childId={child}/>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-        
-//     )
-// }
-
 
 
 "use client"
@@ -91,6 +34,7 @@ export default function MyChild() {
 
     const [childName, setChildName] = useState("");
     const [showAddNotification, setShowAddNotification] = useState(false);
+    const [showCustomTask, setShowCustomTask] = useState(false);
 
     useEffect(() => {
         async function getChildName() {
@@ -144,14 +88,19 @@ export default function MyChild() {
                         </h1>
                     </div>
 
-                    <CustomTask childId={child}/>
+                    {showCustomTask && (
+                        <CustomTask
+                            childId={child}
+                            setShowCustomTask={setShowCustomTask}
+                        />
+                    )}
 
                     <div className={styles.backWrapper}>
                         <Image src={icons.backNotificationBlue} className={styles.back}/>
                     </div>
 
                     <div className={styles.customTaskWrapper}>
-                        <span className={styles.customTask}>Кастомное задание</span>
+                        <span onClick={() => setShowCustomTask(true)} className={styles.customTask}>Кастомное задание</span>
                          <Image src={icons.plusBlue} className={styles.customTaskPlus}/>
                     </div>
 
@@ -168,9 +117,6 @@ export default function MyChild() {
                 <div className={styles.myChildAnalytics}>
                     <div className={styles.everyDayTaskWrapper}>
                         <EveryDayTaskParent childId={child} requestDelay={900}/>
-                    </div>
-                    <div className={styles.chellengeWrapper}>
-                        <ChellengeParent childId={child} requestDelay={1400}/>
                     </div>
                 </div>
             </div>

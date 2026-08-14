@@ -4,7 +4,7 @@ import IconHeader from "../another/IconHeader/IconHeader"
 import styles from "./Sidebar.module.css"
 import Image from "next/image"
 import another from "../../../../public/imgs/another/another"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 
 import QR from "../another/qr/QR"
 import { useRouter } from "next/navigation"
@@ -18,6 +18,13 @@ function MenuItem({name, href, handler, onClick}) {
     )
 }
 
+const ME_QUERY = `
+    query Me {
+        me {
+            role
+        }
+    }
+`
 
 const LOGOUT_MUTATION = `
     mutation Logout {
@@ -51,6 +58,44 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
     const router = useRouter()
 
     const [showQR, setShowQR] = useState(false);
+    const [role, setRole] = useState(null)
+    const videoRef = useRef(null)
+const [cameraStream, setCameraStream] = useState(null)
+    useEffect(() => {
+    async function getUserRole() {
+        const accessToken = localStorage.getItem("access_token")
+
+        if (!accessToken) {
+            return
+        }
+
+        try {
+            const response = await fetch("/api/graphql", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${accessToken}`
+                },
+                body: JSON.stringify({
+                    query: ME_QUERY
+                })
+            })
+
+            const result = await response.json()
+
+            console.log("SIDEBAR ME RESULT:", result)
+
+            if (result.data?.me?.role) {
+                setRole(result.data.me.role)
+            }
+
+        } catch (error) {
+            console.log("SIDEBAR ROLE ERROR:", error)
+        }
+    }
+
+    getUserRole()
+}, [])
 
     const itemMenuChild = [
         {
@@ -106,12 +151,33 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
         },
     ]
 
-    const role = "child"
 
     function handlerQR(event) {
         event.preventDefault();
         setShowQR(prev => !prev)
     }
+
+    async function openCamera() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+                facingMode: {
+                    ideal: "environment"
+                }
+            },
+            audio: false
+        })
+
+        setCameraStream(stream)
+
+        if (videoRef.current) {
+            videoRef.current.srcObject = stream
+        }
+
+    } catch (error) {
+        console.log("CAMERA ERROR:", error)
+    }
+}
 
     function handlerShowSidebar() {
         setShowSidebar(prev => !prev)
@@ -230,7 +296,7 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
                 </div>
 
                 <div className={styles.footer}>
-                    <div className={styles.subscribeWrapper}>
+                    {/* <div className={styles.subscribeWrapper}>
                         <span className={styles.subscirbeText}>У вас подключена подписка!</span>
                         <div className={styles.subscirbeManageWrapper}>
                             <Link className={styles.subscirbeManageLink} href={"#"}>
@@ -240,12 +306,37 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
                         </div>
 
                         <Image alt="subscribeEllipse" className={styles.subscribeEllipse} src={another.subscribeEllipse}/>
-                    </div>
+                    </div> */}
 
-                    <div className={styles.itemQr}>
-                        <MenuItem handler={handlerQR} name={"QR-код"} href={"#"}/>
-                        <QR isShow={showQR} setIsShow={setShowQR}/>
-                    </div>
+                    {role === "child" ? (
+                        <div className={styles.itemQr}>
+                            <MenuItem
+                                handler={handlerQR}
+                                name={"QR-код"}
+                                href={"#"}
+                            />
+
+                            <QR
+                                isShow={showQR}
+                                setIsShow={setShowQR}
+                            />
+
+                           
+                        </div>
+                    ) : (
+                        <div className={styles.openCameraWrapper}>
+                             <button className={styles.openCamera} onClick={openCamera}>
+                                Открыть камеру для QR
+                            </button>
+
+                            <video
+                                style={{ width: "100%", height: "auto", marginTop: "10px" }}
+                                ref={videoRef}
+                                autoPlay
+                                playsInline
+                            />
+                        </div>
+                    )}
 
                     <div className={styles.exitWrapper} onClick={handlerLogout}>
                         <div className={styles.exit}>

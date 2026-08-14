@@ -47,8 +47,10 @@ import home from "./home.svg"
 import files from "./files.svg"
 import up from "./up.svg"
 import backWhite from "./backWhite.svg"
+import plusBlue from "./plusBlue.svg"
 
 const icons = {
+    plusBlue,
     activeBell,
     user,
     burger,

@@ -13,7 +13,7 @@ function FooterIcon({src, name, href, alt}) {
         </div>
     )
 }
-
+ 
 
 export default function Footer() {
     return (
@@ -26,11 +26,11 @@ export default function Footer() {
                 </div>
                 
 
-                <div className={styles.footerPlusWrapper}>
+                {/* <div className={styles.footerPlusWrapper}>
                     <Link className={styles.footerPlusLink} href={"#"}>
                         <Image alt="addIcon" className={styles.footerPlus} src={icons.footerPlus}/>
                     </Link>
-                </div>
+                </div> */}
 
                 <div className={styles.footerHalf}>
                     <FooterIcon src={icons.footerShop} name={"Магазин"} alt={"shopIcon"} href={"/app/child/shop"}/>

@@ -11,11 +11,7 @@ export default function ContentHeader({firstData, setSelectValue}) {
         console.log(item)
     }
 
-    if (!firstData) {
-        return (
-            <div>Чето не работает в ContentHeader</div>
-        )
-    }
+
     return (
         <div className={styles.headerWrapper}>
             <div className={styles.header}>

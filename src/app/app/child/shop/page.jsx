@@ -887,7 +887,8 @@ export default function Shop() {
 
     return (
         <div className={styles.shopPageWrapper}>
-            <div className={styles.shopPage}>
+            <h1>В разработке</h1>
+            {/* <div className={styles.shopPage}>
 
                 <div className={styles.menuWrapper}>
                     <Menu
@@ -918,7 +919,7 @@ export default function Shop() {
                     </div>
                 )}
 
-            </div>
+            </div> */}
         </div>
     )
 }

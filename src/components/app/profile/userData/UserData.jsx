@@ -1,153 +1,3 @@
-// import icons from "../../../../icons/icons"
-// import styles from "./../Profile.module.css"
-// import Item from "./item/Item"
-// export default function UserData() {
-//     const itemData = [
-//         {   
-//             name: "password",
-//             icon: icons.lockData,
-//             title: "Пароль",
-//             dropDown: true,
-//             link: false
-//         },
-
-//         {   
-//             name: "mail",
-//             icon: icons.mailData,
-//             title: "Почта",
-//             dropDown: true,
-//             link: false
-//         },
-
-//         {
-//             name: "qr",
-//             icon: icons.qrData,
-//             title: "QR",
-//             dropDown: true,
-//             link: false
-//         },
-
-//         {
-//             name: "support",
-//             icon: icons.supportData,
-//             title: "Поддержка",
-//             dropDown: false,
-//             link: true
-//         },
-
-//         {
-//             name: "exit",
-//             icon: icons.exitData,
-//             title: "Выход",
-//             dropDown: false,
-//             link: true
-//         }
-//     ]
-
-//     return (
-//         <div className={styles.userDataWrapper}>
-//             <div className={styles.userData}>
-                
-//                 {
-//                     itemData.map((item, index) => {
-//                         return (
-//                             <Item 
-//                                 name={item.name}
-//                                 icon={item.icon}
-//                                 title={item.title}
-//                                 dropDown={item.dropDown}
-//                                 link={item.link}   
-//                             />
-//                         )
-//                     })
-//                 }
-
-//             </div>
-//         </div>
-//     )
-// }
-
-
-// import icons from "../../../../icons/icons"
-// import styles from "./../Profile.module.css"
-// import Item from "./item/Item"
-
-// export default function UserData({ user }) {
-//     const itemData = [
-//         {   
-//             name: "password",
-//             icon: icons.lockData,
-//             title: "Пароль",
-//             value: "Нет возможности выводить пароль",
-//             dropDown: true,
-//             link: false
-//         },
-
-//         {   
-//             name: "mail",
-//             icon: icons.mailData,
-//             title: "Почта",
-//             value: user?.email || "Почта не указана",
-//             dropDown: true,
-//             link: false
-//         },
-
-//         {
-//             name: "qr",
-//             icon: icons.qrData,
-//             title: "QR",
-//             value: "Нет данных",
-//             dropDown: true,
-//             link: false
-//         },
-
-//         {
-//             name: "support",
-//             icon: icons.supportData,
-//             title: "Поддержка",
-//             value: null,
-//             dropDown: false,
-//             link: true
-//         },
-
-//         {
-//             name: "exit",
-//             icon: icons.exitData,
-//             title: "Выход",
-//             value: null,
-//             dropDown: false,
-//             link: true
-//         }
-//     ]
-
-//     return (
-//         <div className={styles.userDataWrapper}>
-//             <div className={styles.userData}>
-                
-//                 {
-//                     itemData.map((item, index) => {
-//                         return (
-//                             <Item 
-//                                 key={`${item.name}-${index}`}
-//                                 name={item.name}
-//                                 icon={item.icon}
-//                                 title={item.title}
-//                                 value={item.value}
-//                                 dropDown={item.dropDown}
-//                                 link={item.link}   
-//                             />
-//                         )
-//                     })
-//                 }
-
-//             </div>
-//         </div>
-//     )
-// }
-
-
-
-
 
 "use client"
 
@@ -258,20 +108,20 @@ export default function UserData({ user }) {
             link: false
         },
 
-        {
-            name: "emailVerification",
-            icon: icons.qrData,
-            title: "Подтвердить почту",
-            value: isEmailVerified 
-                ? "почта подтверждена" 
-                : emailVerificationLoading 
-                    ? "Отправляем письмо..." 
-                    : "Кликните для подтверждения",
-            dropDown: true,
-            link: false,
-            valueClickable: !isEmailVerified && !emailVerificationLoading,
-            onValueClick: handleRequestEmailVerification
-        },
+        // {
+        //     name: "emailVerification",
+        //     icon: icons.qrData,
+        //     title: "Подтвердить почту",
+        //     value: isEmailVerified 
+        //         ? "почта подтверждена" 
+        //         : emailVerificationLoading 
+        //             ? "Отправляем письмо..." 
+        //             : "Кликните для подтверждения",
+        //     dropDown: true,
+        //     link: false,
+        //     valueClickable: !isEmailVerified && !emailVerificationLoading,
+        //     onValueClick: handleRequestEmailVerification
+        // },
 
         {
             name: "support",
@@ -282,14 +132,14 @@ export default function UserData({ user }) {
             link: true
         },
 
-        {
-            name: "exit",
-            icon: icons.exitData,
-            title: "Выход",
-            value: null,
-            dropDown: false,
-            link: true
-        }
+        // {
+        //     name: "exit",
+        //     icon: icons.exitData,
+        //     title: "Выход",
+        //     value: null,
+        //     dropDown: false,
+        //     link: true
+        // }
     ]
 
     return (

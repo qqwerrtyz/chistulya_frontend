@@ -6,7 +6,7 @@ import Image from "next/image"
 import styles from "./Parent.module.css"
 import icons from "@/icons/icons"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 const MY_CHILDREN_QUERY = `
     query MyChildren {
@@ -24,6 +24,45 @@ const MY_CHILDREN_QUERY = `
 export default function Parent() {
     const [children, setChildren] = useState([])
     const [err, setErr] = useState(null)
+    const [showCamera, setShowCamera] = useState(false)
+
+    const videoRef = useRef(null)
+
+    async function openCamera() {
+    try {
+        setShowCamera(true)
+
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+                facingMode: {
+                    ideal: "environment"
+                }
+            },
+            audio: false
+        })
+
+        if (videoRef.current) {
+            videoRef.current.srcObject = stream
+        }
+
+    } catch (error) {
+        console.log("CAMERA ERROR:", error)
+    }
+    }
+
+    function closeCamera() {
+    if (videoRef.current?.srcObject) {
+        const stream = videoRef.current.srcObject
+
+        stream.getTracks().forEach(track => {
+            track.stop()
+        })
+
+        videoRef.current.srcObject = null
+    }
+
+    setShowCamera(false)
+}
 
     useEffect(() => {
         async function getMyChildren() {
@@ -76,11 +115,42 @@ export default function Parent() {
             <div className={styles.parentOfficeHeadlineWrapper}>
                 <h1 className={styles.parentOfficeHeadline}>Кабинет Родителя</h1>
             </div>
+<div
+    className={styles.addChildWrapper}
+    onClick={openCamera}
+>
+    <span className={styles.addChild}> Добавить ребенка</span>
 
-            <div className={styles.addChildWrapper}>
-                <span className={styles.addChild}> Добавить ребенка</span>
-                <Image src={icons.plusBlue} className={styles.plusBlue} alt="add child"/>
-            </div>
+    <Image
+        src={icons.plusBlue}
+        className={styles.plusBlue}
+        alt="add child"
+    />
+</div>
+
+    {showCamera && (
+    <>
+        <video
+            ref={videoRef}
+            autoPlay
+            playsInline
+            className={styles.cameraVideo}
+            style={{ 
+                position: "absolute",
+                top: 0,
+                left: 0,
+                zIndex: 9999,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover"
+            }}
+        />
+
+        <button onClick={closeCamera}>
+            Закрыть камеру
+        </button>
+    </>
+)}
 
             <div className={styles.myChildrenWrapper}>
                 <div className={styles.myChildrenHeadlineWrapper}>
@@ -102,8 +172,11 @@ export default function Parent() {
 
                                 return (
                                     <div className={styles.child} key={item.id}>
-                                        <div className={styles.childNumber}>{index + 1}</div>
-                                        <span className={styles.childName}>{name}</span>
+                                        <div className={styles.numberAndNameWrapper}>
+                                            <div className={styles.childNumber}>{index + 1}</div>
+                                            <span className={styles.childName}>{name}</span>
+                                        </div>
+                                        
 
                                         <Link 
                                             className={styles.goToChild} 

@@ -2,19 +2,28 @@
 import Image from "next/image"
 import styles from "./Header.module.css"
 import icons from "../../../icons/icons"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SidebarMenu from "../sidebarMenu/SidebarMenu"
 import IconHeader from "../another/IconHeader/IconHeader"
 import Link from "next/link"
 
 export default function Header() {
 
+    const [role, setRole] = useState(null)
     const [showSidebar, setShowSidebar] = useState(false)
     const [newNotification, setNewNotification] = useState(true);
 
     function showSidebarHandler() {
         setShowSidebar(prev => !prev)
     }
+
+    useEffect(() => {
+        const savedRole = localStorage.getItem("role")
+        setRole(savedRole)
+    }, [])
+
+
+    
 
     return (
         <>
@@ -27,9 +36,16 @@ export default function Header() {
                     src={icons.burger}
                 />
                 <div className={styles.iconsBellAndUser}>
-                    <Link href={"/app/notifications"}>
-                        <IconHeader alt={"bell"} className={styles.headerIcon} src={icons.bell} newNotification={newNotification}/>
-                    </Link>
+
+                    {
+                        role != "parent" && (
+                            <Link href={"/app/notifications"}>
+                                <IconHeader alt={"bell"} className={styles.headerIcon} src={icons.bell} newNotification={newNotification}/>
+                            </Link>
+                        )
+
+                    }
+                    
                     <Link href={"/app/profile"}>
                         <IconHeader alt="user" className={styles.headerIcon} src={icons.user}/>
                     </Link>

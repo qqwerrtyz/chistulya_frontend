@@ -200,22 +200,7 @@ export default function Metrics() {
                     coins={metrics.coins}
                 />
                 
-                <div className={styles.degreePurityWrapper}>
-                    <div className={styles.purieTextWrapper}>
-                        <div className={styles.purieTitleWrapper}>
-                            <span className={styles.purieTitle}>Чистота</span>
-                        </div>
-                        <div className={styles.purieRangWrapper}>
-                            <span className={styles.purieRang}>Вы чистюля</span>
-                        </div>
-                    </div>
-
-                    <div className={styles.purieRound}>
-                        <div className={styles.purieBackground}>
-                        </div>
-                        <span className={styles.purieRoundValue}>3%</span>
-                    </div>
-                </div>
+                
             </div>
         </div>
     )

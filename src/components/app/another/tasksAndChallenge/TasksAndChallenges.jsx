@@ -916,6 +916,8 @@ export default function TasksAndChallenges() {
 
         const requestId = `${activeType}-${item.id}`
 
+        console.log("FULFILL TASK REQUEST ID:", item.id)
+
         setProcessingTaskId(requestId)
         setErr(null)
 
@@ -996,39 +998,7 @@ export default function TasksAndChallenges() {
     return (
         <div className={styles.tasksAndChallengesWrapper}>
             <div className={styles.tasksAndChallenges}>
-                <div onClick={() => {
-                    if (!serverTasksData) {
-            console.log("Данные о заданиях ещё не получены")
-            return
-        }
-
-        console.log(
-            "ВСЕ ЗАДАНИЯ И ЧЕЛЛЕНДЖИ С СЕРВЕРА:",
-            serverTasksData
-        )
-
-        console.log(
-            "ДОСТУПНЫЕ ЕЖЕДНЕВНЫЕ ЗАДАНИЯ:",
-            serverTasksData.availableDailyTasks?.data || []
-        )
-
-        console.log(
-            "ВЫБРАННЫЕ ЕЖЕДНЕВНЫЕ ЗАДАНИЯ:",
-            serverTasksData.selectedDailyTasks?.data || []
-        )
-
-        console.log(
-            "ДОСТУПНЫЕ ЧЕЛЛЕНДЖИ:",
-            serverTasksData.availableChallenges?.data || []
-        )
-
-        console.log(
-            "ВЫБРАННЫЕ ЧЕЛЛЕНДЖИ:",
-            serverTasksData.selectedChallenges?.data || []
-        )
-                }}
-                    style={{ cursor: "pointer" }}
-                >Статус заданий</div>
+                
 
                 {err && (
                     <div>
@@ -1049,7 +1019,7 @@ export default function TasksAndChallenges() {
 
                     />
 
-                    <Wrapper
+                    {/* <Wrapper
                         title={"Челенджи"}
     flags={flags}
     setFlags={setFlags}
@@ -1059,7 +1029,7 @@ export default function TasksAndChallenges() {
     onTakeReward={takeReward}
     processingTaskId={processingTaskId}
 
-                    />
+                    /> */}
                 </div>
 
             </div>
