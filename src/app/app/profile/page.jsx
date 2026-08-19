@@ -1,5 +1,7 @@
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import { useEffect, useState } from "react"
 import Avatar from "@/components/app/profile/avatar/Avatar"
 import styles from "./Profile.module.css"
@@ -173,7 +175,7 @@ export default function Profile() {
             }
 
             try {
-                const response = await fetch("/api/graphql", {
+                const response = await fetch(GRAPHQL_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -224,7 +226,7 @@ export default function Profile() {
         try {
             setErr(null)
 
-            const requestResponse = await fetch("/api/graphql", {
+            const requestResponse = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -260,7 +262,7 @@ export default function Profile() {
                 return
             }
 
-            const confirmResponse = await fetch("/api/graphql", {
+            const confirmResponse = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

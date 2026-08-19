@@ -2,6 +2,8 @@
 
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import Menu from "@/components/app/another/menu/Menu"
 import styles from "./Mission.module.css"
 import { useEffect, useState } from "react"
@@ -254,7 +256,7 @@ export default function Mission() {
             }
 
             try {
-                const response = await fetch("/api/graphql", {
+                const response = await fetch(GRAPHQL_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

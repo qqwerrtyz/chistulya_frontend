@@ -75,6 +75,7 @@
 
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
 import Image from "next/image"
 import styles from "./Metrics.module.css"
 import icons from "../../../../icons/icons"
@@ -149,7 +150,7 @@ export default function Metrics() {
             }
 
             try {
-                const response = await fetch("/api/graphql", {
+                const response = await fetch(GRAPHQL_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

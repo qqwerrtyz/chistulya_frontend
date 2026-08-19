@@ -2,6 +2,8 @@
 
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import Image from "next/image"
 import styles from "./Child.module.css"
 import { useEffect, useState } from "react"
@@ -45,7 +47,7 @@ export default function MyChild() {
             }
 
             try {
-                const response = await fetch("/api/graphql", {
+                const response = await fetch(GRAPHQL_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

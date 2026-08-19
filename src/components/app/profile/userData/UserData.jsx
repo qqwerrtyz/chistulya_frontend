@@ -1,6 +1,8 @@
 
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import { useState } from "react"
 import icons from "../../../../icons/icons"
 import styles from "./../Profile.module.css"
@@ -48,7 +50,7 @@ export default function UserData({ user }) {
         try {
             setEmailVerificationLoading(true)
 
-            const response = await fetch("/api/graphql", {
+            const response = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

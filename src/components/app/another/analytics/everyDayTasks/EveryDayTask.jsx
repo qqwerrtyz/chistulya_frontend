@@ -3,6 +3,8 @@
 
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import styles from "./EveryDayTask.module.css"
 import { useEffect, useState, useRef } from "react"
 import Menu from "./menu/Menu"
@@ -219,7 +221,7 @@ const metaRequestStarted = useRef(false)
         }
 
         try {
-            const response = await fetch("/api/graphql", {
+            const response = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -307,7 +309,7 @@ useEffect(() => {
         }
 
         try {
-            const response = await fetch("/api/graphql", {
+            const response = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

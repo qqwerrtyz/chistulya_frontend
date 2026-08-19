@@ -1,6 +1,8 @@
 
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import { useState } from "react"
 import styles from "./AddCostomTask.module.css"
 import Image from "next/image"
@@ -149,7 +151,7 @@ export default function CustomTask({ childId, setShowCustomTask }) {
         console.log("CREATE CUSTOM TASK VARIABLES:", variables)
 
         try {
-            const res = await fetch("/api/graphql", {
+            const res = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -1,5 +1,7 @@
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import Image from "next/image"
 import styles from "./log.module.css"
 import avatarImage from "../../../public/avatar/avatar"
@@ -74,7 +76,7 @@ export default function Log() {
         setErr(null)
 
         try {
-            const response = await fetch("/api/graphql", {
+            const response = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

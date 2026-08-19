@@ -2,6 +2,11 @@
 
 "use client"
 
+import {
+    APP_URL,
+    GRAPHQL_URL
+} from "@/config/publicEnv"
+
 import { useEffect, useState } from "react"
 import { QRCodeSVG } from "qrcode.react"
 import styles from "./QR.module.css"
@@ -37,7 +42,6 @@ const GENERATE_FAMILY_LINK_TOKEN_MUTATION = `
     }
 `
 
-const APP_URL = "https://chistulya-frontend.vercel.app/"
 
 export default function QR ({isShow, setIsShow}) {
     const [qrValue, setQrValue] = useState("")
@@ -88,7 +92,7 @@ export default function QR ({isShow, setIsShow}) {
                 setError("")
                 setQrValue("")
 
-                const response = await fetch("/api/graphql", {
+                const response = await fetch(GRAPHQL_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -120,7 +124,7 @@ export default function QR ({isShow, setIsShow}) {
                     return
                 }
 
-                const link = `${APP_URL}/app/parent/link-child?token=${childLinkToken}`
+                const link =`${APP_URL}/app/parent/link-child?token=${encodeURIComponent(childLinkToken)}`
 
 
                 setQrValue(link)

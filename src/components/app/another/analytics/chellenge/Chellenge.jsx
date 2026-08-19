@@ -94,6 +94,7 @@
 
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
 import { useEffect, useState } from "react"
 import AnalyticsHeadline from "../headline/Headline"
 import styles from "./Chellenge.module.css"
@@ -153,7 +154,7 @@ export default function Chellenge () {
             }
 
             try {
-                const response = await fetch("/api/graphql", {
+                const response = await fetch(GRAPHQL_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

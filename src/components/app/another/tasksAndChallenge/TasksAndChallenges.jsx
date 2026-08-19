@@ -2,6 +2,8 @@
 
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import { useEffect, useState } from "react"
 import styles from "./TasksAndChallenges.module.css"
 import iconsTasks from "../../../../../public/iconsTasks/iconsTasks"
@@ -658,7 +660,7 @@ export default function TasksAndChallenges() {
             }
 
             try {
-                const response = await fetch("/api/graphql", {
+                const response = await fetch(GRAPHQL_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -723,7 +725,7 @@ export default function TasksAndChallenges() {
             throw new Error("Нет токена авторизации")
         }
 
-        const response = await fetch("/api/graphql", {
+        const response = await fetch(GRAPHQL_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -72,7 +72,7 @@
 //             }
 
 //             try {
-//                 const response = await fetch("/api/graphql", {
+//                 const response = await fetch(GRAPHQL_URL, {
 //                     method: "POST",
 //                     headers: {
 //                         "Content-Type": "application/json"

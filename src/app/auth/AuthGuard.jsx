@@ -1,5 +1,7 @@
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 
@@ -34,7 +36,7 @@ export default function AuthGuard({ children }) {
             }
 
             try {
-                const response = await fetch("/api/graphql", {
+                const response = await fetch(GRAPHQL_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

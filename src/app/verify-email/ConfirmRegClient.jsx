@@ -1,5 +1,7 @@
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import { useEffect, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import styles from "./ConfirmReg.module.css"
@@ -72,7 +74,7 @@ export default function ConfirmRegClient() {
             }
 
             try {
-                const response = await fetch("/api/graphql", {
+                const response = await fetch(GRAPHQL_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

@@ -1,5 +1,7 @@
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 
@@ -33,7 +35,7 @@ export default function GetRole() {
             }
 
             try {
-                const response = await fetch("/api/graphql", {
+                const response = await fetch(GRAPHQL_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

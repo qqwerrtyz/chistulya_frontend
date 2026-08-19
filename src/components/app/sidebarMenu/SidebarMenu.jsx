@@ -1,3 +1,4 @@
+import { GRAPHQL_URL } from "@/config/publicEnv"
 import Link from "next/link"
 import icons from "../../../icons/icons"
 import IconHeader from "../another/IconHeader/IconHeader"
@@ -70,7 +71,7 @@ const [cameraStream, setCameraStream] = useState(null)
         }
 
         try {
-            const response = await fetch("/api/graphql", {
+            const response = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -201,7 +202,7 @@ const [cameraStream, setCameraStream] = useState(null)
         }
 
         try {
-            const response = await fetch("/api/graphql", {
+            const response = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

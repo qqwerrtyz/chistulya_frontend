@@ -1,5 +1,7 @@
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
+
 import styles from "./../another/analytics/everyDayTasks/EveryDayTask.module.css"
 import { useEffect, useState } from "react"
 // import Menu from "./menu/Menu"
@@ -208,7 +210,7 @@ export default function EveryDayTaskParent({childId, requestDelay = 0 }) {
         }
 
         try {
-            const response = await fetch("/api/graphql", {
+            const response = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -304,7 +306,7 @@ export default function EveryDayTaskParent({childId, requestDelay = 0 }) {
         }
 
         try {
-            const response = await fetch("/api/graphql", {
+            const response = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

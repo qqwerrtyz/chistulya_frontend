@@ -518,7 +518,7 @@
 
 //     console.log(`START QUERY: ${name}`)
 
-//     const response = await fetch("/api/graphql", {
+//     const response = await fetch(GRAPHQL_URL, {
 //         method: "POST",
 //         headers: {
 //             "Content-Type": "application/json",
@@ -628,6 +628,7 @@
 
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
 import Menu from "@/components/app/another/menu/Menu"
 import styles from "./Shop.module.css"
 import { useEffect, useRef, useState } from "react"
@@ -813,7 +814,7 @@ export default function Shop() {
     async function graphqlDebugRequest(name, query) {
         const accessToken = localStorage.getItem("access_token")
 
-        const response = await fetch("/api/graphql", {
+        const response = await fetch(GRAPHQL_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

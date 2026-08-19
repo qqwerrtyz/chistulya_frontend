@@ -31,6 +31,7 @@
 
 "use client"
 
+import { GRAPHQL_URL } from "@/config/publicEnv"
 import { useEffect, useState } from "react";
 import styles from './../Profile.module.css';
 
@@ -105,7 +106,7 @@ export default function NameAndAge({ user }) {
         try {
             setErr(null)
 
-            const response = await fetch("/api/graphql", {
+            const response = await fetch(GRAPHQL_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
