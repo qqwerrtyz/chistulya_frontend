@@ -325,16 +325,31 @@ const [cameraStream, setCameraStream] = useState(null)
                            
                         </div>
                     ) : (
+                        // <div className={styles.openCameraWrapper}>
+                        //      <button className={styles.openCamera} >
+                        //         Открыть камеру для QR
+                        //     </button>
+
+                        //     <button className={styles.openQRButton} >
+                        //         Открыть qr
+                        //     </button>
+                        // </div>
+
                         <div className={styles.openCameraWrapper}>
-                             <button className={styles.openCamera} onClick={openCamera}>
+                            <button className={styles.openCamera}>
                                 Открыть камеру для QR
                             </button>
 
-                            <video
-                                style={{ width: "100%", height: "auto", marginTop: "10px" }}
-                                ref={videoRef}
-                                autoPlay
-                                playsInline
+                            <button
+                                className={styles.openQRButton}
+                                onClick={handlerQR}
+                            >
+                                Открыть qr
+                            </button>
+
+                            <QR
+                                isShow={showQR}
+                                setIsShow={setShowQR}
                             />
                         </div>
                     )}
