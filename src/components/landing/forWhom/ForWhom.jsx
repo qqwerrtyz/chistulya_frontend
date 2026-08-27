@@ -1,12 +1,13 @@
 import Image from "next/image"
 import styles from "./ForWhom.module.css"
+import images from "@/images/images"
 
 export default function ForWhom() {
     return (
         <div className={styles.forWhomWrapper}>
             <div className={styles.forWhom}>
                 <div className={styles.forWhomImgWrapper}>
-                    <Image className={styles.forWhomImg} width={100} height={100} src={"/imgs/landing/forWhom.png"}/>
+                    <Image className={styles.forWhomImg} src={images.mokap2}/>
                 </div>
 
                 <div className={styles.forWhomTextContent}>

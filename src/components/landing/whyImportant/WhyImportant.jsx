@@ -1,5 +1,6 @@
 import Image from "next/image"
 import styles from "./WhyImportant.module.css"
+import images from "@/images/images"
 
 export default function WhyImportant() {
     return (
@@ -39,7 +40,7 @@ export default function WhyImportant() {
                         </div>
                         <div className={styles.col2}>
                             <div className={styles.screenWrapper}>
-                                <Image className={styles.screen} width={100} height={100} src={"/imgs/landing/screen.png"}/>
+                                <Image className={styles.screen} src={images.mokap1}/>
                             </div>
                         </div>           
                     </div>

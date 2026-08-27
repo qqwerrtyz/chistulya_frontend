@@ -18,7 +18,7 @@ export default function ContentHeader({firstData, setSelectValue}) {
                 <div className={styles.headerItemWrapper}>
                     {/* Здесь мы проходимся по ключам firstData */}
                     {
-                        Object.keys(firstData).map((item, index) => {
+                        Object.keys(firstData || {}).map((item, index) => {
                             const name = firstData[item].name
                             const isActive = higlight === name;
 

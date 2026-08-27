@@ -11,14 +11,14 @@ export default function FooterLanding() {
                 <div className={styles.col1}>
                     <div className={styles.logoWrapper}>
                         <Image
-                            src="/imgs/logo.svg"
+                            src="/imgs/logo.png"
                             width={100}
                             height={100}
                             alt="Logo"
                             className={styles.logoImg}
                             priority                   // опционально
                         />
-                        <span className={styles.logoText}>лого</span>
+                        <span style={{color: "#4272EA"}} className={styles.logoText}>Чистюля</span>
                     </div>
                 </div>
 
@@ -55,8 +55,10 @@ export default function FooterLanding() {
 
                 <div className={styles.col3}>
                     <div className={styles.fasie}>
-                        <p className={styles.fasieText}>Проект сделан при поддержке Фонда содействия инновации</p>
-                        <Image width={100} height={100} className={styles.fasieImg} src={"/imgs/landing/fasie.png"}/>
+                        <Link style={{color: "#323232"}} href="https://www.fasie.ru/" className={styles.fasieText}>Проект сделан при поддержке Фонда содействия инновации</Link>
+                        <Link href="https://www.fasie.ru/">
+                            <Image width={100} height={100} className={styles.fasieImg} src={"/imgs/landing/fasie.png"}/>
+                        </Link>
                     </div>
                 </div>
 

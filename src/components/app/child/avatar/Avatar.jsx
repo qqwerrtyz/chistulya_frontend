@@ -7,7 +7,7 @@ export default function Avatar() {
     
     return (
         <div className={styles.avatarWrapper}>
-            <Image src={avatarImage.avatar}/>
+            <Image className={styles.avatar} src={avatarImage.avatar}/>
         </div>
     )
 }

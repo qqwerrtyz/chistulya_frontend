@@ -20,12 +20,16 @@
 
 .avatarWrapper {
     position: absolute;
+    right: 10px;
     top: -30px;
-    right: 0;
-    z-index: 1;
+
+
+    border-radius: 50%;
+
+    overflow: hidden;
 }
 
 
 .tasksAndChallengesWrapper {
-    margin-top: 150px;
+    margin-top: 250px;
 }

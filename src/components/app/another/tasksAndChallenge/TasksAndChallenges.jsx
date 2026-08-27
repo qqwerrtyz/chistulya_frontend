@@ -96,33 +96,6 @@ const TASKS_AND_CHALLENGES_QUERY = `
   }
 `
 
-// const MUTATION_ERRORS = `
-//     errors {
-//         __typename
-
-//         ... on ValidationError {
-//             message
-//             fields {
-//                 field
-//                 messages
-//             }
-//         }
-
-//         ... on UserError {
-//             field
-//             message
-//         }
-
-//         ... on RateLimitError {
-//             message
-//             retryAfter
-//         }
-
-//         ... on InvalidActionError {
-//             message
-//         }
-//     }
-// `
 
 const MUTATION_ERRORS = `
     errors {
@@ -304,70 +277,6 @@ function createEmptyGroups() {
     }
 }
 
-// function addItemToGroup(
-//     groups,
-//     task,
-//     status = "fulfill",
-//     serverStatus = "available"
-// ) {
-//     const categorySlug = task?.category?.slug || "hygiene"
-//     const categoryName = task?.category?.title || "Без категории"
-
-//     if (!groups[categorySlug]) {
-//         groups[categorySlug] = {
-//             name: categoryName,
-//             items: []
-//         }
-//     }
-
-//     groups[categorySlug].items.push({
-//         id: task.id,
-//         img: getIconByCategory(categorySlug),
-//         title: task.title,
-//         short: task.short_description || "",
-//         description: task.description || "",
-//         reward: {
-//             coins: task.reward_coins || 0,
-//             xp: task.reward_xp || 0
-//         },
-//         status,
-//         serverStatus
-//     })
-// }
-
-// function prepareDailyTasks(data) {
-//     const groups = createEmptyGroups()
-
-//     const availableDailyTasks =
-//         data?.availableDailyTasks?.data || []
-
-//     const selectedDailyTasks =
-//         data?.selectedDailyTasks?.data || []
-
-//     availableDailyTasks.forEach((task) => {
-//         addItemToGroup(
-//             groups,
-//             task,
-//             "fulfill",
-//             "available"
-//         )
-//     })
-
-//     selectedDailyTasks.forEach((item) => {
-//         if (!item.daily_task) {
-//             return
-//         }
-
-//         addItemToGroup(
-//             groups,
-//             item.daily_task,
-//             mapServerStatusToClientStatus(item.status),
-//             item.status
-//         )
-//     })
-
-//     return groups
-// }
 
 
 function addItemToGroup(

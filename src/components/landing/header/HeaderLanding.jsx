@@ -55,7 +55,7 @@ export default function HeaderLanding() {
                 <div className={styles.logoWrapper}>
                     <div className={styles.logoImgWrapper}>
                     <Image
-                        src="/imgs/logo.svg"
+                        src="/imgs/logo.png"
                         alt="Logo"
                         fill                       // <- важно
                         className={styles.logoImg}
@@ -63,7 +63,7 @@ export default function HeaderLanding() {
                     />
                     </div>
 
-                    <span style={{color: "#ED985B"}} className={styles.logoHeadline}>Чистюля</span>
+                    <span style={{color: "#4272EA"}} className={styles.logoHeadline}>Чистюля</span>
                 </div>
 
                 <div className={styles.menuWrapper}>

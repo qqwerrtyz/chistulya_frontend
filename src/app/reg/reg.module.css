@@ -25,7 +25,8 @@
 }
 
 .regPers {
-    width: 47%;
+    width: 270px;
+    height: auto;
 
     margin-bottom: 20px;
 }
