@@ -47,6 +47,8 @@ import Header from "@/components/app/header/Header"
 import AuthGuard from "../auth/AuthGuard"
 import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
+import OnlyPhone from "@/components/onlyPhone/page"
+
 
 const stylesBody = {
     minHeight: "100vh",
@@ -59,10 +61,7 @@ const stylesChildrenWrapper = {
     paddingTop: "50px",
     height: "100%"
 }
-
 export default function Layout({ children }) {
-    const pathname = usePathname()
-
     const [role, setRole] = useState(null)
 
     useEffect(() => {
@@ -71,25 +70,24 @@ export default function Layout({ children }) {
         setRole(savedRole)
     }, [])
 
-    const shouldShowFooter =
-        pathname !== "/app/setrole" &&
-        pathname !== "/app/getrole" &&
-        role !== "parent" &&
-        role !== null
-
     return (
-        <AuthGuard>
-            <div style={stylesBody}>
-                <Header />
+        <>
+        
+            <OnlyPhone />
 
-                <div style={stylesChildrenWrapper}>
-                    {children}
+            <AuthGuard>
+                <div style={stylesBody}>
+                    <Header />
+
+                    <div style={stylesChildrenWrapper}>
+                        {children}
+                    </div>
+
+                    {role !== "parent" && role !== null && (
+                        <Footer />
+                    )}
                 </div>
-
-                {shouldShowFooter && (
-                    <Footer />
-                )}
-            </div>
-        </AuthGuard>
+            </AuthGuard>
+        </>
     )
 }

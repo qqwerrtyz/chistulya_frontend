@@ -1,0 +1,43 @@
+.atention {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.atentionHeaderWrapper,
+.atentionContent {
+    width: 80%;
+    padding: 12px 20px;
+    border-radius: 10px;
+}
+
+.atentionHeaderWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.closeCross {
+    width: 20px;
+    height: auto;
+
+    padding-right: 10px;
+}
+
+
+.atentionContent {
+    background-color: #fff;
+}
+
+.atentionHeaderText {
+    font-size: 20px;
+    font-weight: 600;
+    color: #d4443a;
+}
+
+.atentionTitle {
+    font-size: 18px;
+}

@@ -9,6 +9,7 @@ import styles from "./Parent.module.css"
 import icons from "@/icons/icons"
 import Link from "next/link"
 import { useEffect, useState, useRef } from "react"
+import AttentionModal from "@/components/attention/Attention"
 
 const MY_CHILDREN_QUERY = `
     query MyChildren {
@@ -95,6 +96,7 @@ export default function Parent() {
     }, [])
 
     return (
+
         <div className={styles.parentOffice}>
             <div className={styles.parentOfficeHeadlineWrapper}>
                 <h1 className={styles.parentOfficeHeadline}>Кабинет Родителя</h1>
@@ -172,6 +174,7 @@ export default function Parent() {
                                 )
                             })
                         }
+                      
                     </div>
                 </div>
             </div>
