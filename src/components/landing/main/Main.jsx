@@ -4,7 +4,7 @@ import Link from "next/link"
 import icons from "@/icons/icons"
 export default function Main() {
     return (
-         <div className={styles.mainWrapper}>
+         <div className={styles.mainWrapper} id="main">
           <div className={styles.main}>
 
             <div className={`${styles.mainColumnRobot} ${styles.mainColumnRobot1}`}>

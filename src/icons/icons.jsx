@@ -48,6 +48,9 @@ import files from "./files.svg"
 import up from "./up.svg"
 import backWhite from "./backWhite.svg"
 import plusBlue from "./plusBlue.svg"
+import parent from "./parent.svg"
+import child from "./child.svg"
+import qr from "./qr.svg"
 
 const icons = {
     plusBlue,
@@ -99,7 +102,10 @@ const icons = {
     home,
     files,
     up,
-    backWhite
+    backWhite,
+    parent,
+    child,
+    qr
 }
 
 export default icons 

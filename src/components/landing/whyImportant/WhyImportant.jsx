@@ -4,7 +4,7 @@ import images from "@/images/images"
 
 export default function WhyImportant() {
     return (
-        <div className={styles.whyImportantWrapper}>
+        <div className={styles.whyImportantWrapper} id="whyImportant">
             <div className={styles.whyImportant}>
                 <div className={styles.titleAndSubtitleWrapper}>
                     <h4 className={styles.title}>Почему это важно?</h4>

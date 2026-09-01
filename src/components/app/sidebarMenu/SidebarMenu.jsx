@@ -297,17 +297,6 @@ const [cameraStream, setCameraStream] = useState(null)
                 </div>
 
                 <div className={styles.footer}>
-                    {/* <div className={styles.subscribeWrapper}>
-                        <span className={styles.subscirbeText}>У вас подключена подписка!</span>
-                        <div className={styles.subscirbeManageWrapper}>
-                            <Link className={styles.subscirbeManageLink} href={"#"}>
-                                <span className={styles.subscirbeManage}>Управлять</span> 
-                                <Image className={styles.subscirbeArrow} alt="manage" src={icons.arrowGo}/>
-                            </Link>
-                        </div>
-
-                        <Image alt="subscribeEllipse" className={styles.subscribeEllipse} src={another.subscribeEllipse}/>
-                    </div> */}
 
                     {role === "child" ? (
                         <div className={styles.itemQr}>
@@ -325,27 +314,26 @@ const [cameraStream, setCameraStream] = useState(null)
                            
                         </div>
                     ) : (
-                        // <div className={styles.openCameraWrapper}>
-                        //      <button className={styles.openCamera} >
-                        //         Открыть камеру для QR
-                        //     </button>
-
-                        //     <button className={styles.openQRButton} >
-                        //         Открыть qr
-                        //     </button>
-                        // </div>
+   
 
                         <div className={styles.openCameraWrapper}>
-                            <button className={styles.openCamera}>
-                                Открыть камеру для QR
-                            </button>
+                            {
+                                role === "parent" ? (
+                                    <button className={styles.openCamera}>
+                                    Открыть камеру для QR
+                                </button>
+                                ) : (
+                                    <button
+                                        className={styles.openCamera}
+                                        onClick={handlerQR}
+                                    >
+                                        Открыть qr
+                                    </button>
+                                )
+                            }
+                            
 
-                            <button
-                                className={styles.openQRButton}
-                                onClick={handlerQR}
-                            >
-                                Открыть qr
-                            </button>
+                            
 
                             <QR
                                 isShow={showQR}

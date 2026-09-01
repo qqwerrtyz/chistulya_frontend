@@ -1,0 +1,32 @@
+
+.onlyPhoneWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.onlyPhone {
+    margin-top: 60px;
+}
+
+.titleWrapper,
+.subtitleWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-family: "headline";
+    font-size: 34px;
+    line-height: 40px;
+}
+
+.subtitleWrapper {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ED985B;
+}

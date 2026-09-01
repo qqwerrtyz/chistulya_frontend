@@ -303,8 +303,8 @@ export default function Profile() {
     const xp = user?.exp?.xp
 
     return (
-        <div className={styles.profileWrapper}>
-            <div className={styles.profile}>
+        <div style={{height: "100%"}} className={styles.profileWrapper}>
+            <div style={{height: "100%"}} className={styles.profile}>
 
                 <Avatar 
                     avatarUrl={avatarUrl}
@@ -313,7 +313,7 @@ export default function Profile() {
 
                 <NameAndAge user={user} />
 
-                <div className={styles.userData}>
+                <div style={{height: "100%"}} className={styles.userDataSection}>
                     <UserData user={user} />
                 </div>
 

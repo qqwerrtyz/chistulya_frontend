@@ -19,15 +19,15 @@
     flex-direction: column;
     align-items: center;
 
-    width: 70%;
-    height: 50%;
+    padding: 26px;
+
     background-color: #fff;
 
     border-radius: 20px;
 }
 
 .qrCloseWrapper {
-    margin-top: 10px;
+    margin-top: 36px;
 }
 
 .qrClose {

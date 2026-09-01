@@ -3,7 +3,7 @@ import styles from "./AboutApp.module.css"
 import icons from "@/icons/icons"
 export default function AboutApp() {
     return (
-        <div className={styles.aboutAppWrapper}>
+        <div className={styles.aboutAppWrapper} id="aboutApp">
             <div className={styles.aboutApp}>
                 
                 <div className={styles.titleWrapper}>

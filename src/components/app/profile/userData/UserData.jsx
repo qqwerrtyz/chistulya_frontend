@@ -92,14 +92,7 @@ export default function UserData({ user }) {
     const isEmailVerified = Boolean(user?.email_verified_at)
 
     const itemData = [
-        {   
-            name: "password",
-            icon: icons.lockData,
-            title: "Пароль",
-            value: "Нет возможности выводить пароль",
-            dropDown: true,
-            link: false
-        },
+
 
         {   
             name: "mail",

@@ -4,7 +4,7 @@ import images from "@/images/images"
 
 export default function ForWhom() {
     return (
-        <div className={styles.forWhomWrapper}>
+        <div className={styles.forWhomWrapper} id="forWhom">
             <div className={styles.forWhom}>
                 <div className={styles.forWhomImgWrapper}>
                     <Image className={styles.forWhomImg} src={images.mokap2}/>

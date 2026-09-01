@@ -4,6 +4,9 @@ import { GRAPHQL_URL } from "@/config/publicEnv"
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
+import icons from "@/icons/icons"
+import styles from "./Setrole.module.css"
 
 const ME_QUERY = `
   query Me {
@@ -181,38 +184,67 @@ export default function SetRole() {
     }
 
     return (
-        <div>
-            <h1>Выберите роль</h1>
+        <div className={styles.setRoleWrapper}>
+    <div className={styles.setRole}>
+        <h1 className={styles.setRoleTitle}>Выберите роль</h1>
 
-            <div>
-                <button
-                    type="button"
-                    onClick={() => setSelectedRole("parent")}
-                    disabled={selectedRole === "parent"}
-                >
-                    Родитель
-                </button>
+        <div className={styles.setRoleButtons}>
+    <div
+        className={`${styles.setRoleButtonWrapper} ${
+            selectedRole === "parent"
+                ? styles.setRoleButtonWrapperIsActive
+                : ""
+        }`}
+    >
+        <Image
+            className={styles.setRoleButton}
+            onClick={() => setSelectedRole("parent")}
+            src={icons.parent}
+            alt="Родитель"
+        />
 
-                <button
-                    type="button"
-                    onClick={() => setSelectedRole("child")}
-                    disabled={selectedRole === "child"}
-                >
-                    Ребёнок
-                </button>
-            </div>
+        
+    </div>
+    <span className={styles.roleValue}>
+            Я родитель
+        </span>
 
-            <p>
-                Выбранная роль: {selectedRole || "не выбрана"}
+    <div
+        className={`${styles.setRoleButtonWrapper} ${
+            selectedRole === "child"
+                ? styles.setRoleButtonWrapperIsActive
+                : ""
+        }`}
+    >
+        <Image
+            className={styles.setRoleButton}
+            onClick={() => setSelectedRole("child")}
+            src={icons.child}
+            alt="Ребёнок"
+        />
+
+        
+    </div>
+
+    <span className={styles.roleValue}>
+            Я ребенок
+        </span>
+</div>
+
+  
+
+        {err && (
+            <p
+                className={styles.errorText}
+                style={{ color: "red" }}
+            >
+                {err}
             </p>
+        )}
 
-            {err && (
-                <p style={{ color: "red" }}>
-                    {err}
-                </p>
-            )}
-
+        <div className={styles.continueButtonWrapper}>
             <button
+                className={styles.continueButton}
                 type="button"
                 onClick={handleSetRole}
                 disabled={!selectedRole}
@@ -220,5 +252,8 @@ export default function SetRole() {
                 Продолжить
             </button>
         </div>
+        
+    </div>
+</div>
     )
 }

@@ -4,7 +4,7 @@ import styles from "./HowGetStart.module.css"
 
 export default function HowGetStart() {
     return (
-        <div className={styles.howGetStartWrapper}>
+        <div className={styles.howGetStartWrapper} id="howGetStart">
             <div className={styles.howGetStart}>
                 <div className={styles.titleWrapper}>
                     <h6 className={styles.title}>Как начать?</h6>

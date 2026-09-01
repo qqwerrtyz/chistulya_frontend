@@ -1997,7 +1997,7 @@ export default function TasksAndChallenges() {
 
     return (
         <div className={styles.tasksAndChallengesWrapper}>
-            <div className={styles.tasksAndChallenges}>
+            <div className={styles.tasksAndChallenges} style={{paddingTop: "20px"}}>
                 
 
                 {err && (
