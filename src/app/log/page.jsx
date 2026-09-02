@@ -116,6 +116,10 @@ export default function Log() {
             localStorage.setItem("access_token", payload.tokens.access.token)
             localStorage.setItem("refresh_token", payload.tokens.refresh.token)
             localStorage.setItem("session_id", payload.tokens.session_id)
+            sessionStorage.setItem(
+                "attentionmodal",
+                "false"
+            )
 
             console.log("Вход выполнен успешно", payload.tokens)
 
@@ -164,7 +168,7 @@ export default function Log() {
 
                     {err && <div>{err}</div>}
 
-                    <div className={styles.orWrapper}>
+                    {/* <div className={styles.orWrapper}>
                         <span className={styles.or}>или</span>
                     </div>
 
@@ -177,7 +181,7 @@ export default function Log() {
                         <div className={styles.logIntegration}>
                             <Image src={icons.apple} className={styles.logIntegrationIcon}/>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className={styles.haveAccountWrapper} style={{display:"flex", flexDirection:"column"}}>
                         <span className={styles.haveAccount}>У вас уже есть аккаунт? </span>

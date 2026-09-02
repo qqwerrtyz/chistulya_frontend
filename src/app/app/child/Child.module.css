@@ -20,8 +20,8 @@
 
 .avatarWrapper {
     position: absolute;
-    right: 10px;
-    top: -30px;
+    right: 4px;
+    top: -78px;
 
 
     border-radius: 50%;
@@ -31,5 +31,5 @@
 
 
 .tasksAndChallengesWrapper {
-    margin-top: 230px;
+    margin-top: 174px;
 }

@@ -60,6 +60,30 @@ export default function SidebarMenu({showSidebar, setShowSidebar}) {
 
     const [showQR, setShowQR] = useState(false);
     const [role, setRole] = useState(null)
+    useEffect(() => {
+    const savedRole =
+        localStorage.getItem("role")
+
+    if (
+        savedRole === "parent" ||
+        savedRole === "child"
+    ) {
+        setRole(savedRole)
+    } else {
+        setRole(null)
+    }
+}, [showSidebar])
+function handleMenuWrapperClick(event) {
+    const menuItem = event.target.closest(
+        `a.${styles.item}`
+    )
+
+    if (!menuItem) {
+        return
+    }
+
+    setShowSidebar(false)
+}
     const videoRef = useRef(null)
 const [cameraStream, setCameraStream] = useState(null)
     useEffect(() => {
@@ -131,25 +155,25 @@ const [cameraStream, setCameraStream] = useState(null)
     ]
 
     const itemMenuParent = [
-        {
-            name: "Главная",
-            href: "/app/parent/"
-        },
-        {
-            name: "Аналитика",
-            href: "/app/parent/analytics/"
-        },
+        // {
+        //     name: "Главная",
+        //     href: "/app/parent/"
+        // },
+        // {
+        //     name: "Аналитика",
+        //     href: "/app/parent/analytics/"
+        // },
     ]
 
     const itemChildren = [
-        {
-            name: "Маша",
-            href: "/app/parent/"
-        },
-        {
-            name: "Саша",
-            href: "/app/parent/analytics/"
-        },
+        // {
+        //     name: "Маша",
+        //     href: "/app/parent/"
+        // },
+        // {
+        //     name: "Саша",
+        //     href: "/app/parent/analytics/"
+        // },
     ]
 
 
@@ -257,7 +281,8 @@ const [cameraStream, setCameraStream] = useState(null)
                 </div>
 
                 <div className={styles.body}>
-                    <div className={styles.menuWrapper}>
+                    <div className={styles.menuWrapper} onClick={handleMenuWrapperClick}
+>
                         {
                             role === "child" && (
                                 itemMenuChild.map((item, index) => {
@@ -319,9 +344,10 @@ const [cameraStream, setCameraStream] = useState(null)
                         <div className={styles.openCameraWrapper}>
                             {
                                 role === "parent" ? (
-                                    <button className={styles.openCamera}>
-                                    Открыть камеру для QR
-                                </button>
+                                    <button className={styles.openCamera}
+                                        onClick={() => alert("Функция открытия камеры для QR-кода в разработке, откройте камеру телефона")}>
+                                        Открыть камеру для QR
+                                    </button>
                                 ) : (
                                     <button
                                         className={styles.openCamera}

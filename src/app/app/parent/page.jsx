@@ -96,89 +96,92 @@ export default function Parent() {
     }, [])
 
     return (
+        <>
+        <AttentionModal />
+            <div className={styles.parentOffice}>
+                <div className={styles.parentOfficeHeadlineWrapper}>
+                    <h1 className={styles.parentOfficeHeadline}>Кабинет Родителя</h1>
+                </div>
+                <div
+                    className={styles.addChildWrapper}
+                    onClick={openCamera}
+                >
+                    <span className={styles.addChild}>Как добавить ребенка</span>
 
-        <div className={styles.parentOffice}>
-            <div className={styles.parentOfficeHeadlineWrapper}>
-                <h1 className={styles.parentOfficeHeadline}>Кабинет Родителя</h1>
-            </div>
-<div
-    className={styles.addChildWrapper}
-    onClick={openCamera}
->
-    <span className={styles.addChild}>Как добавить ребенка</span>
-
-    <Image
-        src={icons.plusBlue}
-        className={styles.plusBlue}
-        alt="add child"
-    />
-</div>
-
-    {showCamera && (
-    <>
-        <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            className={styles.cameraVideo}
-            style={{ 
-                position: "absolute",
-                top: 0,
-                left: 0,
-                zIndex: 9999,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover"
-            }}
-        />
-
-        <button onClick={closeCamera}>
-            Закрыть камеру
-        </button>
-    </>
-)}
-
-            <div className={styles.myChildrenWrapper}>
-                <div className={styles.myChildrenHeadlineWrapper}>
-                    <h2 className={styles.myChildrenHeadline}>Мои дети</h2>
+                    <Image
+                        src={icons.plusBlue}
+                        className={styles.plusBlue}
+                        alt="add child"
+                    />
                 </div>
 
-                <div className={styles.myChildren}>
-                    <div className={styles.childWrapper}>
+                {showCamera && (
+                <>
+                    <video
+                        ref={videoRef}
+                        autoPlay
+                        playsInline
+                        className={styles.cameraVideo}
+                        style={{ 
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            zIndex: 9999,
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover"
+                        }}
+                    />
 
-                        {err && (
-                            <div>
-                                {err}
-                            </div>
-                        )}
+                    <button onClick={closeCamera}>
+                        Закрыть камеру
+                    </button>
+                    </>
+    )}
 
-                        {
-                            children.map((item, index) => {
-                                const name = item.profile?.name || item.email || "Ребенок"
+                <div className={styles.myChildrenWrapper}>
+                    <div className={styles.myChildrenHeadlineWrapper}>
+                        <h2 className={styles.myChildrenHeadline}>Мои дети</h2>
+                    </div>
 
-                                return (
-                                    <div className={styles.child} key={item.id}>
-                                        <div className={styles.numberAndNameWrapper}>
-                                            <div className={styles.childNumber}>{index + 1}</div>
-                                            <span className={styles.childName}>{name}</span>
+                    <div className={styles.myChildren}>
+                        <div className={styles.childWrapper}>
+
+                            {err && (
+                                <div>
+                                    {err}
+                                </div>
+                            )}
+
+                            {
+                                children.map((item, index) => {
+                                    const name = item.profile?.name || item.email || "Ребенок"
+
+                                    return (
+                                        <div className={styles.child} key={item.id}>
+                                            <div className={styles.numberAndNameWrapper}>
+                                                <div className={styles.childNumber}>{index + 1}</div>
+                                                <span className={styles.childName}>{name}</span>
+                                            </div>
+                                            
+
+                                            <Link 
+                                                className={styles.goToChild} 
+                                                href={`/app/parent/${item.id}`}
+                                            >
+                                                Клик
+                                            </Link>
                                         </div>
-                                        
-
-                                        <Link 
-                                            className={styles.goToChild} 
-                                            href={`/app/parent/${item.id}`}
-                                        >
-                                            Клик
-                                        </Link>
-                                    </div>
-                                )
-                            })
-                        }
-                      
+                                    )
+                                })
+                            }
+                        
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
+        
     )
 }
 

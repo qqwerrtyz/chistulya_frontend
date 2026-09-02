@@ -184,7 +184,7 @@ export default function Reg() {
 
                     {err && <div>{err}</div>}
 
-                    <div className={styles.orWrapper}>
+                    {/* <div className={styles.orWrapper}>
                         <span className={styles.or}>или</span>
                     </div>
 
@@ -196,7 +196,7 @@ export default function Reg() {
                         <div className={styles.regIntegration}>
                             <Image src={icons.apple} className={styles.regIntegrationIcon}/>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className={styles.haveAccountWrapper}>
                         <span className={styles.haveAccount}>У вас уже есть аккаунт? <Link href={"/log"} className={styles.haveAccountLink}>Войти</Link></span>

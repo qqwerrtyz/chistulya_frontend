@@ -47,7 +47,6 @@ import Header from "@/components/app/header/Header"
 import AuthGuard from "../auth/AuthGuard"
 import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
-import OnlyPhone from "@/components/onlyPhone/page"
 
 
 const stylesBody = {
@@ -73,8 +72,7 @@ export default function Layout({ children }) {
     return (
         <>
         
-            <OnlyPhone />
-
+            
             <AuthGuard>
                 <div style={stylesBody}>
                     <Header />
