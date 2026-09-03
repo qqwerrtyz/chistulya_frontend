@@ -141,24 +141,39 @@ export default function Content({
         <div className={styles.contentWrapper}>
             <div className={styles.contentHeaderWrapper}>
                 <ContentHeader
+                    // firstData={firstData}
+                    // secondData={secondData}
+                    // selectValue={selectValue}
+                    // setSelectValue={setSelectValue}
+
                     firstData={firstData}
-                    secondData={secondData}
-                    selectValue={selectValue}
-                    setSelectValue={setSelectValue}
+    selectValue={selectValue}
+    setSelectValue={setSelectValue}
+
                 />
             </div>
 
             <div className={styles.contentBodyWrapper}>
                 <ContentBody
+                    // firstData={firstData}
+                    // selectValue={selectValue}
+                    // secondData={secondData}
+                    // isActive={isActive}
+                    // type={"home"}
+                    // onSelectDailyTask={onSelectDailyTask}
+                    // onFulfill={onFulfill}
+                    // onTakeReward={onTakeReward}
+                    // processingTaskId={processingTaskId}
                     firstData={firstData}
-                    selectValue={selectValue}
-                    secondData={secondData}
-                    isActive={isActive}
-                    type={"home"}
-                    onSelectDailyTask={onSelectDailyTask}
-                    onFulfill={onFulfill}
-                    onTakeReward={onTakeReward}
-                    processingTaskId={processingTaskId}
+    secondData={secondData}
+    selectValue={selectValue}
+    isActive={isActive}
+    type="home"
+    onSelectDailyTask={onSelectDailyTask}
+    onFulfill={onFulfill}
+    onTakeReward={onTakeReward}
+    processingTaskId={processingTaskId}
+
                 />
             </div>
         </div>

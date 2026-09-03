@@ -2020,17 +2020,7 @@ export default function TasksAndChallenges() {
 
                     />
 
-                    {/* <Wrapper
-                        title={"Челенджи"}
-    flags={flags}
-    setFlags={setFlags}
-    dailyTasks={dailyTasks}
-    challengeTasks={challengeTasks}
-    onFulfill={fulfillTask}
-    onTakeReward={takeReward}
-    processingTaskId={processingTaskId}
-
-                    /> */}
+  
                 </div>
 
             </div>
