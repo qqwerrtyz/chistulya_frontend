@@ -41,14 +41,16 @@
 
 .customTaskCategory {
     padding: 3px 16px;
-    border: 1px solid #d0d0d0;
-    border-radius: 8px;
+
+    border: 1px solid transparent;
+    border-radius: 20px;
+
     cursor: pointer;
     font-size: 14px;
-    /* background-color: #f7f7f7; */
-    background-color: #5B84ED;
-    color: #fff;
-    border-radius: 20px;
+
+    background-color: transparent;
+    color: rgba(91, 132, 237, .7);
+
 
 }
 
@@ -68,13 +70,15 @@
 
 .customTaskSubCategory {
     padding: 3px 10px;
+
     border-radius: 20px;
+
     cursor: pointer;
     font-size: 14px;
 
-    background-color: #5B84ED;
+    background-color: transparent;
+    color: rgba(91, 132, 237, .7);
 
-    color: #fff;
 }
 
 .textWrapper {
@@ -138,4 +142,17 @@
     position: absolute;
     top: 10px;
     right: 10px;
+}
+
+
+.customTaskCategoryIsActive {
+    background-color: #5B84ED;
+    color: #fff;
+
+}
+
+.customTaskSubCategoryIsActive {
+    background-color: #5B84ED;
+    color: #fff;
+
 }

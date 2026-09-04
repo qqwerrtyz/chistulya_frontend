@@ -106,10 +106,7 @@ export default function MyChild() {
                          <Image src={icons.plusBlue} className={styles.customTaskPlus}/>
                     </div>
 
-                    <div onClick={() => setShowAddNotification(prev => !prev)} className={styles.addNotificationWrapper}>
-                        <span className={styles.addNotification}>Напоминание</span>
-                        <Image src={icons.plusBlue} className={styles.customTaskPlus}/>
-                    </div>
+
                 </div>
 
                 <div className={styles.myChildBody}>

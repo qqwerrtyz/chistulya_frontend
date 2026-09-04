@@ -7,13 +7,7 @@ export default function Analytics () {
             <div className={styles.analytics}>
 
                 <h3>В разработке</h3>
-                {/* <div className={styles.everyDayTaskWrapper}>
-                    <EveryDayTask />
-                </div> */}
 
-                {/* <div className={styles.chellengeWrapper}>
-                    <Chellenge />
-                </div> */}
 
                 
             </div>

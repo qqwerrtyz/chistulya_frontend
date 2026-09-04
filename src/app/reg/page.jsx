@@ -184,19 +184,6 @@ export default function Reg() {
 
                     {err && <div>{err}</div>}
 
-                    {/* <div className={styles.orWrapper}>
-                        <span className={styles.or}>или</span>
-                    </div>
-
-                    <div className={styles.regIntegrationsWrapper}>
-                        <div className={styles.regIntegration}>
-                            <Image src={icons.google} className={styles.regIntegrationIcon}/>
-                        </div>
-
-                        <div className={styles.regIntegration}>
-                            <Image src={icons.apple} className={styles.regIntegrationIcon}/>
-                        </div>
-                    </div> */}
 
                     <div className={styles.haveAccountWrapper}>
                         <span className={styles.haveAccount}>У вас уже есть аккаунт? <Link href={"/log"} className={styles.haveAccountLink}>Войти</Link></span>

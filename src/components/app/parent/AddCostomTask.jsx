@@ -218,7 +218,7 @@ export default function CustomTask({ childId, setShowCustomTask }) {
 
 
                 {/* TYPE */}
-                <div className={styles.customTaskCategoryWrapper}>
+                {/* <div className={styles.customTaskCategoryWrapper}>
                     {TASK_TYPES.map(t => (
                         <span
                             key={t.value}
@@ -231,10 +231,29 @@ export default function CustomTask({ childId, setShowCustomTask }) {
                             {t.label}
                         </span>
                     ))}
+                </div> */}
+
+                <div className={styles.customTaskCategoryWrapper}>
+                    {TASK_TYPES.map(t => (
+                        <span
+                            key={t.value}
+                            onClick={() => {
+                                setType(t.value)
+                                logState({ type: t.value })
+                            }}
+                            className={`${styles.customTaskCategory} ${
+                                type === t.value
+                                    ? styles.customTaskCategoryIsActive
+                                    : ""
+                            }`}
+                        >
+                            {t.label}
+                        </span>
+                    ))}
                 </div>
 
                 {/* CATEGORY */}
-                <div className={styles.customTaskSubCategoryWrapper}>
+                {/* <div className={styles.customTaskSubCategoryWrapper}>
                     {CATEGORIES.map(c => (
                         <span
                             key={c.id}
@@ -243,6 +262,25 @@ export default function CustomTask({ childId, setShowCustomTask }) {
                                 logState({ category: c })
                             }}
                             className={styles.customTaskSubCategory}
+                        >
+                            {c.label}
+                        </span>
+                    ))}
+                </div> */}
+
+                <div className={styles.customTaskSubCategoryWrapper}>
+                    {CATEGORIES.map(c => (
+                        <span
+                            key={c.id}
+                            onClick={() => {
+                                setCategory(c)
+                                logState({ category: c })
+                            }}
+                            className={`${styles.customTaskSubCategory} ${
+                                category.id === c.id
+                                    ? styles.customTaskSubCategoryIsActive
+                                    : ""
+                            }`}
                         >
                             {c.label}
                         </span>
