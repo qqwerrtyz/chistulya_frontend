@@ -703,12 +703,7 @@ async function takeReward(item, activeType) {
         <div className={styles.missionPageWrapper}>
             <div className={styles.missionPage}>
                 <div className={styles.menuWrapprt}>
-                    {/* <Menu 
-                        itemOne={menuItem.itemOne} 
-                        itemTwo={menuItem.itemTwo}
-                        isActive={isActive}
-                        setIsActive={setIsActive}
-                    /> */}
+
                 </div>
 
                 {err && (

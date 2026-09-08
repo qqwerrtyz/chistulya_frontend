@@ -148,7 +148,7 @@ export default function FooterLanding() {
                         <div className={styles.footerDocuments}>
 
                             <Link
-                                href="#"
+                                href="/polzSoglash"
                                 className={styles.footerDocument}
                             >
                                 Пользовательское соглашение

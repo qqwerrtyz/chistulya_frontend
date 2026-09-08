@@ -79,6 +79,18 @@ export default function Reg() {
     const [err, setErr] = useState()
 
     async function handleRegister() {
+        let spamCheck = false
+
+    while (!spamCheck) {
+        const answer = prompt(
+            "Скорее всего письмо придет в папку спам, поэтому проверьте ее. Напишите *проверю* и окно закроется"
+        )
+
+        if (answer?.trim().toLowerCase() === "проверю") {
+            spamCheck = true
+        }
+    }
+
         setErr(null)
 
         try {

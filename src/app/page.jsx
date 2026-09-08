@@ -7,6 +7,7 @@ import ForWhom from "@/components/landing/forWhom/ForWhom";
 import HowGetStart from "@/components/landing/howGetStart/HowGetStart";
 import FooterLanding from "@/components/landing/footerLanding/FooterLanding";
 import UpButton from "@/components/landing/upButton/UpButton";
+import CookieModal from "@/components/landing/CookieModal/CookieModal";
 export const metadata = {
     title: {
         absolute:
@@ -67,7 +68,11 @@ export default function Home() {
       <FooterLanding />
 
       <UpButton />
+
+      <CookieModal />
     </>
+
+
     
   );
 

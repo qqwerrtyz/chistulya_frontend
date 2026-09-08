@@ -1,4 +1,5 @@
 
+import YandexMetrica from "@/components/yandexMetrika/YandexMetrika"
 import "./globals.css"
 
 const siteUrl =
@@ -41,6 +42,8 @@ export default function RootLayout({
         <html lang="ru">
             <body>
                 {children}
+                <YandexMetrica/>
+
             </body>
         </html>
     )
