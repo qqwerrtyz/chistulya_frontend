@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import styles from "./ContentBody.module.css"
 import Image from "next/image"
 import SelectTaskComponent from "./selectTaskComponent/SelectTaskComponent"
+import iconsTasks from "../../../../../../../public/iconsTasks/iconsTasks"
+
 
 export default function ContentBody({
     selectValue,
@@ -40,6 +42,8 @@ export default function ContentBody({
         <div className={styles.contentBodyWrapper}>
             <div className={styles.contentBody}>
                 {data[selectValue]?.items.map((item, index) => {
+                    console.log(selectValue)
+                    console.log("тут item")
                     return (
                         <div
                             className={styles.item}
@@ -50,7 +54,11 @@ export default function ContentBody({
                                     <Image
                                         alt={item.title}
                                         className={styles.imgItem}
-                                        src={item.img}
+                                        src={selectValue == "hygiene" ? iconsTasks.hygiene :
+                                            selectValue == "order" ? iconsTasks.tidying :
+                                            selectValue == "food" ? iconsTasks.food :
+                                            iconsTasks.study
+                                        }
                                     />
                                 </div>
 
