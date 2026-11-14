@@ -14,8 +14,18 @@ export const metadata = {
         template: "%s | Чистюля"
     },
     icons: {
-        icon: "/avatar/favicon.png"
+        icon: "/avatar/favicon.png",
+        apple: [
+            {
+                url: "/avatar/apple-touch-icon.png",
+                sizes: "180x180",
+                type: "image/png"
+            }
+        ]
+
     },
+    manifest: "/manifest.webmanifest",
+
 
     description:
         "Чистюля — игровое приложение для формирования полезных привычек у детей.",
