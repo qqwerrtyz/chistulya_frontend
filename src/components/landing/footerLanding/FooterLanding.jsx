@@ -176,16 +176,23 @@ export default function FooterLanding() {
                             href="https://www.fasie.ru/"
                             className={styles.fasieText}
                         >
-                            Проект сделан при поддержке Фонда содействия инновации
+                            Проект реализован при поддержке Фонда содействия инновациям в рамках программы «Студенческий стартап» мероприятия «Платформа университетского технологического предпринимательства» федерального проекта «Технологии»
                         </Link>
 
-                        <Link href="https://www.fasie.ru/">
+                        <Link className={styles.fasieImgWrapper} href="https://www.fasie.ru/">
                             <Image
                                 width={100}
                                 height={100}
                                 alt="Фонд содействия инновациям"
                                 className={styles.fasieImg}
                                 src="/imgs/landing/fasie.png"
+                            />
+                            <Image
+                                width={100}
+                                height={100}
+                                alt="Фонд содействия инновациям"
+                                className={styles.fasieImg}
+                                src="/imgs/landing/facei_2.png"
                             />
                         </Link>
 

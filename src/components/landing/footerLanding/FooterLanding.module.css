@@ -129,6 +129,11 @@
 .fasie {
     display: flex;
     align-items: center;
+    width: 70%;
+}
+
+.fasieImgWrapper {
+    display: flex;
 }
 
 @media screen and (max-width: 1024px) {
@@ -184,6 +189,14 @@
 
     .fasieImg {
         width: 60px;
+    }
+
+    .fasie {
+        width: 100%;
+    }
+
+    .fasieImgWrapper {
+        margin-top: 20px;
     }
 
 }
@@ -266,6 +279,13 @@
     }
 
     .fasieImg {
-        width: 60px;
+        width: 90px;
     }
+    
+    .fasie {
+        display: flex;
+        flex-direction: column;
+    }
+
+    
 }
