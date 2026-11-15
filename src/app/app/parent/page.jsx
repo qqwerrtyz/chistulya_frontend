@@ -32,7 +32,7 @@ export default function Parent() {
     const videoRef = useRef(null)
 
     function openCamera() {
-        alert("Открытие камеры пока со сканированием QR в разработке. Пожалуйста, откройте стороннее приложение для сканирования QR-кода :)")    
+        alert("Открытие камеры для сканированием QR в разработке. Пожалуйста, откройте стороннее приложение для сканирования QR-кода")    
     }
 
     function closeCamera() {

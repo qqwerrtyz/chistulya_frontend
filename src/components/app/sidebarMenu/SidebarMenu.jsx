@@ -108,7 +108,6 @@ const [cameraStream, setCameraStream] = useState(null)
 
             const result = await response.json()
 
-            console.log("SIDEBAR ME RESULT:", result)
 
             if (result.data?.me?.role) {
                 setRole(result.data.me.role)

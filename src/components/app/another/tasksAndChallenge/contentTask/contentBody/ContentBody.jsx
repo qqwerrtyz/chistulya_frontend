@@ -42,8 +42,6 @@ export default function ContentBody({
         <div className={styles.contentBodyWrapper}>
             <div className={styles.contentBody}>
                 {data[selectValue]?.items.map((item, index) => {
-                    console.log(selectValue)
-                    console.log("тут item")
                     return (
                         <div
                             className={styles.item}
