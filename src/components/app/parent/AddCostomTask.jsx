@@ -90,8 +90,8 @@ const CREATE_CUSTOM_CHALLENGE_MUTATION = `
 `
 
 const TASK_TYPES = [
-    { label: "Ежедневные", value: "daily" },
-    { label: "Челленджи", value: "challenge" }
+    { label: "Ежедневные задания", value: "daily" },
+    // { label: "Челленджи", value: "challenge" }
 ]
 
 const CATEGORIES = [

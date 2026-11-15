@@ -102,7 +102,7 @@ export default function MyChild() {
                     </div>
 
                     <div className={styles.customTaskWrapper}>
-                        <span onClick={() => setShowCustomTask(true)} className={styles.customTask}>Кастомное задание</span>
+                        <span onClick={() => setShowCustomTask(true)} className={styles.customTask}>Ежедневное задание</span>
                          <Image src={icons.plusBlue} className={styles.customTaskPlus}/>
                     </div>
 
