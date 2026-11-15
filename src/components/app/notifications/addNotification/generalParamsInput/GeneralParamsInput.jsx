@@ -37,7 +37,7 @@ export default function GeneralParamsInput({dropdown}){
     }
 
     if (!data && !setData) {
-        return <div>ЗАГРУЗКААААА</div>
+        return <div>ЗАГРУЗКА</div>
     }
     return (
 
@@ -70,10 +70,10 @@ export default function GeneralParamsInput({dropdown}){
                     showDropdown && (
                         <div className={`${styles.generalParamsDropdownWrapper} ${styles.generalParamsDropdownWrapperType}`}>
                             <div className={styles.generalParamsDropdown}>
-                                <span 
+                                {/* <span 
                                     className={`${styles.generalParamsDropdownValue} ${data.type === "chellenge" && styles.generalParamsDropdownValueActive}`}
                                     onClick={()=> saveData("chellenge")}    
-                                >Челлендж</span>
+                                >Челлендж</span> */}
                                 <span 
                                     className={`${styles.generalParamsDropdownValue} ${data.type === "everydayTask" && styles.generalParamsDropdownValueActive}`}
                                     onClick={()=> saveData("everydayTask")} 
